@@ -1,5 +1,9 @@
-img {
+footer {
 	position: absolute;
 	bottom: 8px;
 	right: 16px;
+}
+
+#ftInfo {
+	text-align: right;
 }
