@@ -5,30 +5,20 @@ body {
 	min-width: 600px;
 }
 
-.error-message {
-	visibility: hidden;
-    color: red;
+* {
+	box-sizing: border-box;
 }
 
-div.sidebox {
-	border-style: solid;
-	border-width: 4px;
-	border-color: #003399;
-	width: 160px;
-	margin: 6px;
-	background: white;
-}
-
-div.sidebox h1 {
-	background-color: #003399;
-	font-size: 15pt;
-	color: white;
-	margin: 0px;
-	text-align: center;
-}
-
-div.sidebox p {
-	margin: 10px;
+/* the wrapper element is the outermost element and contains all the
+* other elements on the page. The wrapper element is centered in the
+* browser
+*/
+#wrapper {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	box-shadow: 10px 10px 5px #888888;
 }
 
 /* center the header element and give it white text on a dark blue
@@ -50,21 +40,13 @@ div.sidebox p {
 	padding: 10px;
 	margin-top: 5px;
 	margin-left: 5px;
-	margin-right: 200px;
+	margin-right: 5px;
 	border:1px solid black;
 	background-color: white;
 }
 
-/* the wrapper element is the outermost element and contains all the
-* other elements on the page. The wrapper element is centered in the
-* browser
-*/
-#wrapper {
-	width: 800px;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: left;
-	box-shadow: 10px 10px 5px #888888;
+#content h2, h4 {
+	text-align: center;
 }
 
 #menu a {
@@ -112,4 +94,84 @@ div.sidebox p {
 	clear: both;
 	height: 50px;
 	font-size:8pt;
+}
+
+
+.error-message {
+	visibility: hidden;
+    color: red;
+}
+
+/* search bar field styling */
+form.searchinput input[type=text] {
+	padding: 10px;
+  	font-size: 17px;
+  	border: 1px solid grey;
+	float: left;
+	width: 80%;
+	background: #f1f1f1;
+}
+
+/* search bar submit button styling */
+form.searchinput button {
+	float: left;
+	width: 20%;
+	padding: 10px;
+	background: #003399;
+	color: white;
+	font-size: 17px;
+	border: 1px solid grey;
+	border-left: none; /* Prevent double borders */
+	cursor: pointer;	
+}
+
+form.searchinput button:hover {
+  background: #0b7dda;
+}
+
+/* Clear floats */
+form.searchinput::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+/* results page styling */
+
+#resultContainer {
+	background-color:#2E4272;
+    display: flex;
+}
+
+#initMap {
+	width:50%;
+	height:600px;
+	background: yellow;
+	float: left;
+}
+
+#resultList {
+	width: 50%;
+	float: right;
+}
+
+div.results {
+	border-style: solid;
+	border-width: 4px;
+	border-color: #003399;
+	width: 100%;
+	background: white;
+}
+
+div.results h1 {
+	background-color: #003399;
+	font-size: 15pt;
+	color: white;
+	margin: 0px;
+	text-align: center;
+}
+
+div.results p {
+	margin: 10px;
 }
