@@ -1,3 +1,5 @@
+/* sets default style to body elements.
+*/
 body {
 	background-color: #9999FF;
 	margin: 0px;
@@ -5,11 +7,16 @@ body {
 	min-width: 600px;
 }
 
+/* class used for styling error messages - hidden and red.
+*/
 .error-message {
 	visibility: hidden;
     color: red;
 }
 
+/* styles the structure of the sidebox with a solid thick blue border with
+* a white background.
+*/
 div.sidebox {
 	border-style: solid;
 	border-width: 4px;
@@ -19,6 +26,8 @@ div.sidebox {
 	background: white;
 }
 
+/* styles the h1 of the sidebox as white, centered on dark blue background.
+*/
 div.sidebox h1 {
 	background-color: #003399;
 	font-size: 15pt;
@@ -27,12 +36,14 @@ div.sidebox h1 {
 	text-align: center;
 }
 
+/* styles text paragraphs inside a sidebox.
+*/
 div.sidebox p {
 	margin: 10px;
 }
 
 /* center the header element and give it white text on a dark blue
-* background
+* background.
 */
 #header {
 	height: 80px;
@@ -41,11 +52,15 @@ div.sidebox p {
 	color: white;
 }
 
+/* styles the header div's h1 content with some padding.
+*/
 #header h1 {
 	margin: 0px;
 	padding: 10px;
 }
 
+/* styles the content div with padding, margins and a border.
+*/
 #content {
 	padding: 10px;
 	margin-top: 5px;
@@ -57,7 +72,7 @@ div.sidebox p {
 
 /* the wrapper element is the outermost element and contains all the
 * other elements on the page. The wrapper element is centered in the
-* browser
+* browser.
 */
 #wrapper {
 	width: 800px;
@@ -67,6 +82,8 @@ div.sidebox p {
 	box-shadow: 10px 10px 5px #888888;
 }
 
+/* styles all link elements in the menu to appear as buttons.
+*/
 #menu a {
 	height: 40px;
 	padding-top: 10px;
@@ -91,11 +108,17 @@ div.sidebox p {
 	text-decoration: underline;
 }
 
+/* styles the link elements of the menu when mouse hovered, 
+* changing bg colour to blue and underlining.
+*/
 #menu a:hover {
 	background-color: blue;
 	text-decoration: underline;
 }
 
+/* styles the sidebar div with a dashed border, a light purple bg colour,
+* and placing it to the right of other content.
+*/
 #sidebar {
 	margin: 5px;
 	border: 1px dashed black;
@@ -104,6 +127,9 @@ div.sidebox p {
 	width: 180px;
 }
 
+/* styles the footer div with a dashed border and light purple bg colour. It
+* restricts float rules so it sits at the bottom of the page by itself.
+*/
 #footer {
 	margin: 5px;
 	border: 1px dashed black;
