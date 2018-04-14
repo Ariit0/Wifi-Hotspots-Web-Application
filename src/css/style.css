@@ -147,7 +147,6 @@ form.searchinput::after {
 #initMap {
 	width:50%;
 	height:600px;
-	background: yellow;
 	float: left;
 }
 
@@ -174,4 +173,17 @@ div.results h1 {
 
 div.results p {
 	margin: 10px;
+}
+
+
+/* individual item page styling */
+#reviewBanner {
+	margin-top: 15px;
+	background-color:#2E4272;
+    display: flex;
+}
+
+#reviewBanner h3 {
+	color: white;
+	padding-left: 15px;
 }
