@@ -110,6 +110,7 @@ body {
 
 /* search bar field styling */
 form.searchinput input[type=text] {
+	margin-left: 0px;
 	padding: 10px;
   	font-size: 17px;
   	border: 1px solid grey;
@@ -120,7 +121,7 @@ form.searchinput input[type=text] {
 
 /* search bar submit button styling */
 form.searchinput button {
-	float: left;
+	float: right;
 	width: 20%;
 	padding: 10px;
 	background: #003399;
