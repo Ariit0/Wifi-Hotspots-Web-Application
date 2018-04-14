@@ -189,8 +189,14 @@ div.results p {
 
 ul {
 	list-style-type: none;
+	padding-right: 40px;
 }
 
 #review p {
+	float: right;
+}
+
+
+#review a {
 	float: right;
 }
