@@ -140,6 +140,8 @@ div.sidebox p {
 	font-size:8pt;
 }
 
+/* styles the input fields with fixed width, padding, margin and a solid border
+*/
 input {
 	padding: 3px;
 	width: 200px;
@@ -148,6 +150,9 @@ input {
 	border-radius: 2px;
 }
 
+/* adds/replaces styling of input fields of type 'submit' with padding, auto width,
+* a hand cursor, bold font and a rounded-corner solid black border.
+*/
 input[type=submit] {
 	padding-left: 15px;
 	padding-right: 15px;
