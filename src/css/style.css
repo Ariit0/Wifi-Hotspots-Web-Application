@@ -82,6 +82,15 @@ div.sidebox p {
 	text-decoration: none;
 }
 
+/* the button in the menu that the user is currently at becomes
+* greyed out and underlined, with pointer events turned off.
+*/
+#menu .selected {
+	pointer-events: none;
+	background-color: rgb(100,100,100);
+	text-decoration: underline;
+}
+
 #menu a:hover {
 	background-color: blue;
 	text-decoration: underline;
