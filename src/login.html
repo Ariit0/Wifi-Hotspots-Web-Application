@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script type="text/javascript" src="login.js"></script>
+
+		<title>YelpClone - Login</title>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="header">
+				<h1> Yelp Clone <h1>
+			</div>
+			
+			<div id="menu">
+				<a href="index.html">Home</a><a href="">About</a><a href="">Contact us</a>
+			</div>
+					
+			<div id="sidebar">
+				<div class="sidebox">
+					<h1>Box One</h1>
+					<p>A short sentence of arbitrary text</p>
+					
+					<h1>Box Two</h1>
+					<p>A different short sentence of arbitrary text</p>
+				</div>
+			</div>
+			
+			<div id="content">
+		       <form action="" onsubmit="return Login(this);">
+		       		<h2>Login</h2>
+		       		Don't have an account? <a href="register.html">Sign up here.</a>
+		       		<br><br>
+
+		       		<p>
+			            Email: <input id="emailaddress" type="text" onchange="OnChangeElement('emailError')";" onkeypress="OnChangeElement('emailError');">
+			            <span id="emailError" class="error-message"> Email error goes here.</span>
+		        	</p>
+
+		        	<p>
+			            Password: <input type="password" name="password" onchange="OnChangeElement('passwordError')";" onkeypress="OnChangeElement('passwordError');">
+			            <span id="passwordError" class="error-message"> Password error goes here.</span>
+		        	</p>
+
+		            <input type="submit" value="Submit">
+		        </form>
+			</div>
+			
+			<div id="footer">
+				<p>Ari Luangamath (n9446826) & George Delosa (n9751696) </p>
+				<a href="https://github.com/Ariit0/CAB230-Assessment" target="_blank"> Link to GitHub Repo</a>
+			</div>
+		</div>
+
+	</body>
+
+</html>
