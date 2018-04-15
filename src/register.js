@@ -2,6 +2,7 @@
 function Validate(form) {
     isValid = true;
 
+    // Validate firstname: REQUIRED and ALPHABETIC ONLY
     if(CheckValueNotEmpty(form.firstname.value) === false) {
         DisplayError("firstnameError", "First name is a required field.");
         isValid = false;
@@ -10,17 +11,19 @@ function Validate(form) {
         isValid = false;
     }
 
+    // Validate lastname: OPTIONAL and ALPHABETIC ONLY
     if (CheckValueNotEmpty(form.lastname.value) && CheckValueAlphabeticOnly(form.lastname.value) === false) {
         DisplayError("lastnameError", "Last name must be alphabetic only.");
         isValid = false;
     }
 
-    //// Last name is an optional field (?)
-    // if(CheckValueNotEmpty(form.lastname.value) === false) {
-    //     DisplayError("lastnameError", "Last name is a required field.");
-    //     isValid = false;
-    // }
+    // Validate date of birth: OPTIONAL and must be of FORMAT dd/mm/yyyy
+    if (CheckValueNotEmpty(form.dob.value) && CheckValidDate(form.dob.value) === false) {
+        DisplayError("dobError", "Date of birth must follow the correct format (dd/mm/yyyy).");
+        isValid = false;
+    }
 
+    // Validate email address: REQUIRED and must be of an email FORMAT
     if(CheckValueNotEmpty(form.emailaddress.value) === false) {
         DisplayError("emailError", "Email is a required field.");
         isValid = false;
@@ -29,6 +32,7 @@ function Validate(form) {
         isValid = false;
     }
 
+    // Validate password: REQUIRED, must MATCH confirmation password, and must follow a general FORMAT
     if(CheckValidPassword(form.password1.value) === false){
         DisplayError("passwordError", "Password must be at least 8 characters long, with at least 1 being uppercase, 1 lowercase, and 1 number.");
         isValid = false;
@@ -81,6 +85,17 @@ function CheckValidPassword(pwd) {
     return false;
 }
 
+// Check if the user's date input is valid. Must be of format (dd/mm/yyyy).
+function CheckValidDate(date) {
+    // Regex obtained from: https://stackoverflow.com/questions/15491894/regex-to-validate-date-format-dd-mm-yyyy
+    var pattern = new RegExp("(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\\d\\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)");
+
+    if(pattern.test(date)){
+        return true;
+    }
+    return false;
+}
+
 // Check if both pw1 and pw2 match.
 function CheckPasswordsMatch(pwd1, pwd2) {
     if(pwd1 === pwd2){
@@ -91,7 +106,7 @@ function CheckPasswordsMatch(pwd1, pwd2) {
 
 // Check if the email is valid.
 function CheckValidEmail(email){
-    //Regex obtained from: http://blog.gerv.net/2011/05/html5_email_address_regexp/
+    // Regex obtained from: http://blog.gerv.net/2011/05/html5_email_address_regexp/
     var pattern = new RegExp("^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
     if(pattern.test(email)) {
         return true;
