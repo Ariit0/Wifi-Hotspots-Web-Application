@@ -36,6 +36,12 @@
 		        	</p>
 
 		        	<p>
+			            DoB <br>
+			            <input id="dob" type="text" placeholder="dd/mm/yyyy" onchange="OnChangeElement('dobError')";" onkeypress="OnChangeElement('dobError')";"></textarea>
+			            <span id="dobError" class="error-message"> Date of birth error goes here.</span>
+		        	</p>
+
+		        	<p>
 			            Email* <br> 
 			            <input id="emailaddress" type="text" onchange="OnChangeElement('emailError')";" onkeypress="OnChangeElement('emailError');">
 			            <span id="emailError" class="error-message"> Email error goes here.</span>
