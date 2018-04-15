@@ -2,7 +2,7 @@
 function Validate(form) {
     isValid = true;
 
-    // Validate firstname: REQUIRED and ALPHABETIC ONLY
+    // Validate firstname: REQUIRED and alphabetic only
     if(CheckValueNotEmpty(form.firstname.value) === false) {
         DisplayError("firstnameError", "First name is a required field.");
         isValid = false;
@@ -11,19 +11,25 @@ function Validate(form) {
         isValid = false;
     }
 
-    // Validate lastname: OPTIONAL and ALPHABETIC ONLY
+    // Validate lastname: OPTIONAL and alphabetic only
     if (CheckValueNotEmpty(form.lastname.value) && CheckValueAlphabeticOnly(form.lastname.value) === false) {
         DisplayError("lastnameError", "Last name must be alphabetic only.");
         isValid = false;
     }
 
-    // Validate date of birth: OPTIONAL and must be of FORMAT dd/mm/yyyy
+    // Validate date of birth: OPTIONAL and must be of format dd/mm/yyyy
     if (CheckValueNotEmpty(form.dob.value) && CheckValidDate(form.dob.value) === false) {
         DisplayError("dobError", "Date of birth must follow the correct format (dd/mm/yyyy).");
         isValid = false;
     }
 
-    // Validate email address: REQUIRED and must be of an email FORMAT
+    // Validate mobile number: OPTIONAL and must contain 10 digits
+    if (CheckValueNotEmpty(form.mobilenum.value) && CheckValidMobileNumber(form.mobilenum.value) === false) {
+        DisplayError("mobilenumError", "Mobile number must be 10 digits.");
+        isValid = false;
+    }
+
+    // Validate email address: REQUIRED and must be of an email format
     if(CheckValueNotEmpty(form.emailaddress.value) === false) {
         DisplayError("emailError", "Email is a required field.");
         isValid = false;
@@ -96,6 +102,16 @@ function CheckValidDate(date) {
     return false;
 }
 
+// Check if the user's mobile number is valid. Must be 10 digits long.
+function CheckValidMobileNumber(num) {
+    var pattern = new RegExp("^[0-9]{10}$");
+
+    if(pattern.test(num)){
+        return true;
+    }
+    return false;
+}
+
 // Check if both pw1 and pw2 match.
 function CheckPasswordsMatch(pwd1, pwd2) {
     if(pwd1 === pwd2){
@@ -104,7 +120,7 @@ function CheckPasswordsMatch(pwd1, pwd2) {
     return false;
 }
 
-// Check if the email is valid.
+// Check if the user's email is valid.
 function CheckValidEmail(email){
     // Regex obtained from: http://blog.gerv.net/2011/05/html5_email_address_regexp/
     var pattern = new RegExp("^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
