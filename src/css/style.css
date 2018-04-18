@@ -115,7 +115,7 @@ form.searchinput input[type=text] {
   	font-size: 17px;
   	border: 1px solid grey;
 	float: left;
-	width: 80%;
+	width: 60%;
 	background: #f1f1f1;
 }
 
@@ -141,6 +141,17 @@ form.searchinput::after {
   content: "";
   clear: both;
   display: table;
+}
+
+/* dropdown styling [must improve later] */
+select {
+	margin-left: 0px;
+	padding: 10px;
+  	font-size: 17px;
+  	border: 1px solid grey;
+	float: left;
+	width: 20%;
+	background: #f1f1f1;
 }
 
 
