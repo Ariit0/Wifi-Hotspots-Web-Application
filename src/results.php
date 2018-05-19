@@ -20,7 +20,7 @@
 			</div>
 			
 			<div id="menu">
-				<a href="index.html">Home</a><a href="login.html">Login</a><a href="register.html">Register</a><a href="aboutus.html">About</a><a href="contactus.html">Contact</a>
+				<a href="index.html">Home</a><a href="login.php" class="selected">Login</a><a href="register.php">Register</a><a href="aboutus.html">About</a><a href="contactus.html">Contact</a>
 			</div>
 			
 			<div id="content">
@@ -34,7 +34,7 @@
 
 					<div id="resultList">
 						<div class="results">
-							<a href="sampleitem.html">
+							<a href="sampleitem.php">
 
 								<h1>Result 1</h1>
 								<p>A short sentence of arbitrary text</p>

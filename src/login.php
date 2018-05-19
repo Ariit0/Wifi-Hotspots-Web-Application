@@ -16,13 +16,13 @@
 			</div>
 			
 			<div id="menu">
-				<a href="index.html">Home</a><a href="login.html" class="selected">Login</a><a href="register.html">Register</a><a href="aboutus.html">About</a><a href="contactus.html">Contact</a>
+				<a href="index.html">Home</a><a href="login.php" class="selected">Login</a><a href="register.php">Register</a><a href="aboutus.html">About</a><a href="contactus.html">Contact</a>
 			</div>
 					
 			<div id="content">
 		       <form action="#" onsubmit="return Login(this);">
 		       		<h2>Login to an Existing Account</h2>
-		       		Don't have an account? <a href="register.html">Sign up here.</a>
+		       		Don't have an account? <a href="register.php">Sign up here.</a>
 		       		<br><br>
 
 		       		<p>
