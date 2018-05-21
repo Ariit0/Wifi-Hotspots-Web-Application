@@ -1,17 +1,9 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<!-- using fontawesome for icon fonts -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-		<script type="text/javascript" src="results.js"></script>
-
-		<title>Result</title>
-	</head>
+	<?php
+		$title = "Results";
+		include "include/header.php";
+	?>
 	<body>
 		<div id="wrapper">
 			<div id="header">
@@ -94,10 +86,9 @@
 				<br>
 			</div>
 			
-			<div id="footer">
-				<p>Ari Luangamath (n9446826) & George Delosa (n9751696) </p>
-				<a href="https://github.com/Ariit0/CAB230-Assessment" target="_blank"> Link to GitHub Repo</a>
-			</div>
+			<?php
+				include "include/footer.php";
+			?>
 		</div>
 
 	</body>

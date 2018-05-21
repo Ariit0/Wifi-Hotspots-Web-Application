@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-
-		<title>Contact</title>
-	</head>
+	<?php
+		$title = "Contact";
+		include "include/header.php";
+	?>
 	<body>
 		<div id="wrapper">
 			<div id="header">
@@ -34,10 +30,9 @@
 		        </p>
 			</div>
 			
-			<div id="footer">
-				<p>Ari Luangamath (n9446826) & George Delosa (n9751696) </p>
-				<a href="https://github.com/Ariit0/CAB230-Assessment" target="_blank"> Link to GitHub Repo</a>
-			</div>
+			<?php
+				include "include/footer.php";
+			?>
 		</div>
 
 	</body>
