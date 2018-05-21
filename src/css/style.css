@@ -1,7 +1,7 @@
 /* sets default style to body elements.
 */
 body {
-	background-color: #9999FF;
+	background-color: #DEDEDE;
 	margin: 0px;
 	font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;
 	min-width: 600px;
@@ -17,7 +17,7 @@ body {
 #header {
 	height: 80px;
 	text-align: center;
-	background-color: #003399;
+	background-color: #333333;
 	color: white;
 }
 
@@ -65,7 +65,7 @@ body {
 	text-align: center;
 	font-size:12pt;
 	font-weight: bold;
-	background-color: #003399;
+	background-color: #333333;
 	color: white;
 	border-style: outset;
 	border-width: 4px;
@@ -85,7 +85,7 @@ body {
 * changing bg colour to blue and underlining.
 */
 #menu a:hover {
-	background-color: blue;
+	background-color: #888888;
 	text-decoration: underline;
 }
 
@@ -95,7 +95,7 @@ body {
 #footer {
 	margin: 5px;
 	border: 1px dashed black;
-	background-color: #CCCCFF;
+	background-color: #8E8E8E;
 	text-align: center;
 	clear: both;
 	height: 50px;
@@ -124,7 +124,7 @@ form.searchinput button {
 	float: right;
 	width: 20%;
 	padding: 10px;
-	background: #003399;
+	background: #333333;
 	color: white;
 	font-size: 17px;
 	border: 1px solid grey;
