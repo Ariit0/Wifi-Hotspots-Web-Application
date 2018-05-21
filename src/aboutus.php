@@ -15,7 +15,7 @@
 			</div>
 			
 			<div id="menu">
-				<a href="index.html">Home</a><a href="login.php">Login</a><a href="register.php">Register</a><a href="aboutus.html" class="selected">About</a><a href="contactus.html">Contact</a>
+				<a href="index.php">Home</a><a href="login.php">Login</a><a href="register.php">Register</a><a href="aboutus.php" class="selected">About</a><a href="contactus.php">Contact</a>
 			</div>
 					
 			<div id="content">
