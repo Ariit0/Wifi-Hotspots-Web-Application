@@ -21,24 +21,10 @@
 				<h4>A place to discover and review WiFi Hotspots near you.</h4>
 
 				<div id="searchbar">
-					<form class="searchinput" action="results.php">
-						<input type="text" name="search" placeholder="Enter address, rating or hotspot name">
-						<select>
-							  <option value="Annerley">Annerley</option>
-							  <option value="Chermisde">Chermisde</option>
-							  <option value="Banyo">Banyo</option>
-							  <option value="Ashgrove">Ashgrove</option>
-						</select>
-						<button type="submit"><i class="fa fa-search"></i></button>
-					</form>
+					<?php
+						include "displaySearchBar.php";
+					?>
 				</div>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
 
 			</div>
 			
