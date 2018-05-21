@@ -5,7 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<!-- using fontawesome for icon fonts -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 		<script type="text/javascript" src="js/login.js"></script>
 		<script type="text/javascript" src="js/register.js"></script>
 		<script type="text/javascript" src="js/results.js"></script>
