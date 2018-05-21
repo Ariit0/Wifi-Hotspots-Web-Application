@@ -12,20 +12,26 @@
 
 		try {
 			$result = $pdo->query('SELECT DISTINCT suburb FROM items ORDER BY suburb');
+			$queriedOptions = array();
 
+			// iterates through the queried result and adds them to the queriedOptiosn array
 			foreach ($result as $suburb) {
 				if (strpos($suburb['suburb'], ',')) { // checks if the string has a comma
-					echo '<option>',truncateStringAfter($suburb['suburb'], ','),'</option>'; // truncate after the specified delimiter
+					array_push($queriedOptions, truncateStringAfter($suburb['suburb'], ',')); // truncate after the specified delimiter
 				} else {
-					echo '<option>', $suburb['suburb'],'</option>';
+					array_push($queriedOptions, $suburb['suburb']);
 				}
-
 			}
-		} catch (Exception $e) {
+
+			$options = array_unique($queriedOptions); // removes any duplicate values within the array
+			$options = array_values($options); // fixes the array index sequence
+			for ($i=0; $i < count($options); $i++) { // echos options
+				echo '<option>'.$options[$i].'</option>';
+			}
+
+		} catch (PDOException $e) {
 			echo $e->getMessage();
 		}
-
-
 	?>
 	</select>
 	<button type="submit"><i class="fa fa-search"></i></button>
