@@ -9,14 +9,15 @@
 	</head>
 
 	<body>
-	<div class="nav_bar">
-		<?php
-			include "displayNavBar.php";
-		?>
-	</div>
+		<div class="nav_bar">
+			<?php
+				include "displayNavBar.php";
+			?>
+		</div>
+		
 		<div id="wrapper">
 			<div id="header">
-				<h1> Register </h1>
+				<h1>Register</h1>
 			</div>
 			
 			<div id="content">
@@ -33,7 +34,5 @@
 				include "include/footer.php";
 			?>
 		</div>
-
 	</body>
-
 </html>

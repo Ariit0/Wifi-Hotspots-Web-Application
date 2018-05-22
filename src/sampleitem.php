@@ -8,11 +8,10 @@
 	</head>
 
 	<body>
-	<div class="nav_bar">
+		<div class="nav_bar">
 			<?php
 				include "displayNavBar.php";
 			?>
-
 		</div>
 
 		<div id="wrapper">
@@ -34,9 +33,12 @@
 							Cras quis tortor laoreet, tempor erat quis, ultricies mi. Proin bibendum, nulla et hendrerit porta, quam nisl bibendum felis, non sagittis diam enim ac felis. Praesent sagittis erat blandit dolor scelerisque, nec pharetra tellus fermentum. Nam nibh enim, consequat fringilla aliquet quis, efficitur condimentum sem. Suspendisse neque massa, congue sed blandit iaculis, egestas vitae nisi. Phasellus eu nulla id tortor rutrum luctus. Mauris tincidunt lacus vitae eleifend euismod. Nulla laoreet commodo mi id accumsan. 
 						</div> <!-- end results -->
 					</div> <!-- end resultList -->
-				</div> <!-- end resultwrapper -->
+				</div> <!-- end resultContainer -->
 
-				<div id="reviewBanner"><h3>Review</h3></div>
+				<div id="reviewBanner">
+					<h3>Review</h3>
+				</div>
+				
 				<div id="reviewContainer">
 					<div id="reviewList">
 						<div class="reviews">
@@ -92,7 +94,5 @@
 				include "include/footer.php";
 			?>
 		</div>
-
 	</body>
-
 </html>

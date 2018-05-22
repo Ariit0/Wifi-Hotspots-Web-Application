@@ -9,11 +9,10 @@
 	</head>
 
 	<body>
-	<div class="nav_bar">
+		<div class="nav_bar">
 			<?php
 				include "displayNavBar.php";
 			?>
-
 		</div>
 
 		<div id="wrapper">
@@ -57,14 +56,11 @@
 						</div> <!-- end results -->
 					</div> <!-- end resultList -->
 				</div> <!-- end resultwrapper -->
-
 			</div>
 			
 			<?php
 				include "include/footer.php";
 			?>
 		</div>
-
 	</body>
-
 </html>

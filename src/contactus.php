@@ -6,6 +6,7 @@
 			include "include/header.php";
 		?>
 	</head>
+	
 	<body>
 		<div class="nav_bar">
 			<?php
@@ -19,7 +20,6 @@
 			</div>
 			
 			<div id="content">
-		       		
 		        <p>
 			    	Sed pretium eros eu mi bibendum, ac venenatis enim facilisis. Vestibulum euismod convallis justo, volutpat accumsan nisi lobortis et. Phasellus aliquam lacinia quam, in consequat erat posuere eu. Etiam libero erat, porta at mauris ut, tristique ultrices odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean finibus leo id tempor ultrices. Integer erat libero, placerat quis tortor nec, ornare egestas turpis. Vivamus finibus tincidunt turpis in tempor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque condimentum pretium auctor. Mauris condimentum orci nisl, a placerat neque laoreet eget.
 			    </p>
@@ -37,7 +37,5 @@
 				include "include/footer.php";
 			?>
 		</div>
-
 	</body>
-
 </html>
