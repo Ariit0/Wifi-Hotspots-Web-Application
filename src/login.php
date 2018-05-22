@@ -5,7 +5,7 @@
 			$title = "Login";
 			include "include/header.php";
 		?>
-		<script type="text/javascript" src="js/login.js"></script>
+		<script type="text/javascript" src="js/login_client_validation.js"></script>
 	</head>
 
 	<body>
@@ -27,7 +27,7 @@
 					if (isset($_POST['Login'])) {
 						$emailaddress = $password = '';
 
-						require 'login_validate.php';
+						require 'login_server_validation.php';
 						if(ValidateLoginForm_Server()) {
 							if(TryLogin($emailaddress, $password)) {
 								session_start();
