@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html>
-	<?php
-		$title = "Results";
-		include "include/header.php";
-	?>
+	<head>
+		<?php
+			$title = "Results";
+			include "include/header.php";
+		?>
+	</head>
+
 	<body>
+	<div class="nav_bar">
+			<?php
+				include "displayNavBar.php";
+			?>
+
+		</div>
+
 		<div id="wrapper">
 			<div id="header">
-				<h1> Yelp Clone </h1>
+				<h1> Result 1 </h1>
 			</div>
-			
-			<div id="menu">
-				<a href="index.php" class="selected">Home</a><a href="login.php">Login</a><a href="register.php">Register</a><a href="aboutus.php">About</a><a href="contactus.php">Contact</a>
-			</div>
-			
 
 			<div id="content">
-				<h2>Result 1</h2>
-				<h4>A place to discover and review WiFi Hotspots near you.</h4>
-
 				<div id="resultContainer">
 					<div id="initMap"></div>
 					<!-- google api call for google maps, must be called here -->

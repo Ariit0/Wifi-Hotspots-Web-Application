@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
-	<?php
-		$title = "Login";
-		include "include/header.php";
-	?>
+	<head>
+		<?php
+			$title = "Login";
+			include "include/header.php";
+		?>
+		<script type="text/javascript" src="js/login.js"></script>
+	</head>
 	<body>
-
 	<div class="nav_bar">
 		<?php
 			include "displayNavBar.php";

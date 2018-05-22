@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
-	<?php
-		$title = "About Us";
-		include "include/header.php";
-	?>
+
+	<head>
+		<?php
+			$title = "About";
+			include "include/header.php";
+		?>
+	</head>
+
 	<body>
 		<div class="nav_bar">
 			<?php

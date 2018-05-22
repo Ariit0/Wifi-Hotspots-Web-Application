@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
-	<?php
-		$title = "Register";
-		include "include/header.php";
-	?>
+	<head>
+		<?php
+			$title = "Register";
+			include "include/header.php";
+		?>
+		<script type="text/javascript" src="js/register.js"></script>
+	</head>
+
 	<body>
 	<div class="nav_bar">
 		<?php

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
-	<?php
-		$title = "Contact";
-		include "include/header.php";
-	?>
+	<head>
+		<?php
+			$title = "Contact Us";
+			include "include/header.php";
+		?>
+	</head>
 	<body>
 		<div class="nav_bar">
 			<?php

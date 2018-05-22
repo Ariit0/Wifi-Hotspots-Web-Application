@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
-	<?php
-		$title = "Search Results";
-		include "include/header.php";
-	?>
+	<head>
+		<?php
+			$title = "Search Results";
+			include "include/header.php";
+		?>
+		<script type="text/javascript" src="js/results.js"></script>
+	</head>
+
 	<body>
+	<div class="nav_bar">
+			<?php
+				include "displayNavBar.php";
+			?>
+
+		</div>
 
 		<div id="wrapper">
 			<div id="header">
-				<h1> Yelp Clone </h1>
+				<h1> Results </h1>
 			</div>
-			
-			<div id="menu">
-				<a href="index.php">Home</a><a href="login.php">Login</a><a href="register.php">Register</a><a href="aboutus.php">About</a><a href="contactus.php">Contact</a>
-			</div>
-			
+
 			<div id="content">
 				<h2>Results</h2>
 				<h4>A place to discover and review WiFi Hotspots near you.</h4>

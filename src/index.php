@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
-
-	<?php
-		$title = "Welcome to YelpClone";
-		include "include/header.php";
-	?>
+	<head>
+		<?php
+			$title = "Welcome to YelpClone";
+			include "include/header.php";
+		?>
+	</head>
 
 	<body>
 		<div class="nav_bar">
