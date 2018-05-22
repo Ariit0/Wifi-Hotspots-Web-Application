@@ -5,7 +5,7 @@
 			$title = "Register";
 			include "include/header.php";
 		?>
-		<script type="text/javascript" src="js/register.js"></script>
+		<script type="text/javascript" src="js/register_client_validation.js"></script>
 	</head>
 
 	<body>
@@ -22,11 +22,21 @@
 			
 			<div id="content">
 				<?php
+					$server_response_msg = '';
+
 					if (isset($_POST['Register'])) {
-				        //Server side validation
-			    	} else {
-			    		include "register_form.php";
-			    	}
+						$firstname = $lastname = $dob = $mobile = $email = $password = $confirm_password = '';
+
+						require 'register_server_validation.php';
+						if(ValidateRegisterForm_Server()) {
+				            echo 'we registered boys';
+				        } else {
+				            $server_response_msg = 'Invalid data.<br><br>';
+							include "register_form.php";
+				        }
+				    } else {
+						include "register_form.php";
+				    }
 				?>
 			</div>
 
