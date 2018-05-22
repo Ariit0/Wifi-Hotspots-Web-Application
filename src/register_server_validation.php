@@ -130,7 +130,7 @@
             $stmt = $pdo->prepare("INSERT INTO members(firstname, lastname, dateOfBirth, mobileNo, email, password) VALUES(:firstname, :lastname, :dob, :mobile, :email, :password)");
             $stmt->bindValue(":firstname", $firstname);
             $stmt->bindValue(":lastname", $lastname);
-            $stmt->bindValue(":dob", $dateOfBirth);
+            $stmt->bindValue(":dob", str_replace('/', '-', $dob));
             $stmt->bindValue(":mobile", $mobile);
             $stmt->bindValue(":email", $email);
             $stmt->bindValue(":password", $password);
