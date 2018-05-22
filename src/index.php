@@ -7,32 +7,40 @@
 	?>
 
 	<body>
-		<div id="wrapper">
-			<div id="header">
-				<h1> Yelp Clone </h1>
-			</div>
-			
-			<div id="menu">
-				<a href="index.php" class="selected">Home</a><a href="login.php">Login</a><a href="register.php">Register</a><a href="aboutus.php">About</a><a href="contactus.php">Contact</a>
-			</div>
+		<div class="nav_bar">
+				<nav id="nav_centre">	
+					<div id="logo"><img src="img/logo.png" id="logoImg"></div>
+					<ul id="menu">	
+						<li><a href="index.php" class="selected">Home</a></li> 
+						<li><a href="aboutus.php">About</a></li> 
+						<li><a href="contactus.php">Contact</a></li>
+						<li><a href="login.php">Login</a></li> 
+						<li><a href="register.php">Register</a></li> 
+					</ul>
+				</nav>
 
-			<div id="content">
-				<h2>Find-a-Hotspot</h2>
-				<h4>A place to discover and review WiFi Hotspots near you.</h4>
+			<span id="header_shadow"></span>
 
-				<div id="searchbar">
-					<?php
-						include "displaySearchBar.php";
-					?>
+			<div id="wrapper">
+				<div id="header">
+					<h1>Find-a-Hotspot</h1>
 				</div>
+		
+				<div id="content">
+					<h4>A place to discover and review WiFi Hotspots near you.</h4>
 
+					<div id="searchbar">
+						<?php
+							include "displaySearchBar.php";
+						?>
+					</div>
+
+				</div>
+				
+				<?php
+					include "include/footer.php";
+				?>
 			</div>
-			
-			<?php
-				include "include/footer.php";
-			?>
 		</div>
-
 	</body>
-
 </html>
