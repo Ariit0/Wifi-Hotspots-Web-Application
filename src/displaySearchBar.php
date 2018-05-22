@@ -1,4 +1,4 @@
-<form class="searchinput" action="results.php">
+<form class="searchinput" action="search-submit.php" method="post">
 	<input type="text" name="search" placeholder="Enter address, rating or hotspot name">
 	<select class="searchoptions">
 
@@ -23,14 +23,12 @@
 				}
 			}
 
-			array_unshift($queriedOptions, "&#xf124; &nbsp; Near Me");	
+			array_unshift($queriedOptions, "&#xf124; &nbsp; Near Me"); // appends value to start of array
 			$options = array_unique($queriedOptions); // removes any duplicate values within the array
 			$options = array_values($options); // fixes the array index sequence
 			for ($i=0; $i < count($options); $i++) { // echos options
 				echo '<option>'.$options[$i].'</option>';
 			}
-			echo "<i class='fas fa-location-arrow'></i>";
-
 		} catch (PDOException $e) {
 			echo $e->getMessage();
 		}
