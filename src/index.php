@@ -5,6 +5,7 @@
 			$title = "Welcome to YelpClone";
 			include "include/header.php";
 		?>
+		<script type="text/javascript" src="js/search.js"></script>
 	</head>
 
 	<body>
@@ -21,7 +22,6 @@
 		
 				<div id="content">
 					<h4>A place to discover and review WiFi Hotspots near you.</h4>
-
 					<div id="searchbar">
 						<?php
 							include "displaySearchBar.php";
