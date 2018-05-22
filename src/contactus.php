@@ -5,17 +5,16 @@
 		include "include/header.php";
 	?>
 	<body>
+		<div class="nav_bar">
+		<?php
+			include "displayNavBar.php";
+		?>
 		<div id="wrapper">
 			<div id="header">
-				<h1> Yelp Clone </h1>
+				<h1> Contact us</h1>
 			</div>
 			
-			<div id="menu">
-				<a href="index.php">Home</a><a href="login.php">Login</a><a href="register.php">Register</a><a href="aboutus.php">About</a><a href="contactus.php" class="selected">Contact</a>
-			</div>
-					
 			<div id="content">
-		       	<h2>Contact us</h2>
 		       		
 		        <p>
 			    	Sed pretium eros eu mi bibendum, ac venenatis enim facilisis. Vestibulum euismod convallis justo, volutpat accumsan nisi lobortis et. Phasellus aliquam lacinia quam, in consequat erat posuere eu. Etiam libero erat, porta at mauris ut, tristique ultrices odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean finibus leo id tempor ultrices. Integer erat libero, placerat quis tortor nec, ornare egestas turpis. Vivamus finibus tincidunt turpis in tempor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque condimentum pretium auctor. Mauris condimentum orci nisl, a placerat neque laoreet eget.
@@ -34,6 +33,7 @@
 				include "include/footer.php";
 			?>
 		</div>
+	</div>
 
 	</body>
 

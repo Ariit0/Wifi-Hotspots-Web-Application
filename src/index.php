@@ -11,9 +11,6 @@
 			<?php
 				include "displayNavBar.php";
 			?>
-
-			<span id="header_shadow"></span>
-
 			<div id="wrapper">
 				<div id="header">
 					<h1>Find-a-Hotspot</h1>
