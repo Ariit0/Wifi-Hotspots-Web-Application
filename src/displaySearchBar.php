@@ -1,19 +1,20 @@
 <form class="searchinput" action="search-submit.php" method="post">
-	<input type="text" name="search" placeholder="Enter address or hotspot name">
-	<select class="ratingfilter">
+	<input type="text" name="srch" placeholder="Enter address or hotspot name">
+	<select class="ratingfilter" name="rating">
 		<?php
 			$star = array("-----", "5&nbsp;&#xf005;", "4+&nbsp;&#xf005;", "3+&nbsp; &#xf005;", "2+&nbsp;&#xf005;", "1+&nbsp;&#xf005;");
+			$starValue = array(0, 5, 4, 3, 2, 1);
 			for ($i=0; $i < count($star); $i++) { 
-				echo '<option>'.$star[$i].'</option>';
+				echo '<option value ='.$starValue[$i].'>'.$star[$i].'</option>';
 			}
 		?>
 	</select>
-	<select class="suburbfilter">
-	<?php
-		// truncates any characters after the specified delimiter
-		function truncateStringAfter($string, $delim) { 
-		    return substr($string, 0, strpos($string, $delim));
-		}
+	<select class="suburbfilter" name="suburb">
+		<?php
+			// truncates any characters after the specified delimiter
+			function truncateStringAfter($string, $delim) { 
+			    return substr($string, 0, strpos($string, $delim));
+			}
 
 			include 'include/initDB.php';
 
@@ -30,18 +31,19 @@
 					}
 				}
 
-				array_unshift($queriedOptions, "&#xf124; &nbsp; Near Me"); // appends value to start of array
 				$options = array_unique($queriedOptions); // removes any duplicate values within the array
 				$options = array_values($options); // fixes the array index sequence
 
+				$nearMe = "&#xf124; &nbsp; Near Me";
+				echo '<option value = \'NearMe\'>'.$nearMe.'</option>';
 				for ($i=0; $i < count($options); $i++) { // echos options
-					echo '<option>'.$options[$i].'</option>';
+					// use pre_replace to remove any whitespace from options to use as value
+					echo '<option value = '.preg_replace('/\s+/','', $options[$i]).'>'.$options[$i].'</option>';
 				}
 			} catch (PDOException $e) {
 				echo $e->getMessage();
 			}
 		?>
 	</select>
-
-	<button type="submit"><i class="fa fa-search"></i></button>
+	<button type="search" name="search"><i class="fa fa-search"></i></button>
 </form>
