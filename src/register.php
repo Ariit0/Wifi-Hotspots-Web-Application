@@ -29,7 +29,11 @@
 
 						require 'register_server_validation.php';
 						if(ValidateRegisterForm_Server()) {
-				            echo 'we registered boys';
+							if(TryRegister($firstname, $lastname, $dob, $mobile, $email, $password)){
+				            	echo 'we registered boys';
+							} else {
+								echo 'Server error: registration failed, please try again later.<br><br>';
+							}
 				        } else {
 				            $server_response_msg = 'Invalid data.<br><br>';
 							include "register_form.php";

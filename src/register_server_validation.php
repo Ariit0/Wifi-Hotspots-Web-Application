@@ -121,4 +121,26 @@
         //Regex obtained from: http://blog.gerv.net/2011/05/html5_email_address_regexp/
         return preg_match("/^[a-zA-Z0-9.!#$%&’*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$/", $email);
     }
+
+    // Try register the user after validating information.
+    function TryRegister($firstname, $lastname, $dob, $mobile, $email, $password) {
+        require 'include/initDB.php';
+
+        try {
+            $stmt = $pdo->prepare("INSERT INTO members(firstname, lastname, dateOfBirth, mobileNo, email, password) VALUES(:firstname, :lastname, :dob, :mobile, :email, :password)");
+            $stmt->bindValue(":firstname", $firstname);
+            $stmt->bindValue(":lastname", $lastname);
+            $stmt->bindValue(":dob", $dateOfBirth);
+            $stmt->bindValue(":mobile", $mobile);
+            $stmt->bindValue(":email", $email);
+            $stmt->bindValue(":password", $password);
+
+            $stmt->execute();
+            return true;
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
 ?>
