@@ -1,14 +1,19 @@
 <form class="searchinput" action="search-submit.php" method="post">
-	<input type="text" name="search" placeholder="Enter address, rating or hotspot name">
-
-	<select class="searchoptions">
-		<?php
-			// truncates any characters after the specified delimiter
-			function truncateStringAfter($string, $delim) { 
-			    return substr($string, 0, strpos($string, $delim));
-			}
-
-			include "include/initDB.php";
+	<input type="text" name="search" placeholder="Enter address or hotspot name">
+	<select class="ratingfilter">
+		<option>Star</option>
+		<option>5 Star</option>
+		<option>4+ Star</option>
+		<option>3+ Star</option>
+		<option>2+ Star</option>
+		<option>1+ Star</option>
+	</select>
+	<select class="suburbfilter">
+	<?php
+		// truncates any characters after the specified delimiter
+		function truncateStringAfter($string, $delim) { 
+		    return substr($string, 0, strpos($string, $delim));
+		}
 
 			try {
 				$result = $pdo->query('SELECT DISTINCT suburb FROM items ORDER BY suburb');

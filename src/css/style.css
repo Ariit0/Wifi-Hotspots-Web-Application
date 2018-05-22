@@ -205,7 +205,8 @@ form.searchinput input[type=text] {
   	font-size: 17px;
   	border: 1px solid grey;
 	float: left;
-	width: 57.5%;
+/*	width: 57.5%;*/
+	width: auto;
 	background: #f1f1f1;
 }
 
@@ -248,7 +249,12 @@ select {
 	cursor: pointer;	
 }
 
-select.searchoptions {
+select.ratingfilter {
+	width: auto;
+}
+
+select.suburbfilter {
+		width: auto;
 	font-family:'FontAwesome', Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
 
