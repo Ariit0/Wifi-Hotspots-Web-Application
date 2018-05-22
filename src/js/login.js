@@ -1,21 +1,17 @@
 // Login using email and password.
-function LoginForm(form) {
-    isValid = true;
+function ValidateLoginForm_Client(form) {
+    var isValid = true;
 
     if(CheckValueNotEmpty(form.emailaddress.value) === false) {
-        DisplayError("emailError", "Email is a required field.");
+        DisplayError("emailErrorID", "Email is a required field.");
         isValid = false;
     } else if (CheckValidEmail(form.emailaddress.value) === false) {
-        DisplayError("emailError", "Please use the correct format for an email address.");
+        DisplayError("emailErrorID", "Please use the correct format for an email address.");
         isValid = false;
     } 
 
     if(CheckValueNotEmpty(form.password.value) === false){
-        DisplayError("passwordError", "Password is a required field.");
-        isValid = false;
-    }
-
-    if(LoginIsValid(form.emailaddress.value, form.password.value) === false){
+        DisplayError("passwordErrorID", "Password is a required field.");
         isValid = false;
     }
 
@@ -49,9 +45,4 @@ function CheckValidEmail(email) {
         return true;
     }
     return false;
-}
-
-// Check if login information is valid (exists in database). Returns true for now.
-function LoginIsValid(email, password) {
-    return true;
 }

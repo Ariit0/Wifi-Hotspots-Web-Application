@@ -22,11 +22,29 @@
 					
 			<div id="content">
 				<?php
+					$server_response_msg = '';
+
 					if (isset($_POST['Login'])) {
-				        //Server side validation
-			    	} else {
-			    		include "login_form.php";
-			    	}
+						$emailaddress = $password = '';
+
+						require 'login_validate.php';
+						if(ValidateLoginForm_Server()) {
+							if(TryLogin($emailaddress, $password)) {
+								session_start();
+				                $_SESSION['email'] = $emailaddress;
+				                $_SESSION['loggedIn'] = true;
+				                echo 'we in boys';
+							} else {
+				                $server_response_msg = 'Incorrect credentials.<br><br>';
+								include "login_form.php";
+				            }
+				        } else {
+				            $server_response_msg = 'Invalid data.<br><br>';
+							include "login_form.php";
+				        }
+				    } else {
+						include "login_form.php";
+				    }
 				?>
 			</div>
 			
