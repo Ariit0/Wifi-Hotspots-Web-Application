@@ -5,18 +5,18 @@
 		include "include/header.php";
 	?>
 	<body>
+
+	<div class="nav_bar">
+		<?php
+			include "displayNavBar.php";
+		?>
 		<div id="wrapper">
 			<div id="header">
-				<h1> Yelp Clone </h1>
-			</div>
-			
-			<div id="menu">
-				<a href="index.php">Home</a><a href="login.php" class="selected">Login</a><a href="register.php">Register</a><a href="aboutus.php">About</a><a href="contactus.php">Contact</a>
+				<h1>Login</h1>
 			</div>
 					
 			<div id="content">
 		       <form action="#" onsubmit="return Login(this);">
-		       		<h2>Login to an Existing Account</h2>
 		       		Don't have an account? <a href="register.php">Sign up here.</a>
 		       		<br><br>
 
@@ -42,6 +42,7 @@
 				include "include/footer.php";
 			?>
 		</div>
+	</div>
 
 	</body>
 

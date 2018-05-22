@@ -1,7 +1,87 @@
+@charset "utf-8";
+
+/* NAV BAR STYLE */
+.nav_bar {
+	background:url('../img/bg.png');
+	position: fixed;
+	width: 100%;
+	top: 0; 
+	height: 75px;
+	left: 0;
+	z-index: 3;
+}
+
+#nav_centre {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+#logo {
+	float: left;
+	margin-top: 10px;
+	cursor: pointer;	
+}
+
+#logoLink {
+	margin: 0px;
+	padding: 0px;
+}
+
+#logoImg {
+	width:225px;height:47px;
+}
+
+nav ul {
+	float: right;
+	list-style: none;
+	color: #FFF;
+	margin: 0;
+	width: 488px;
+
+}
+nav a {
+	display: inline;
+	float: left;
+	text-decoration: none;
+	color: #FFF;
+	padding: 15px 50px 0px 0px;
+	font-family: "Arial" ;
+	font-size: 14px;
+	margin-top: 16px;
+}
+
+nav a:hover {
+	color:#0099CC;
+} 
+
+nav {
+	width: 100%;
+	height: 100%;
+	margin-top: 0px;
+}
+
+#menu {
+	/*margin-left: 51.2%;*/
+}
+
+/* NAV BAR SHADOW */
+#header_shadow{
+	pointer-events:none;
+	background:url('../img/shadow.png') no-repeat top center;
+	position:fixed;
+	top: 75px;
+	left: 0;
+	right: 0;
+	height: 100px;
+	z-index: 99;
+}
+
+
 /* sets default style to body elements.
 */
 body {
-	background-color: #DEDEDE;
+	background:url('../img/bg_w.png');
+
 	margin: 0px;
 	font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;
 	min-width: 600px;
@@ -17,7 +97,7 @@ body {
 #header {
 	height: 80px;
 	text-align: center;
-	background-color: #333333;
+	background:url('../img/bg.png');
 	color: white;
 }
 
@@ -26,15 +106,18 @@ body {
 #header h1 {
 	margin: 0px;
 	padding: 10px;
+	padding-top: 20px;
+	margin-left: 25%;
+	margin-right: 25%;
 }
 
 /* styles the content div with padding, margins and a border.
 */
 #content {
 	padding: 10px;
-	margin-top: 5px;
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-top: 15px;
+	margin-left: 50px;
+	margin-right: 50px;
 	border:1px solid black;
 	background-color: white;
 }
@@ -44,12 +127,17 @@ body {
 * browser.
 */
 #wrapper {
-	width: 800px;
+	width: 1000px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: left;
-	box-shadow: 10px 10px 5px #888888;
+	box-shadow: 0px 9px 10px 5px #888888;
 }
+
+#container {
+
+}
+
 
 #content h2, h4 {
 	text-align: center;
@@ -93,7 +181,7 @@ body {
 * restricts float rules so it sits at the bottom of the page by itself.
 */
 #footer {
-	margin: 5px;
+	margin-top: 15px;
 	border: 1px dashed black;
 	background-color: #8E8E8E;
 	text-align: center;
@@ -212,11 +300,6 @@ div.results p {
 #reviewBanner h3 {
 	color: white;
 	padding-left: 15px;
-}
-
-ul {
-	list-style-type: none;
-	padding-right: 40px;
 }
 
 #review p {
