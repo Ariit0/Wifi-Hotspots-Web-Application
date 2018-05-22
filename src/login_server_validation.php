@@ -1,40 +1,32 @@
 <?php
-
-	function test_input($data) {
-		$data = trim($data);
-		$data = stripslashes($data);
-		$data = htmlspecialchars($data);
-		return $data;
-	}
+	require 'include/sanitize_data';
 
 	// Validates login information (Server-side).
 	function ValidateLoginForm_Server() {
 	    $isValid = true;
 
+	    //Ensure email address required.
 	    if(empty($_POST['emailaddress'])) {
 	        $isValid = false;
 	    } else {
 	    	global $emailaddress;
-	    	$emailaddress = test_input($_POST['emailaddress']);
+	    	$emailaddress = sanitize_data($_POST['emailaddress']);
 
-		    if (CheckValidEmail($emailaddress) === false) {
+	    	//Validate email address format.
+		    if (filter_var($emailaddress, FILTER_VALIDATE_EMAIL) === false) {
 		        $isValid = false;
 		    }
 	    }
 
+	    //Ensure password is required.
 	    if(empty($_POST['password'])){
 	        $isValid = false;
 	    } else {
 	    	global $password;
-	    	$password = test_input($_POST['password']);
+	    	$password = sanitize_data($_POST['password']);
 	    }
 
 	    return $isValid;
-	}
-
-	// Check if the email is valid.
-	function CheckValidEmail($email) {
-	    return filter_var($email, FILTER_VALIDATE_EMAIL);
 	}
 
 	// Check if login information is valid (exists in database).
