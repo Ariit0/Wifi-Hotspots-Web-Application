@@ -6,9 +6,11 @@
 	?>
 	<body>
 		<div class="nav_bar">
-		<?php
-			include "displayNavBar.php";
-		?>
+			<?php
+				include "displayNavBar.php";
+			?>
+		</div>
+		
 		<div id="wrapper">
 			<div id="header">
 				<h1> Contact us</h1>
@@ -33,7 +35,6 @@
 				include "include/footer.php";
 			?>
 		</div>
-	</div>
 
 	</body>
 

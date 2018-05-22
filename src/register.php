@@ -9,7 +9,7 @@
 		<?php
 			include "displayNavBar.php";
 		?>
-
+	</div>
 		<div id="wrapper">
 			<div id="header">
 				<h1> Register </h1>
@@ -29,7 +29,6 @@
 				include "include/footer.php";
 			?>
 		</div>
-	</div>
 
 	</body>
 

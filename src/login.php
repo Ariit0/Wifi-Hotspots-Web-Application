@@ -10,6 +10,7 @@
 		<?php
 			include "displayNavBar.php";
 		?>
+	</div>
 		<div id="wrapper">
 			<div id="header">
 				<h1>Login</h1>
@@ -29,7 +30,6 @@
 				include "include/footer.php";
 			?>
 		</div>
-	</div>
 
 	</body>
 
