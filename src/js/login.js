@@ -1,5 +1,5 @@
 // Login using email and password.
-function Login(form) {
+function LoginForm(form) {
     isValid = true;
 
     if(CheckValueNotEmpty(form.emailaddress.value) === false) {
