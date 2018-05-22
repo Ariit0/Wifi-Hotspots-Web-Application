@@ -1,49 +1,49 @@
 // Validate the form by checking against all tests.
-function Validate(form) {
+function ValidateRegisterForm_Client(form) {
     isValid = true;
 
     // Validate firstname: REQUIRED and alphabetic only
     if(CheckValueNotEmpty(form.firstname.value) === false) {
-        DisplayError("firstnameError", "First name is a required field.");
+        DisplayError("firstnameErrorID", "First name is a required field.");
         isValid = false;
     } else if (CheckValueAlphabeticOnly(form.firstname.value) === false) {
-        DisplayError("firstnameError", "First name must be alphabetic only.");
+        DisplayError("firstnameErrorID", "First name must be alphabetic only.");
         isValid = false;
     }
 
     // Validate lastname: OPTIONAL and alphabetic only
     if (CheckValueNotEmpty(form.lastname.value) && CheckValueAlphabeticOnly(form.lastname.value) === false) {
-        DisplayError("lastnameError", "Last name must be alphabetic only.");
+        DisplayError("lastnameErrorID", "Last name must be alphabetic only.");
         isValid = false;
     }
 
     // Validate date of birth: OPTIONAL and must be of format dd/mm/yyyy
     if (CheckValueNotEmpty(form.dob.value) && CheckValidDate(form.dob.value) === false) {
-        DisplayError("dobError", "Date of birth must follow the correct format (dd/mm/yyyy).");
+        DisplayError("dobErrorID", "Date of birth must follow the correct format (dd/mm/yyyy).");
         isValid = false;
     }
 
     // Validate mobile number: OPTIONAL and must contain 10 digits
-    if (CheckValueNotEmpty(form.mobilenum.value) && CheckValidMobileNumber(form.mobilenum.value) === false) {
-        DisplayError("mobilenumError", "Mobile number must be 10 digits.");
+    if (CheckValueNotEmpty(form.mobile.value) && CheckValidMobileNumber(form.mobile.value) === false) {
+        DisplayError("mobilenumErrorID", "Mobile number must be 10 digits.");
         isValid = false;
     }
 
     // Validate email address: REQUIRED and must be of an email format
-    if(CheckValueNotEmpty(form.emailaddress.value) === false) {
-        DisplayError("emailError", "Email is a required field.");
+    if(CheckValueNotEmpty(form.email.value) === false) {
+        DisplayError("emailErrorID", "Email is a required field.");
         isValid = false;
-    } else if (CheckValidEmail(form.emailaddress.value) === false) {
-        DisplayError("emailError", "Please use the correct format for an email address.");
+    } else if (CheckValidEmail(form.email.value) === false) {
+        DisplayError("emailErrorID", "Please use the correct format for an email address.");
         isValid = false;
     }
 
     // Validate password: REQUIRED, must MATCH confirmation password, and must follow a general FORMAT
     if(CheckValidPassword(form.password1.value) === false){
-        DisplayError("passwordError", "Password must be at least 8 characters long, with at least 1 being uppercase, 1 lowercase, and 1 number.");
+        DisplayError("passwordErrorID", "Password must be at least 8 characters long, with at least 1 being uppercase, 1 lowercase, and 1 number.");
         isValid = false;
     } else if (CheckPasswordsMatch(form.password1.value, form.password2.value) === false){
-        DisplayError("passwordmatchError", "Passwords do not match.");
+        DisplayError("passwordmatchErrorID", "Passwords do not match.");
         isValid = false;
     }
 
@@ -71,7 +71,7 @@ function CheckValueNotEmpty(value) {
 
 // Check if value is alphabetic only.
 function CheckValueAlphabeticOnly(value) {
-    var pattern = new RegExp("[a-z]+");
+    var pattern = new RegExp("[a-zA-Z]+");
     if(pattern.test(value)){
         return true;
     }
