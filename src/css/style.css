@@ -76,14 +76,13 @@ nav {
 	z-index: 99;
 }
 
-
 /* sets default style to body elements.
 */
 body {
 	background:url('../img/bg_w.png');
 
 	margin: 0px;
-	font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;
+	font-family: Verdana,Geneva,Arial,Helvetica, Open Sans, sans-serif !important;
 	min-width: 600px;
 }
 
@@ -134,11 +133,6 @@ body {
 	text-align: left;
 	box-shadow: 0px 9px 10px 5px #888888;
 }
-
-#container {
-
-}
-
 
 #content h2, h4 {
 	text-align: center;
@@ -198,22 +192,26 @@ body {
 }
 
 /* search bar field styling */
+form.searchinput {
+	width: 878px;
+}
+
 form.searchinput input[type=text] {
+	overflow: hidden;
 	margin-left: 0px;
 	height: 45px;
 	padding: 10px;
   	font-size: 17px;
   	border: 1px solid grey;
 	float: left;
-/*	width: 57.5%;*/
-	width: auto;
+	width: 53.453302961275625%;
 	background: #f1f1f1;
 }
 
 /* search bar submit button styling */
 form.searchinput button {
-	float: right;
-	width: 14%;
+	float: left;
+	width: 10.715261958997722%;
 	height: 45px;
 	padding: 10px;
 	background: #333333;
@@ -238,7 +236,6 @@ form.searchinput::after {
 /* dropdown styling */
 select {
 	margin-left: 0px;
-	width: 28.5%;
 	height: 45px;
 	padding: 10px;
 	padding-right: 1px;
@@ -250,14 +247,14 @@ select {
 }
 
 select.ratingfilter {
-	width: auto;
-}
-
-select.suburbfilter {
-		width: auto;
+	width: 11%;
 	font-family:'FontAwesome', Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
 
+select.suburbfilter {
+	width: 24.829157175398635%;
+	font-family:'FontAwesome', Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
 
 /* results page styling */
 

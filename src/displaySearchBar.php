@@ -1,12 +1,12 @@
 <form class="searchinput" action="search-submit.php" method="post">
 	<input type="text" name="search" placeholder="Enter address or hotspot name">
 	<select class="ratingfilter">
-		<option>Star</option>
-		<option>5 Star</option>
-		<option>4+ Star</option>
-		<option>3+ Star</option>
-		<option>2+ Star</option>
-		<option>1+ Star</option>
+		<?php
+			$star = array("-----", "5&nbsp;&#xf005;", "4+&nbsp;&#xf005;", "3+&nbsp; &#xf005;", "2+&nbsp;&#xf005;", "1+&nbsp;&#xf005;");
+			for ($i=0; $i < count($star); $i++) { 
+				echo '<option>'.$star[$i].'</option>';
+			}
+		?>
 	</select>
 	<select class="suburbfilter">
 	<?php
@@ -14,6 +14,8 @@
 		function truncateStringAfter($string, $delim) { 
 		    return substr($string, 0, strpos($string, $delim));
 		}
+
+			include 'include/initDB.php';
 
 			try {
 				$result = $pdo->query('SELECT DISTINCT suburb FROM items ORDER BY suburb');
