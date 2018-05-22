@@ -1,4 +1,4 @@
-<form class="searchinput" action="results.php">
+<form class="searchinput" action="search-submit.php" method="post">
 	<input type="text" name="search" placeholder="Enter address, rating or hotspot name">
 	<select class="searchoptions">
 
@@ -29,8 +29,6 @@
 			for ($i=0; $i < count($options); $i++) { // echos options
 				echo '<option>'.$options[$i].'</option>';
 			}
-			echo "<i class='fas fa-location-arrow'></i>";
-
 		} catch (PDOException $e) {
 			echo $e->getMessage();
 		}
