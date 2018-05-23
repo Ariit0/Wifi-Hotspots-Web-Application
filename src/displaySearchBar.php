@@ -9,7 +9,7 @@
 			}
 		?>
 	</select>
-	<select class="suburbfilter" name="suburb" id="suburbOption">
+	<select class="suburbfilter" name="suburb" id="suburbOption" onchange="getLocation();">
 		<?php
 			// truncates any characters after the specified delimiter
 			function truncateStringAfter($string, $delim) { 
@@ -34,6 +34,7 @@
 				$options = array_unique($queriedOptions); // removes any duplicate values within the array
 				$options = array_values($options); // fixes the array index sequence
 
+				echo "<option>----------------------</option>";
 				$nearMe = "&#xf124; &nbsp; Near Me";
 				echo '<option value = \'NearMe\'>'.$nearMe.'</option>';
 				for ($i=0; $i < count($options); $i++) { // echos options
@@ -46,10 +47,10 @@
 		?>
 	</select>
 
-	<input type="text" id="hidden-lat" name="myLat" value="">
-	<input type="text" id="hidden-long" name="myLong" value="">
+	<input type="hidden" id="hidden-lat" name="lat" value="">
+	<input type="hidden" id="hidden-long" name="long" value="">
 
-	<button type="search" name="search" onclick="getLocation();"><i class="fa fa-search"></i></button>
+	<button type="search" name="search"><i class="fa fa-search"></i></button>
 	<script type="text/javascript" src="js/search.js"></script>
 </form>
 
