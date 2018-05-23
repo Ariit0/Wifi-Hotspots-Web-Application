@@ -5,7 +5,6 @@
 			$title = "Welcome to YelpClone";
 			include "include/header.php";
 		?>
-		<script type="text/javascript" src="js/search.js"></script>
 	</head>
 
 	<body>

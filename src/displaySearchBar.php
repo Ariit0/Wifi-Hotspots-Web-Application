@@ -1,4 +1,4 @@
-<form class="searchinput" action="search-submit.php" method="post">
+<form class="searchinput" id="searchEngine" action="search-submit.php" method="post">
 	<input type="text" name="srch" placeholder="Enter address or hotspot name">
 	<select class="ratingfilter" name="rating">
 		<?php
@@ -9,7 +9,7 @@
 			}
 		?>
 	</select>
-	<select class="suburbfilter" name="suburb">
+	<select class="suburbfilter" name="suburb" id="suburbOption">
 		<?php
 			// truncates any characters after the specified delimiter
 			function truncateStringAfter($string, $delim) { 
@@ -37,7 +37,7 @@
 				$nearMe = "&#xf124; &nbsp; Near Me";
 				echo '<option value = \'NearMe\'>'.$nearMe.'</option>';
 				for ($i=0; $i < count($options); $i++) { // echos options
-					// use pre_replace to remove any whitespace from options to use as value
+					// use preg_replace to remove any whitespace from options to use as value
 					echo '<option value = '.preg_replace('/\s+/','', $options[$i]).'>'.$options[$i].'</option>';
 				}
 			} catch (PDOException $e) {
@@ -45,5 +45,11 @@
 			}
 		?>
 	</select>
-	<button type="search" name="search"><i class="fa fa-search"></i></button>
+
+	<input type="text" id="hidden-lat" name="myLat" value="">
+	<input type="text" id="hidden-long" name="myLong" value="">
+
+	<button type="search" name="search" onclick="getLocation();"><i class="fa fa-search"></i></button>
+	<script type="text/javascript" src="js/search.js"></script>
 </form>
+
