@@ -60,10 +60,6 @@ nav {
 	margin-top: 0px;
 }
 
-#menu {
-	/*margin-left: 51.2%;*/
-}
-
 /* NAV BAR SHADOW */
 #header_shadow{
 	pointer-events:none;
@@ -136,6 +132,10 @@ body {
 
 #content h2, h4 {
 	text-align: center;
+}
+
+#menu {
+	padding-left: 17px;
 }
 
 /* styles all link elements in the menu to appear as buttons.
