@@ -13,20 +13,9 @@
 			$_id++;
 		}
 
-		echo "					
-
-
-							</div> <!-- end resultList -->
-					</div>
-					
-					<?php
-						include \"include/footer.php\";
-					?>
-				</div>
-			</body>
-		</html>
-
-		";
-	}
+		echo "</div> <!-- end resultList --></div>";
+		include "include/footer.php";
+		echo "</div></body></html>";
+		}
 ?>
 

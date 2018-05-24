@@ -181,10 +181,9 @@ body {
 	background-color: #8E8E8E;
 	text-align: center;
 	clear: both;
-	height: 50px;
+	height: 100px;
 	font-size:8pt;
 }
-
 
 .error-message {
 	visibility: hidden;
@@ -271,16 +270,25 @@ select.suburbfilter {
 
 #resultList {
 	margin-top: 20px;
-	width: 30%;
-	float: bottom;
+	width: auto;
 }
 
 #res0 {
+	width: 30%;
+	height: 150px;
 	float: left;
 }
 
 #res1 {
-	
+	width: 33%;
+	height: 150px;
+	float: left;
+}
+
+#res2 {
+	margin-left: 60%;
+	width: 33%;
+	height: 150px;
 }
 
 div.results {
