@@ -18,7 +18,7 @@
 	<body>
 		<div class="nav_bar">
 			<?php
-				include "displayNavBar.php";
+				include "include/displayNavBar.php";
 			?>
 		</div>
 
@@ -34,7 +34,7 @@
 					if (isset($_POST['Login'])) {
 						$emailaddress = $password = '';
 
-						require 'login_server_validation.php';
+						require 'include/login_server_validation.php';
 						if(ValidateLoginForm_Server()) {
 							if(TryLogin($emailaddress, $password)) {
 								session_start();
@@ -42,14 +42,14 @@
                 				header("Location: http://{$_SERVER['HTTP_HOST']}/CAB230/src/index.php");
 							} else {
 				                $server_response_msg = 'Incorrect credentials.<br><br>';
-								include "login_form.php";
+								include "include/login_form.php";
 				            }
 				        } else {
 				            $server_response_msg = 'Invalid data.<br><br>';
-							include "login_form.php";
+							include "include/login_form.php";
 				        }
 				    } else {
-						include "login_form.php";
+						include "include/login_form.php";
 				    }
 				?>
 			</div>
