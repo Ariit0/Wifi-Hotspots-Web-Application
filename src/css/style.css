@@ -269,6 +269,7 @@ select.suburbfilter {
 
 #resultList {
 	margin-top: 20px;
+	height: auto;
 	width: auto;
 }
 
@@ -280,6 +281,10 @@ select.suburbfilter {
 .resultsTable {
 	display: table;
 	width: 100%;
+}
+
+#nohot {
+	text-align: center;
 }
 
 div.results {

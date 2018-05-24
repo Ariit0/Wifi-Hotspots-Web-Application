@@ -28,7 +28,6 @@
 			</div>
 
 			<div id="content">
-				<h2>Results</h2>
 				<h4>A place to discover and review WiFi Hotspots near you.</h4>
 
 				<div id="resultContainer">

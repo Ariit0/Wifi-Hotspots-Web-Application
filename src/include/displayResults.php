@@ -27,9 +27,7 @@
 
 	function displayNoResult() {
 		echo "<div class=\"resultBody\">";
-		echo "<div class=\"results\">";
-		echo "<p> No Hotspot locations near you.</p>";
-		echo "</div> <!-- end results -->";
+		echo "<p id=\"nohot\"> No Hotspot locations near you.</p>";
 		echo "</div><!-- end resultsbody -->";
 	}
 ?>
