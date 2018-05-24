@@ -1,5 +1,7 @@
 
 <?php
+	session_start();
+
 	require 'displayResults.php';
 
 	if (isset($_POST["search"])) {
