@@ -1,5 +1,5 @@
 <?php
-	require 'include/sanitize_data';
+	require 'include/sanitize_data.php';
 
 	// Validates login information (Server-side).
 	function ValidateLoginForm_Server() {
@@ -34,12 +34,18 @@
 		require 'include/initDB.php';
 
 		try {
-	        $stmt = $pdo->prepare("SELECT * FROM members WHERE email = :email and password = SHA2(CONCAT(:password, salt), 0)");
+	        $stmt = $pdo->prepare("SELECT * FROM members WHERE email = :email");
 	        $stmt->bindValue(":email", $email);
-	        $stmt->bindValue(":password", $password);
 
 	        $stmt->execute();
-        	return $stmt->rowCount() > 0;
+
+        	if($stmt->rowCount() > 0){
+        		$row = $stmt->fetch();
+        		if(password_verify($password, $row['password'])) {
+        			return true;
+        		}
+        	}
+        	return false;
 
     	} catch (PDOException $e) {
 			echo $e->getMessage();
