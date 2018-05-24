@@ -22,21 +22,23 @@
 			
 			<div id="content">
 				<?php
-					$server_response_msg = '';
-
 					if (isset($_POST['Register'])) {
 						$firstname = $lastname = $dob = $mobile = $email = $password = $confirm_password = '';
+						$server_msg = '';
 
 						require 'register_server_validation.php';
 						if(ValidateRegisterForm_Server()) {
 							if(TryRegister($firstname, $lastname, $dob, $mobile, $email, $password)){
-				            	echo 'we registered boys';
+				            	echo 'Registration successful! <a href="login.php">Click here to login.</a>';
 							} else {
 								echo 'Server error: registration failed, please try again later.<br><br>';
 							}
 				        } else {
-				            $server_response_msg = 'Invalid data.<br><br>';
-							include "register_form.php";
+				        	if($server_msg === '') {
+				            	echo 'The server has detected invalid input data. Ensure JS is enabled on your browser before submitting for more information.<br><br>';
+				        	} else {
+				        		echo $server_msg;
+				        	}
 				        }
 				    } else {
 						include "register_form.php";

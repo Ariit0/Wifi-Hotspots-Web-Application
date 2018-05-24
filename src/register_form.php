@@ -4,7 +4,6 @@
 	<br><br>
 
 	<p>
-        <?php echo $server_response_msg; ?>
         First name* <br>
         <input id="firstname" name="firstname" type="text" onchange="OnChangeElement('firstnameErrorID');" onkeypress="OnChangeElement('firstnameErrorID');">
         <span id="firstnameErrorID" class="error-message"> First name error goes here.</span>

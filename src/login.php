@@ -31,9 +31,8 @@
 						if(ValidateLoginForm_Server()) {
 							if(TryLogin($emailaddress, $password)) {
 								session_start();
-				                $_SESSION['email'] = $emailaddress;
-				                $_SESSION['loggedIn'] = true;
-				                echo 'we in boys';
+				                $_SESSION['LoggedInEmail'] = $emailaddress;
+                				header("Location: http://{$_SERVER['HTTP_HOST']}/CAB230/src/index.php");
 							} else {
 				                $server_response_msg = 'Incorrect credentials.<br><br>';
 								include "login_form.php";
