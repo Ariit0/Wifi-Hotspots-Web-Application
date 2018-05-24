@@ -1,4 +1,5 @@
 <?php
+	session_start(); 
 
 	function displayResults($searchQuery) {
 		include 'results.php';

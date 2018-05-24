@@ -1,5 +1,5 @@
 <?php
-	require 'include/sanitize_data.php';
+	require_once 'include/sanitize_data.php';
 
 	// Validates login information (Server-side).
 	function ValidateLoginForm_Server() {
@@ -31,7 +31,7 @@
 
 	// Check if login information is valid (exists in database).
 	function TryLogin($email, $password) {
-		require 'include/initDB.php';
+		require_once 'include/initDB.php';
 
 		try {
 	        $stmt = $pdo->prepare("SELECT * FROM members WHERE email = :email");

@@ -1,3 +1,10 @@
+<?php 
+	session_start(); 
+	if(isset($_SESSION['LoggedInEmail'])) {
+    	header("Location: http://{$_SERVER['HTTP_HOST']}/CAB230/src/index.php");
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>

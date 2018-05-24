@@ -4,8 +4,15 @@
 		<li><a href="index.php">Home</a></li> 
 		<li><a href="aboutus.php">About</a></li> 
 		<li><a href="contactus.php">Contact</a></li>
-		<li><a href="login.php">Login</a></li> 
-		<li><a href="register.php">Register</a></li> 
+		<?php
+			if(!empty($_SESSION['LoggedInEmail'])) {
+				echo '<li><a href="profile.php">My Profile</a></li>';
+				echo '<li><a href="logout.php">Logout</a></li>';
+			} else {
+				echo '<li><a href="login.php">Login</a></li>';
+				echo '<li><a href="register.php">Register</a></li>';
+			}
+		?>
 	</ul>
 </nav>
 

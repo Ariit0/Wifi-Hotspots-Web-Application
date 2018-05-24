@@ -1,13 +1,12 @@
 <?php 
-    session_start(); 
-    unset($_SESSION['LoggedInEmail']); 
+	session_start(); 
 ?>
 
 <!DOCTYPE html>
 <html>
 	<head>
 		<?php
-			$title = "Logout";
+			$title = "My Profile";
 			include "include/header.php";
 		?>
 	</head>
@@ -21,11 +20,11 @@
 
 		<div id="wrapper">
 			<div id="header">
-				<h1>See you next time.......</h1>
+				<h1>My Profile</h1>
 			</div>
 					
 			<div id="content">
-				Successfully logged out.
+				Welcome to my profile! There's nothing here yet...
 			</div>
 			
 			<?php
