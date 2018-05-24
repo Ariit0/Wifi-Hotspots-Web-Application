@@ -265,7 +265,6 @@ select.suburbfilter {
 #initMap {
 	width: 100%;
 	height:600px;
-	float: left;
 }
 
 #resultList {
@@ -273,38 +272,36 @@ select.suburbfilter {
 	width: auto;
 }
 
-#res0 {
-	width: 30%;
-	height: 150px;
+.resultRow {
+	width: 100%;
 	float: left;
 }
 
-#res1 {
-	width: 33%;
-	height: 150px;
-	float: left;
-}
-
-#res2 {
-	margin-left: 60%;
-	width: 33%;
-	height: 150px;
+.resultsTable {
+	display: table;
+	width: 100%;
 }
 
 div.results {
+	float: left;
 	border-style: solid;
 	border-width: 4px;
-	border-color: #003399;
-	width: 100%;
-	background: white;
+	border-image: url('../img/bg_w.png') 30 round;
+	width: 33%;
+	height: 150px;
 }
 
 div.results h1 {
-	background-color: #003399;
-	font-size: 15pt;
+	background:url('../img/bg.png');
+	font-size: 16px;
+	height: 32px;
 	color: white;
 	margin: 0px;
+	padding: 7px;
+    white-space: nowrap; 
 	text-align: center;
+	text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 div.results p {
