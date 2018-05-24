@@ -1,8 +1,9 @@
 <?php
     require 'include/sanitize_data.php';
+    require_once 'include/initDB.php';
 
     // Validate the form by checking against all tests (Server-side).
-    function ValidateRegisterForm_Server() {
+    function ValidateRegisterForm_Server() {        
         $isValid = true;
 
         // Validate firstname: REQUIRED and alphabetic only
@@ -49,13 +50,15 @@
             $mobile = '';
         }
 
-        // Validate email address: REQUIRED and must be of an email format
+        // Validate email address: REQUIRED and must be of an email format, AND must not be already registered.
         global $email;
         if(empty($_POST['email'])) {
             $isValid = false;
         } else {
             $email = sanitize_data($_POST['email']);
             if (CheckValidEmail($email) === false) {
+                $isValid = false;
+            } else if (CheckEmailNotRegistered($email) == false) {
                 $isValid = false;
             }
         }
@@ -116,6 +119,20 @@
         return false;
     }
 
+    // Ensure email is not already registered in the database.
+    function CheckEmailNotRegistered($email) {
+        global $pdo;
+        $results = $pdo->query('SELECT email FROM members');
+        foreach ($results as $result) {
+            if(strcasecmp($email, $result['email']) == 0) {
+                global $server_msg;
+                $server_msg = 'Email is already in use.';
+                return false;
+            }
+        }
+        return true;
+    }
+
     // Check if the email is valid.
     function CheckValidEmail($email) {
         //Regex obtained from: http://blog.gerv.net/2011/05/html5_email_address_regexp/
@@ -124,8 +141,7 @@
 
     // Try register the user after validating information.
     function TryRegister($firstname, $lastname, $dob, $mobile, $email, $password) {
-        require 'include/initDB.php';
-
+        global $pdo;
         //// Get the DoB value into the correct format for mysql database (yyyy-mm-dd).
         // Replace slashes with dashes.
         $dob = str_replace('/', '-', $dob);
