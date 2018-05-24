@@ -28,39 +28,6 @@
 					<div id="initMap"></div>
 					<!-- google api call for google maps, must be called here -->
 					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeDXwaLc0EQeMCbofBs7OwhOU32X4fY1E&callback=initMap"></script>
-
-					<div id="resultList">
-						<div class="results">
-							<a href="sampleitem.php">
-
-								<h1>Result 1</h1>
-								<p>A short sentence of arbitrary text</p>
-
-							</a>
-							
-							<h1>Result 2</h1>
-							<p>A different short sentence of arbitrary text</p>
-
-							<h1>Result 3</h1>
-							<p>A short sentence of arbitrary text</p>
-
-							<h1>Result 4</h1>
-							<p>A short sentence of arbitrary text</p>
-							<h1>Result 5</h1>
-							<p>A short sentence of arbitrary text</p>
-							<h1>Result 6</h1>
-							<p>A short sentence of arbitrary text</p>
-							<h1>Result 7</h1>
-							<p>A short sentence of arbitrary text</p>
-
-						</div> <!-- end results -->
-					</div> <!-- end resultList -->
 				</div> <!-- end resultwrapper -->
-			</div>
-			
-			<?php
-				include "include/footer.php";
-			?>
-		</div>
-	</body>
-</html>
+					<div id="resultList">
+

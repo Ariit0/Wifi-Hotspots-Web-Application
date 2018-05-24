@@ -34,7 +34,7 @@
 				$options = array_unique($queriedOptions); // removes any duplicate values within the array
 				$options = array_values($options); // fixes the array index sequence
 
-				echo "<option>----------------------</option>";
+				echo "<option value=\"\">----------------------</option>";
 				$nearMe = "&#xf124; &nbsp; Near Me";
 				echo '<option value = \'NearMe\'>'.$nearMe.'</option>';
 				for ($i=0; $i < count($options); $i++) { // echos options
@@ -46,7 +46,7 @@
 			}
 		?>
 	</select>
-
+	<!-- Hidden input tags to send geo location data to php script -->
 	<input type="hidden" id="hidden-lat" name="lat" value="">
 	<input type="hidden" id="hidden-long" name="long" value="">
 

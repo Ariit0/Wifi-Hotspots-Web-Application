@@ -1,4 +1,7 @@
+
 <?php
+	require 'displayResults.php';
+
 	if (isset($_POST["search"])) {
 		$_searchInput = $_POST['srch'];
 		$_rateInput = $_POST['rating'];
@@ -6,51 +9,37 @@
 		$_getLat = $_POST['lat'];
 		$_getLong = $_POST['long'];
 
-			echo "Seachinput = $_searchInput <br>";
-			echo "Rate = $_rateInput <br>";
-			echo "Suburb = $_suburbInput <br>";
+			// echo "Seachinput = $_searchInput <br>";
+			// echo "Rate = $_rateInput <br>";
+			// echo "Suburb = $_suburbInput <br>";
 		
 		require 'include/initDB.php';
 
-		try {
+		try { // TODO: search by rating
 			if ($_suburbInput == "NearMe") { // query in geo location date and search based on long and lat
-								echo "im here for somereason";
-				// used to set a arbitrary range near me location
-				$_latUpper = floatval($_getLat) + 0.4;
-				$_latLower = floatval($_getLat) - 0.4;
-				$_loUpper = floatval($_getLong) + 0.4;
-				$_loLower = floatval($_getLong) - 0.4;
+				// used to set a arbitrary range for near me location
+				$_latUpper = floatval($_getLat) + 0.1;
+				$_latLower = floatval($_getLat) - 0.1;
+				$_loUpper = floatval($_getLong) + 0.1;
+				$_loLower = floatval($_getLong) - 0.1;
 
-
-				$searchQuery = $pdo->prepare("SELECT name, address, suburb FROM items WHERE (latitude BETWEEN ':latLower' AND ':latUpper') AND (longitude BETWEEN ':loLower' AND ':loUpper') ");
-				$searchQuery->bindValue(':latUpper', $_latUpper);
+				$searchQuery = $pdo->prepare("SELECT name, address, suburb FROM items WHERE ((latitude BETWEEN :latLower AND :latUpper) AND (longitude BETWEEN :loLower AND :loUpper)) ");
 				$searchQuery->bindValue(':latLower', $_latLower);
-				$searchQuery->bindValue(':loUpper', $_latUpper);
-				$searchQuery->bindValue(':loLower', $_latLower);
-				$searchQuery->execute();
-			} else { 
-												echo "im here foraassdsaasasdsdasomereason";
-				$searchQuery = $pdo->prepare("SELECT name, address, suburb FROM items WHERE suburb LIKE '%$_suburbInput%' AND (address LIKE '%:_searchInput%' OR name LIKE '%$_searchInput%')");
-				// $searchQuery = $pdo->prepare("SELECT name, address, suburb FROM items WHERE suburb LIKE '%:suburb%' AND (address LIKE '%:address%' OR name LIKE '%:name%')");
-
-				// $searchQuery->bindValue(':suburb', $_suburbInput);
-				// $searchQuery->bindValue(':address', $_searchInput);
-				// $searchQuery->bindValue(':name', $_searchInput);
+				$searchQuery->bindValue(':latUpper', $_latUpper);
+				$searchQuery->bindValue(':loLower', $_loLower);
+				$searchQuery->bindValue(':loUpper', $_loUpper);
 				$searchQuery->execute();
 
-				foreach ($searchQuery as $suburb) {
-					echo "".$suburb['name']." <br>";
-					echo "".$suburb['address']." <br>";
-					echo "".$suburb['suburb']. "<br>";
-				}
+				displayResults($searchQuery);
+			} else { // regular search engine query 
+				$searchQuery = $pdo->prepare("SELECT name, address, suburb FROM items WHERE suburb LIKE ? OR (address LIKE ? OR name LIKE ?)");
+				$searchQuery->bindValue(1, "%".$_suburbInput."%", PDO::PARAM_STR);
+				$searchQuery->bindValue(2, "%".$_searchInput."%", PDO::PARAM_STR);
+				$searchQuery->bindValue(3, "%".$_searchInput."%", PDO::PARAM_STR);
+				$searchQuery->execute();
+
+				displayResults($searchQuery);	
 			}
-
-
-			// echo "Lat = $_latUpper <br>";
-			// echo "latlo = $_latLower <br>";
-			// echo "Lat = $_loUpper <br>";
-			// echo "latlo = $_loLower <br>";
-
 
 		} catch (PDOException $e) {
 			echo $e->getMessage();

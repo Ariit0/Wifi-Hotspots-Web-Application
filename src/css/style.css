@@ -264,14 +264,23 @@ select.suburbfilter {
 }
 
 #initMap {
-	width:50%;
+	width: 100%;
 	height:600px;
 	float: left;
 }
 
 #resultList {
-	width: 50%;
-	float: right;
+	margin-top: 20px;
+	width: 30%;
+	float: bottom;
+}
+
+#res0 {
+	float: left;
+}
+
+#res1 {
+	
 }
 
 div.results {
