@@ -14,7 +14,7 @@
 	<body>
 		<div class="nav_bar">
 			<?php
-				include "displayNavBar.php";
+				include "include/displayNavBar.php";
 			?>
 
 		</div>
@@ -27,7 +27,7 @@
 					<h4>A place to discover and review WiFi Hotspots near you.</h4>
 					<div id="searchbar">
 						<?php
-							include "displaySearchBar.php";
+							include "include/displaySearchBar.php";
 						?>
 					</div>
 

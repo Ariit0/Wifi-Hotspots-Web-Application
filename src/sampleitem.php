@@ -14,7 +14,7 @@
 	<body>
 		<div class="nav_bar">
 			<?php
-				include "displayNavBar.php";
+				include "include/displayNavBar.php";
 			?>
 		</div>
 

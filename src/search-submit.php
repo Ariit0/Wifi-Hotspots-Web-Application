@@ -14,7 +14,7 @@
 	<body>
 		<div class="nav_bar">
 			<?php
-				include "displayNavBar.php";
+				include "include/displayNavBar.php";
 			?>
 		</div>
 
@@ -35,7 +35,7 @@
 					<div id="resultList">
 						<?php
 							if (isset($_POST["search"])) {
-								include 'search-query.php';
+								include 'include/search-query.php';
 							} else {
 								//  redirect to index if trying to access search-submit URL directly
                 				header("Location: http://{$_SERVER['HTTP_HOST']}/yelpclone/index.php");							
