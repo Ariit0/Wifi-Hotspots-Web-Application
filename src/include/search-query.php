@@ -17,7 +17,7 @@
 				$_loUpper = floatval($_getLong) + 0.1;
 				$_loLower = floatval($_getLong) - 0.1;
 
-				$searchQuery = $pdo->prepare("SELECT name, address, suburb FROM items WHERE ((latitude BETWEEN :latLower AND :latUpper) AND (longitude BETWEEN :loLower AND :loUpper)) ");
+				$searchQuery = $pdo->prepare("SELECT ID, name, address, suburb FROM items WHERE ((latitude BETWEEN :latLower AND :latUpper) AND (longitude BETWEEN :loLower AND :loUpper)) ");
 				$searchQuery->bindValue(':latLower', $_latLower);
 				$searchQuery->bindValue(':latUpper', $_latUpper);
 				$searchQuery->bindValue(':loLower', $_loLower);
@@ -31,7 +31,7 @@
 				}
 
 			} else { // regular search engine query 
-				$searchQuery = $pdo->prepare("SELECT name, address, suburb FROM items WHERE suburb LIKE ? OR (address LIKE ? OR name LIKE ?)");
+				$searchQuery = $pdo->prepare("SELECT ID, name, address, suburb FROM items WHERE suburb LIKE ? OR (address LIKE ? OR name LIKE ?)");
 				$searchQuery->bindValue(1, "%".$_suburbInput."%", PDO::PARAM_STR);
 				$searchQuery->bindValue(2, "%".$_searchInput."%", PDO::PARAM_STR);
 				$searchQuery->bindValue(3, "%".$_searchInput."%", PDO::PARAM_STR);
