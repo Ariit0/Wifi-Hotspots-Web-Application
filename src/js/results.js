@@ -19,3 +19,10 @@ var marker2 = new google.maps.Marker({
     title: 'Hello World!'
   });
 }
+
+// used to pass ID of clicked item to next page
+function postID(clicked_item) {
+	document.getElementById('hidden').value = clicked_item.name;
+	document.getElementById('searchResults').submit();
+}
+

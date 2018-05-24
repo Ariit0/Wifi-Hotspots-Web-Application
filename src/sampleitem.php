@@ -1,5 +1,12 @@
 <?php 
 	session_start();
+
+
+	// this is how you get the id
+	$rs = $_POST['hidden-id'];
+
+	echo "<br><br><br><br><br><br><br><br><br><br>";
+	echo $rs;
 ?>
 
 <!DOCTYPE html>
