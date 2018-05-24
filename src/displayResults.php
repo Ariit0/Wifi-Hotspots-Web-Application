@@ -1,9 +1,5 @@
 <?php
-	session_start(); 
-
 	function displayResults($searchQuery) {
-		include 'results.php';
-
 		$_id = 0;
 		foreach ($searchQuery as $suburb) {
 			echo "<div class=\"results\" id = \"res$_id\">";
@@ -13,10 +9,12 @@
 			echo "</div> <!-- end results -->";
 			$_id++;
 		}
+	}
 
-		echo "</div> <!-- end resultList --></div>";
-		include "include/footer.php";
-		echo "</div></body></html>";
-		}
+	function displayNoResult() {
+		echo "<div class=\"results\">";
+		echo "<p> No Hotspot locations near you.</p>";
+		echo "</div> <!-- end results -->";
+	}
 ?>
 
