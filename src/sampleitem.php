@@ -28,15 +28,6 @@
 					<div id="initMap"></div>
 					<!-- google api call for google maps, must be called here -->
 					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeDXwaLc0EQeMCbofBs7OwhOU32X4fY1E&callback=initMap"></script>
-
-					<div id="resultList">
-						<div class="results">
-							<h1>Result 1</h1>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tortor ex, dictum sit amet finibus tristique, pharetra a lacus. Ut gravida turpis ultrices, varius lacus at, consequat nisi. Vivamus tempor diam id nulla fringilla molestie. Fusce sed dui euismod, pulvinar diam id, cursus ex. Nulla facilisi. Quisque vitae massa dapibus neque congue auctor in vitae nunc. Pellentesque egestas purus sed diam sodales viverra. Maecenas vulputate, enim sit amet vulputate dapibus, metus sapien laoreet lorem, vel mollis orci sapien sit amet ante. Nulla facilisi. Vestibulum varius rutrum mauris a pretium. Donec quis massa condimentum, malesuada mi id, iaculis urna.
-
-							Cras quis tortor laoreet, tempor erat quis, ultricies mi. Proin bibendum, nulla et hendrerit porta, quam nisl bibendum felis, non sagittis diam enim ac felis. Praesent sagittis erat blandit dolor scelerisque, nec pharetra tellus fermentum. Nam nibh enim, consequat fringilla aliquet quis, efficitur condimentum sem. Suspendisse neque massa, congue sed blandit iaculis, egestas vitae nisi. Phasellus eu nulla id tortor rutrum luctus. Mauris tincidunt lacus vitae eleifend euismod. Nulla laoreet commodo mi id accumsan. 
-						</div> <!-- end results -->
-					</div> <!-- end resultList -->
 				</div> <!-- end resultContainer -->
 
 				<div id="reviewBanner">
