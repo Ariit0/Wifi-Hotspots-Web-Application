@@ -126,14 +126,28 @@
     function TryRegister($firstname, $lastname, $dob, $mobile, $email, $password) {
         require 'include/initDB.php';
 
+        //// Get the DoB value into the correct format for mysql database (yyyy-mm-dd).
+        // Replace slashes with dashes.
+        $dob = str_replace('/', '-', $dob);
+        // Seperate values between dashes into an array.
+        $token = strtok($dob, "-");
+        while($token !== false) {
+            $dob_components[] = $token;
+            $token = strtok("-");
+        }
+        // Reverse the array (dd-mm-yyyy to yyyy-mm-dd format).
+        $dob_components = array_reverse($dob_components);
+        // Glue the array back together seperated with dashes.
+        $dob = implode("-", $dob_components);
+
         try {
             $stmt = $pdo->prepare("INSERT INTO members(firstname, lastname, dateOfBirth, mobileNo, email, password) VALUES(:firstname, :lastname, :dob, :mobile, :email, :password)");
             $stmt->bindValue(":firstname", $firstname);
             $stmt->bindValue(":lastname", $lastname);
-            $stmt->bindValue(":dob", str_replace('/', '-', $dob));
+            $stmt->bindValue(":dob", $dob);
             $stmt->bindValue(":mobile", $mobile);
             $stmt->bindValue(":email", $email);
-            $stmt->bindValue(":password", $password);
+            $stmt->bindValue(":password", password_hash($password, PASSWORD_DEFAULT));
 
             $stmt->execute();
             return true;
