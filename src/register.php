@@ -19,7 +19,7 @@
 	<body>
 		<div class="nav_bar">
 			<?php
-				include "displayNavBar.php";
+				include "include/displayNavBar.php";
 			?>
 		</div>
 		
@@ -34,7 +34,7 @@
 						$firstname = $lastname = $dob = $mobile = $email = $password = $confirm_password = '';
 						$server_msg = '';
 
-						require 'register_server_validation.php';
+						require 'include/register_server_validation.php';
 						if(ValidateRegisterForm_Server()) {
 							if(TryRegister($firstname, $lastname, $dob, $mobile, $email, $password)){
 				            	echo 'Registration successful! <a href="login.php">Click here to login.</a>';
@@ -49,7 +49,7 @@
 				        	}
 				        }
 				    } else {
-						include "register_form.php";
+						include "include/register_form.php";
 				    }
 				?>
 			</div>
