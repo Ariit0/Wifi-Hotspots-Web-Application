@@ -48,4 +48,5 @@
 			?>
 		</div><!-- wrapper content -->
 	</body>
-</html>;
+</html>
+
