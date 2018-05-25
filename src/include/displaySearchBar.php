@@ -2,7 +2,7 @@
 	<input type="text" name="srch" placeholder="Enter address or hotspot name">
 	<select class="ratingfilter" name="rating">
 		<?php
-			$star = array("-----", "5&nbsp;&#xf005;", "4+&nbsp;&#xf005;", "3+&nbsp; &#xf005;", "2+&nbsp;&#xf005;", "1+&nbsp;&#xf005;");
+			$star = array("--------", "5&nbsp;&nbsp;&nbsp;&nbsp;&#xf005;", "4+&nbsp;&#xf005;", "3+&nbsp;&#xf005;", "2+&nbsp;&#xf005;", "1+&nbsp;&#xf005;");
 			$starValue = array(0, 5, 4, 3, 2, 1);
 			for ($i=0; $i < count($star); $i++) { 
 				echo '<option value ='.$starValue[$i].'>'.$star[$i].'</option>';
@@ -34,7 +34,7 @@
 				$options = array_unique($queriedOptions); // removes any duplicate values within the array
 				$options = array_values($options); // fixes the array index sequence
 
-				echo "<option value=\"\">----------------------</option>";
+				echo "<option value=\"0\">----Select Suburb----</option>";
 				$nearMe = "&#xf124; &nbsp; Near Me";
 				echo '<option value = \'NearMe\'>'.$nearMe.'</option>';
 				for ($i=0; $i < count($options); $i++) { // echos options
