@@ -165,8 +165,7 @@
             $stmt->bindValue(":email", $email);
             $stmt->bindValue(":password", password_hash($password, PASSWORD_DEFAULT));
 
-            $stmt->execute();
-            return true;
+            return $stmt->execute();
 
         } catch (PDOException $e) {
             echo $e->getMessage();
