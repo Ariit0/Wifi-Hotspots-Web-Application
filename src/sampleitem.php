@@ -1,14 +1,6 @@
 <?php 
-	session_start();
-
-
-	// this is how you get the id
-	$rs = $_POST['hidden-id'];
-	$x = $_POST['hidden-name'];
-
-	echo "<br><br><br><br><br><br><br><br><br><br>";
-	echo $rs;
-	echo $x;
+	$itemID = $_POST['hidden-id'];
+	$itemName = $_POST['hidden-name'];
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +32,7 @@
 				</div> <!-- end resultContainer -->
 
 				<div id="reviewBanner">
-					<h3>Review</h3>
+					<h3>Reviews</h3>
 				</div>
 				
 				<div id="reviewContainer">
@@ -51,7 +43,7 @@
 									<div>							
 										<img src="img/reviewtempbank(mustreplace).png" alt="reviewer">
 
-										<a href="#" id="writeReview"> Write a Review</a>
+										<p><a href="write_review.php" id="writeReview"> Write a Review</a><p>
 									</div>
 									<hr>
 								</li>

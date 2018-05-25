@@ -1,14 +1,10 @@
-<?php 
-    session_start(); 
-    unset($_SESSION['LoggedInEmail']); 
-?>
-
 <!DOCTYPE html>
 <html>
 	<head>
 		<?php
 			$title = "Logout";
 			include "include/header.php";
+    		unset($_SESSION['userID']); 
 		?>
 	</head>
 

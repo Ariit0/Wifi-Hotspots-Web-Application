@@ -1,17 +1,15 @@
-<?php 
-	session_start(); 
-	if(isset($_SESSION['LoggedInEmail'])) {
-    	header("Location: http://{$_SERVER['HTTP_HOST']}/CAB230/src/index.php");
-	}
-?>
-
 <!DOCTYPE html>
 <html>
 	<head>
 		<?php
 			$title = "Login";
 			include "include/header.php";
+
+			if(isset($_SESSION['userID'])) {
+		    	header("Location: http://{$_SERVER['HTTP_HOST']}/CAB230/src/index.php");
+			}
 		?>
+		<script type="text/javascript" src="js/general_validation.js"></script>
 		<script type="text/javascript" src="js/login_client_validation.js"></script>
 	</head>
 
