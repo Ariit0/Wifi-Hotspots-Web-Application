@@ -4,7 +4,12 @@
 		<?php
 			$title = "Logout";
 			include "include/header.php";
-    		unset($_SESSION['userID']); 
+
+			if(!isset($_SESSION['userID'])) {
+		    	header("Location: http://{$_SERVER['HTTP_HOST']}/CAB230/src/login.php");
+			} else {
+    			unset($_SESSION['userID']); 
+    		}
 		?>
 	</head>
 

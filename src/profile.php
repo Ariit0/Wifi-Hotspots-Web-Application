@@ -4,6 +4,10 @@
 		<?php
 			$title = "My Profile";
 			include "include/header.php";
+			
+			if(!isset($_SESSION['userID'])) {
+		    	header("Location: http://{$_SERVER['HTTP_HOST']}/CAB230/src/login.php");
+			}
 		?>
 	</head>
 
