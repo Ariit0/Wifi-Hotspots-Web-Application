@@ -33,8 +33,8 @@
 
 						require 'include/review_server_validation.php';
 						if(ValidateReviewForm_Server()) {
-							if(TryCreateReview($itemID, $_SESSION['userID'], $rating, $description)){
-				            	echo 'Review created successfully! Click here to return to (name of item).';
+							if(TryCreateReview($_SESSION['currentItemID'], $_SESSION['userID'], $rating, $description)){
+				            	echo 'Review created successfully! Click here to return to '. $_SESSION['currentItemName'];
 							} else {
 								echo 'Server error: Review creation failed, please try again later.';
 							}
@@ -46,6 +46,7 @@
 				        	}
 				        }
 				    } else {
+				    	echo "<h2>". $_SESSION['currentItemName'] ."</h2>";
 						include "include/review_form.php";
 				    }
 				?>

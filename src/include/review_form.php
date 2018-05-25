@@ -1,6 +1,4 @@
 <form action="write_review.php" method="post" onsubmit="return ValidateReviewForm_Client(this);">
-	<h2>(Name of Wifi Hotspot here)</h2>
-
 	<p>
         Rating*<br>
         <select name="rating">
