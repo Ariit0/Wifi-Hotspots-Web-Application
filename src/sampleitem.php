@@ -62,7 +62,7 @@
 
 							        $stmt = $pdo->prepare('SELECT '.
 							        	'members.firstName, members.LastName, reviews.userID, reviews.itemID, reviews.description, reviews.rating, reviews.dateOfReview  '.
-							        	'FROM reviews INNER JOIN members ON reviews.userID = members.ID INNER JOIN items ON reviews.itemID = items.ID WHERE itemID = :itemID');
+							        	'FROM reviews INNER JOIN members ON reviews.userID = members.ID WHERE itemID = :itemID');
 							        $stmt->bindValue(":itemID", $itemID);
 
 							        if($stmt->execute()) {
@@ -72,7 +72,7 @@
 
 											echo '<img src="img/reviewtempbank(mustreplace).png" alt="reviewer">';
 
-											echo '<p>';
+											echo '<p class=\'review\'>';
 											echo "<b>". $review['firstName'] ."</b> | ". $review['dateOfReview'] ."<br>";
 											echo "Rating: ". $review['rating'] ."&nbsp;&#xf005;<br><br>";
 											echo $review['description'];
