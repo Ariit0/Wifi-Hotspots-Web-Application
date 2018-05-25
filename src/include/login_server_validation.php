@@ -37,19 +37,19 @@
 	        $stmt = $pdo->prepare("SELECT * FROM members WHERE email = :email");
 	        $stmt->bindValue(":email", $email);
 
-	        $stmt->execute();
-
-        	if($stmt->rowCount() > 0){
-        		$row = $stmt->fetch();
-        		if(password_verify($password, $row['password'])) {
-        			return true;
-        		}
+	        if($stmt->execute()) {
+	        	if($stmt->rowCount() > 0){
+	        		$row = $stmt->fetch();
+	        		if(password_verify($password, $row['password'])) {
+	        			return $row['ID'];
+	        		}
+	        	}
         	}
-        	return false;
+        	return null;
 
     	} catch (PDOException $e) {
 			echo $e->getMessage();
-			return false;
+			return null;
 		}
 	}
 ?>
