@@ -34,9 +34,10 @@
 
 						require 'include/login_server_validation.php';
 						if(ValidateLoginForm_Server()) {
-							if(TryLogin($emailaddress, $password)) {
+							$userID = TryLogin($emailaddress, $password);
+							if(!is_null($userID)) {
 								session_start();
-				                $_SESSION['LoggedInEmail'] = $emailaddress;
+				                $_SESSION['userID'] = $userID;
                 				header("Location: http://{$_SERVER['HTTP_HOST']}/CAB230/src/index.php");
 							} else {
 				                $server_response_msg = 'Incorrect credentials.<br><br>';
