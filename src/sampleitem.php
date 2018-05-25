@@ -51,38 +51,33 @@
 									</div>
 									<hr>
 								</li>
-								<li>
-									<div>							
-										<img src="img/reviewtempbank(mustreplace).png" alt="reviewer">
 
-										<p>Amazing 10/10 would come again</p>
-									</div>
-									<hr>
-								</li>
-								<li>
-									<div>							
-										<img src="img/reviewtempbank(mustreplace).png" alt="reviewer">
+								<?php
+									require_once 'include/initDB.php';
 
-										<p>5/7 pretty nice</p>
-									</div>
-									<hr>
-								</li>
-								<li>
-									<div>							
-										<img src="img/reviewtempbank(mustreplace).png" alt="reviewer">
+							        $stmt = $pdo->prepare("SELECT * FROM reviews, members WHERE reviews.itemID = :itemID AND members.ID = reviews.userID");
+							        $stmt->bindValue(":itemID", $itemID);
 
-										<p>I couldn't get any wifi access</p>
-									</div>
-									<hr>
-								</li>
-								<li>
-									<div>							
-										<img src="img/reviewtempbank(mustreplace).png" alt="reviewer">
+							        if($stmt->execute()) {
+										foreach ($stmt as $review) {
+											echo '<li>';
+											echo '<div>';
 
-										<p>hard coded reviews are great</p>
-									</div>
-									<hr>
-								</li>
+											echo '<img src="img/reviewtempbank(mustreplace).png" alt="reviewer">';
+
+											echo '<p>';
+											echo $review['firstName'] ."<br>";
+											echo "Rating: ". $review['rating'] ."<br><br>";
+											echo $review['description'];
+											echo '</p>';
+
+											echo '</div>';
+											echo '</li>';
+
+											echo '<hr>';
+										}
+									}
+								?>
 							</ul>
 						</div>
 					</div>
