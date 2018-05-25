@@ -55,7 +55,9 @@
 								<?php
 									require_once 'include/initDB.php';
 
-							        $stmt = $pdo->prepare("SELECT * FROM reviews, members WHERE reviews.itemID = :itemID AND members.ID = reviews.userID");
+							        $stmt = $pdo->prepare('SELECT firstName, LastName, dateOfReview, description, rating, userID, itemID  '.
+							        	'FROM members INNER JOIN reviews '.
+							        	'WHERE reviews.itemID = :itemID AND members.ID = reviews.userID');
 							        $stmt->bindValue(":itemID", $itemID);
 
 							        if($stmt->execute()) {
@@ -66,8 +68,8 @@
 											echo '<img src="img/reviewtempbank(mustreplace).png" alt="reviewer">';
 
 											echo '<p>';
-											echo $review['firstName'] ."<br>";
-											echo "Rating: ". $review['rating'] ."<br><br>";
+											echo "<b>". $review['firstName'] ."</b> | ". $review['dateOfReview'] ."<br>";
+											echo "Rating: ". $review['rating'] ."&nbsp;&#xf005;<br><br>";
 											echo $review['description'];
 											echo '</p>';
 
