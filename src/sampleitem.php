@@ -4,9 +4,11 @@
 
 	// this is how you get the id
 	$rs = $_POST['hidden-id'];
+	$x = $_POST['hidden-name'];
 
 	echo "<br><br><br><br><br><br><br><br><br><br>";
 	echo $rs;
+	echo $x;
 ?>
 
 <!DOCTYPE html>

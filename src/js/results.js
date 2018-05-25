@@ -20,9 +20,11 @@ var marker2 = new google.maps.Marker({
   });
 }
 
-// used to pass ID of clicked item to next page
+// used to pass information of clicked item to next page
 function postID(clicked_item) {
-	document.getElementById('hidden').value = clicked_item.name;
+  
+  document.getElementById('hidden-itemname').value = clicked_item.getAttribute('value');
+	document.getElementById('hidden-itemid').value = clicked_item.name;
 	document.getElementById('searchResults').submit();
 }
 
