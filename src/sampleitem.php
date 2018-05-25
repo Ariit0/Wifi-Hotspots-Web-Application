@@ -1,6 +1,7 @@
 <?php 
 	$itemID = $_POST['hidden-id'];
-	$itemName = $_POST['hidden-name'];
+	// Add spaces before each capital letter in the name.
+	$itemName = preg_replace('/(?<!\ )[A-Z]/', ' $0', $_POST['hidden-name']);
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +22,7 @@
 
 		<div id="wrapper">
 			<div id="header">
-				<h1> Result 1 </h1>
+				<h1> <?php echo $itemName; ?> </h1>
 			</div>
 
 			<div id="content">
@@ -44,8 +45,7 @@
 										<img src="img/reviewtempbank(mustreplace).png" alt="reviewer">
 										<?php
 											$_SESSION['currentItemID'] = $itemID;
-											// Add spaces before each capital letter in the name.
-											$_SESSION['currentItemName'] = preg_replace('/(?<!\ )[A-Z]/', ' $0', $itemName);
+											$_SESSION['currentItemName'] = $itemName;
 										?>
 										<p><a href="write_review.php" id="writeReview"> Write a Review</a><p>
 									</div>
