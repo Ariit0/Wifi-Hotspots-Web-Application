@@ -44,7 +44,8 @@
 										<img src="img/reviewtempbank(mustreplace).png" alt="reviewer">
 										<?php
 											$_SESSION['currentItemID'] = $itemID;
-											$_SESSION['currentItemName'] = $itemName;
+											// Add spaces before each capital letter in the name.
+											$_SESSION['currentItemName'] = preg_replace('/(?<!\ )[A-Z]/', ' $0', $itemName);
 										?>
 										<p><a href="write_review.php" id="writeReview"> Write a Review</a><p>
 									</div>
