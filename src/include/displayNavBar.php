@@ -5,7 +5,7 @@
 		<li><a href="aboutus.php">About</a></li> 
 		<li><a href="contactus.php">Contact</a></li>
 		<?php
-			if(!empty($_SESSION['LoggedInEmail'])) {
+			if(!empty($_SESSION['userID'])) {
 				echo '<li><a href="profile.php">My Profile</a></li>';
 				echo '<li><a href="logout.php">Logout</a></li>';
 			} else {
