@@ -55,9 +55,9 @@
 								<?php
 									require_once 'include/initDB.php';
 
-							        $stmt = $pdo->prepare('SELECT firstName, LastName, dateOfReview, description, rating, userID, itemID  '.
-							        	'FROM members INNER JOIN reviews '.
-							        	'WHERE reviews.itemID = :itemID AND members.ID = reviews.userID');
+							        $stmt = $pdo->prepare('SELECT '.
+							        	'members.firstName, members.LastName, reviews.userID, reviews.itemID, reviews.description, reviews.rating, reviews.dateOfReview  '.
+							        	'FROM reviews INNER JOIN members ON reviews.userID = members.ID INNER JOIN items ON reviews.itemID = items.ID WHERE itemID = :itemID');
 							        $stmt->bindValue(":itemID", $itemID);
 
 							        if($stmt->execute()) {
