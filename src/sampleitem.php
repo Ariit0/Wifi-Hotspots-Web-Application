@@ -46,8 +46,13 @@
 										<?php
 											$_SESSION['currentItemID'] = $itemID;
 											$_SESSION['currentItemName'] = $itemName;
+
+											if(isset($_SESSION['userID'])) {
+												echo '<p><a href="write_review.php" id="writeReview"> Write a review!</a><p>';
+											} else {
+												echo '<p><a href="login.php" id="writeReview"> Log in to write a review</a><p>';
+											}
 										?>
-										<p><a href="write_review.php" id="writeReview"> Write a Review</a><p>
 									</div>
 									<hr>
 								</li>
