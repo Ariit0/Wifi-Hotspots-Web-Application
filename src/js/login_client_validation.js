@@ -17,32 +17,3 @@ function ValidateLoginForm_Client(form) {
 
     return isValid;
 }
-
-// Event handler to hide the error text on value changed.
-function OnChangeElement(id) {
-    document.getElementById(id).style.visibility = "hidden";
-}
-
-// Display error message text for an element id.
-function DisplayError(errorID, errorMSG) {
-    document.getElementById(errorID).textContent = errorMSG;
-    document.getElementById(errorID).style.visibility = "visible";
-}
-
-// Check if value is not empty.
-function CheckValueNotEmpty(value) {
-    if(value !== ""){
-        return true;
-    }
-    return false;
-}
-
-// Check if the email is valid.
-function CheckValidEmail(email) {
-    //Regex obtained from: http://blog.gerv.net/2011/05/html5_email_address_regexp/
-    var pattern = new RegExp("^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
-    if(pattern.test(email)) {
-        return true;
-    }
-    return false;
-}
