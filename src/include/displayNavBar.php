@@ -1,5 +1,5 @@
 <nav id="nav_centre">	
-	<div id="logo"><a id="logoLink" href="index.php"><img src="img/logo.png" id="logoImg"></a></div>
+	<div id="logo"><a id="logoLink" href="index.php"><img src="img/logo.png" id="logoImg" alt="logo"></a></div>
 	<ul id="menu">	
 		<li><a href="index.php">Home</a></li> 
 		<li><a href="aboutus.php">About</a></li> 

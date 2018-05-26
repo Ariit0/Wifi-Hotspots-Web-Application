@@ -51,7 +51,7 @@
 	<input type="hidden" id="hidden-lat" name="lat" value="">
 	<input type="hidden" id="hidden-long" name="long" value="">
 
-	<button type="search" name="search"><i class="fa fa-search"></i></button>
+	<button type="submit" name="search"><i class="fa fa-search"></i></button>
 	<script type="text/javascript" src="js/search.js"></script>
 </form>
 
