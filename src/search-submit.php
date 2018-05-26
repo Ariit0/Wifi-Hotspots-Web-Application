@@ -46,7 +46,6 @@
 						<div id="initMap"></div>
 						<!-- google api call for google maps, must be called here -->
 						<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeDXwaLc0EQeMCbofBs7OwhOU32X4fY1E&callback=initMap"></script>
-						<script type="text/javascript">getTotalLocations();storeLatLng();storeName();</script><!-- gets total amount of geo locations and stores lat/long to pass on to create map markers -->
 					</div> <!-- end resultContainer -->
 				</div> <!-- end resultList -->
 

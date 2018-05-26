@@ -17,8 +17,8 @@
 			}
 
 			echo "<div class=\"results\">";
-			// used to send data for map markers
-			echo "<input type=\"hidden\" class=\"resultLatLngs\" name=\"".htmlspecialchars($item['name'])."\" value=\"".$item['latitude']." ".$item['longitude']."\" data-id=\"".$item['ID']."\"/>"; $counter++;
+			echo "<input type=\"hidden\" class=\"resultData\" data-name=\"".$item['name']."\" data-lat=\"".$item['latitude']."\" data-lng=\"".$item['longitude']."\" data-id=\"".$item['ID']."\"/>"; 
+			$counter++;
 			// data- attribute used to store custom data
 			echo "<a href=\"#\" data-name=".$item['ID']." data-value=".preg_replace('/\s+/','',str_replace("'", "&#39;",$item['name']))." data-lat=\"".$item['latitude']."\" data-lng=\"".$item['longitude']."\" onclick=\"postID(this);\"><h1>".$item['name']."</h1>";
 			echo "<p>".$item['address']."";
