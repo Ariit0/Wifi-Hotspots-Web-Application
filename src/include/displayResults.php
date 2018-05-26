@@ -11,7 +11,7 @@
 		echo "<input type=\"hidden\" name=\"hidden-lng\" id=\"hidden-itemlng\" value=\"\" />";
 		echo "<div class=\"resultBody\">";
 		foreach ($searchQuery as $item) {  
-			if (($columnCount % 3) == 0) {
+			if (($columnCount % 3) === 0) {
 				echo "<div class=\"resultRow\">";
 			}
 
@@ -23,12 +23,16 @@
 			echo ", ".$item['suburb']. "</p></a>";
 			echo "</div> <!-- end results -->";
 
-			if ($columnCount == 3) { // 3 columns per row
+			$columnCount++;
+			if ($columnCount === 3) { // 3 columns per row
 				echo "</div> <!-- end resultsrow -->";
 				$columnCount = 0;
 			}
-			$columnCount++;
 		}
+		if ($columnCount !== 3) { 
+			echo "</div> <!-- end resultsrow -->";
+		}
+		
 		echo "</div><!-- end resultsbody -->";
 		echo "<input type=\"hidden\" id=\"totalLocations\"value=\"".$counter."\"/>";
 		echo "</form><!-- end form -->";
