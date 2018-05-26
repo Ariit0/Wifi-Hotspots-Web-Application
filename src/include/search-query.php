@@ -6,20 +6,23 @@
 		$_suburbInput = $_POST['suburb'];
 		$_getLat = $_POST['lat'];
 		$_getLong = $_POST['long'];
-		// adds a space before each captial letter (excluding the first letter)
+		// Adds a space before each captial letter (excluding the first letter)
 		$formattedSub = ltrim(preg_replace('/(?<!\ )[A-Z]/', ' $0', $_suburbInput));
 		
 		require 'include/initDB.php';
 
 		try { 
-			if ($_suburbInput == "NearMe") { // if near me option selected, query in geo location date and search based on long and lat
-				// used to set a arbitrary range for near me location
+			// If near me option is selected, get user's geo location and search based on longitude and latitude
+			if ($_suburbInput == "NearMe") {
+				// Used to set a arbitrary range for near me location
 				$_latUpper = floatval($_getLat) + 0.12;
 				$_latLower = floatval($_getLat) - 0.12;
 				$_loUpper = floatval($_getLong) + 0.12;
 				$_loLower = floatval($_getLong) - 0.12;
-				// search query which is sent to the db, checks for any items which rating is greater than the rate input and checks for areas which are within its arbitrary range
-				if ($_rateInput != 0) {	// does not consider search input, only rating input. 
+
+				// Search query which is sent to the db, checks for any items which rating is greater than the rate input and checks for areas which are within its arbitrary range
+				// Does not consider search input, only rating input. 
+				if ($_rateInput != 0) {	
 					$searchQuery = $pdo->prepare("SELECT it.*, rt.averageRating FROM items AS it JOIN (SELECT ID, itemID, AVG(rating) AS averageRating FROM reviews GROUP BY itemID) AS rt ON it.ID = rt.itemID WHERE rt.averageRating >= :rateInput AND ((it.latitude BETWEEN :latLower AND :latUpper) AND (it.longitude BETWEEN :loLower AND :loUpper))");
 					$searchQuery->bindValue(':rateInput', $_rateInput);
 				} else { // if the suburbinput is at default value		 
@@ -37,25 +40,38 @@
 				} else {
 					displayNoResultNearMe();
 				}
+
 			} else { // regular search engine query 
-				if ($_suburbInput == "0" && $_searchInput == "" && $_rateInput == "0") { // if all fields are set at default query all results
+
+				// If all fields are set at default, query all results
+				if ($_suburbInput == "0" && $_searchInput == "" && $_rateInput == "0") { 
 					$searchQuery = $pdo->prepare("SELECT * FROM items");
-				} else if ($_suburbInput == "0" && $_rateInput == "0") { // if there's search input, but suburb + rate value still set at default
+
+				// If there's search input, but suburb + rate value still default
+				} else if ($_suburbInput == "0" && $_rateInput == "0") { 
 					$searchQuery = $pdo->prepare("SELECT * FROM items WHERE (address LIKE ? OR name LIKE ?)");
 					$searchQuery->bindValue(1, "%".$_searchInput."%", PDO::PARAM_STR);
 					$searchQuery->bindValue(2, "%".$_searchInput."%", PDO::PARAM_STR);
-				} else if ($_searchInput == "" && $_rateInput == "0") { // if there's suburb input, but search + rate input is default
+
+				// If there's suburb input, but search + rate input is default
+				} else if ($_searchInput == "" && $_rateInput == "0") { 
 					$searchQuery = $pdo->prepare("SELECT * FROM items WHERE suburb LIKE ?");
 					$searchQuery->bindValue(1, "%" .$formattedSub."%", PDO::PARAM_STR);	
-				} else if ($_rateInput == "0") { // search and suburb input not at its default value but rating is left alone
+
+				// Search and suburb input not at its default value but rating is left alone
+				} else if ($_rateInput == "0") { 
 					$searchQuery = $pdo->prepare("SELECT * FROM items WHERE suburb LIKE ? AND (address LIKE ? OR name LIKE ?)");
 					$searchQuery->bindValue(1, "%" .$formattedSub."%", PDO::PARAM_STR);	
 					$searchQuery->bindValue(2, "%".$_searchInput."%", PDO::PARAM_STR);
 					$searchQuery->bindValue(3, "%".$_searchInput."%", PDO::PARAM_STR);
-				} else if ($_rateInput != "0" && $_suburbInput == "0" && $_searchInput == "") { // if only the rate input has changed
+
+				// If only the rate input has changed
+				} else if ($_rateInput != "0" && $_suburbInput == "0" && $_searchInput == "") { 
 					$searchQuery = $pdo->prepare("SELECT it.*, rt.averageRating FROM items AS it JOIN (SELECT ID, itemID, AVG(rating) AS averageRating FROM reviews GROUP BY itemID) AS rt ON it.ID = rt.itemID WHERE rt.averageRating >= ? ");
 					$searchQuery->bindValue(1, $_rateInput, PDO::PARAM_INT);
-				}  else { // if all fields have changed
+
+				// If all fields have changed
+				}  else { 
 					$searchQuery = $pdo->prepare("SELECT it.*, rt.averageRating FROM items AS it JOIN (SELECT ID, itemID, AVG(rating) AS averageRating FROM reviews GROUP BY itemID) AS rt ON it.ID = rt.itemID WHERE rt.averageRating >= ? AND it.suburb LIKE ? AND (address LIKE ? OR name LIKE ?)");
 
 					$searchQuery->bindValue(1, $_rateInput, PDO::PARAM_INT);

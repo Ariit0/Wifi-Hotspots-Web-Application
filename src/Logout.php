@@ -10,6 +10,14 @@
 			} else {
     			unset($_SESSION['userID']); 
     		}
+
+    		if(isset($_SESSION['currentItemID'])){
+    			unset($_SESSION['currentItemID']);
+    		}
+
+    		if(isset($_SESSION['currentItemName'])){
+    			unset($_SESSION['currentItemName']);
+    		}
 		?>
 	</head>
 

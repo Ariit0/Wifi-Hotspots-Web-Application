@@ -28,11 +28,11 @@
 			}
 			echo "<input type=\"hidden\" id=\"hidden-itemlng\" value=\"".$_SESSION['currentLng']."\" />";
 		?>
-			<script type="text/javascript" src="js/sample_item.js"></script>
+
+		<script type="text/javascript" src="js/sample_item.js"></script>
 	</head>
 
 	<body>
-
 		<div class="nav_bar">
 			<?php
 				include "include/displayNavBar.php";
@@ -113,17 +113,17 @@
 			<?php
 				include "include/footer.php";
 			?>
-				<div id="mapResultContainer" itemscope itemtype="http://schema.org/Place">
-					<div itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
-						<?php echo '<meta itemprop="latitude" content="'. $_SESSION['currentLat'] .'"/>'; ?>
-						<?php echo '<meta itemprop="longitude" content="'. $_SESSION['currentLng'] .'"/>'; ?>
-					</div>
+			
+			<div id="mapResultContainer" itemscope itemtype="http://schema.org/Place">
+				<div itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+					<?php echo '<meta itemprop="latitude" content="'. $_SESSION['currentLat'] .'"/>'; ?>
+					<?php echo '<meta itemprop="longitude" content="'. $_SESSION['currentLng'] .'"/>'; ?>
+				</div>
 
-
-					<div class="sampleResultMap" id="initMap"></div>
-					<!-- google api call for google maps, must be called here -->
-					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeDXwaLc0EQeMCbofBs7OwhOU32X4fY1E&callback=initMap"></script>
-				</div> <!-- end resultContainer -->
+				<div class="sampleResultMap" id="initMap"></div>
+				<!-- google api call for google maps, must be called here -->
+				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeDXwaLc0EQeMCbofBs7OwhOU32X4fY1E&callback=initMap"></script>
+			</div> <!-- end resultContainer -->
 		</div>
 	</body>
 </html>

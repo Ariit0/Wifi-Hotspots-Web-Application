@@ -1,13 +1,13 @@
 var lat = document.getElementById("hidden-lat");
 var long = document.getElementById("hidden-long");
-var e = document.getElementById("suburbOption");
+var suburb = document.getElementById("suburbOption");
 
-// used to obtain geo location
+// Used to obtain geo location
 function getLocation() { 
-    if (navigator.geolocation && e.value == "NearMe" ) {
+    if (navigator.geolocation && suburb.value == "NearMe" ) {
         navigator.geolocation.getCurrentPosition(postPosition);
         return true;
-    } else { // reset hidden field
+    } else {
         long.value = "";
         lat.value = "";
     }
