@@ -186,6 +186,7 @@ body {
 	font-size:8pt;
 }
 
+
 .error-message {
 	visibility: hidden;
     color: red;
@@ -260,7 +261,7 @@ select.suburbfilter {
 
 #mapContainer {
 	position: absolute;
-	width: 870px;
+	width: 875px;
 	top: -0.3%;
 	margin-top: 245px;
 }
@@ -294,7 +295,6 @@ select.suburbfilter {
 
 .resultBody {
 	height: auto;
-	overflow: auto;
 }
 
 .resultRow {

@@ -29,10 +29,10 @@
 				$columnCount = 0;
 			}
 		}
-		if ($counter % 3 != 0) { 
-			echo "</div>";
-		} 
-		
+		if (($counter % 3) !== 0) { 
+			echo "</div> <!-- end resultsrow -->";
+		}
+
 		echo "</div><!-- end resultsbody -->";
 		echo "<input type=\"hidden\" id=\"totalLocations\" value=\"".$counter."\"/>";
 		echo "</form><!-- end form -->";

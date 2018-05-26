@@ -30,17 +30,16 @@
 			<div id="content">
 				<h4>A place to discover and review WiFi Hotspots near you.</h4>
 
+				<div id="resultList">
+					<?php
+						if (isset($_POST["search"])) {
+							include 'include/search-query.php';
+						} else {
+							//  redirect to index if trying to access search-submit URL directly
+            				header("Location: http://{$_SERVER['HTTP_HOST']}/yelpclone/index.php");							
+            			}
+					?>
 
-					<div id="resultList">
-						<?php
-							if (isset($_POST["search"])) {
-								include 'include/search-query.php';
-							} else {
-								//  redirect to index if trying to access search-submit URL directly
-                				header("Location: http://{$_SERVER['HTTP_HOST']}/yelpclone/index.php");							
-                			}
-						?>
-					</div> <!-- end resultList -->
 					<!-- this map contain is called at the bottom due to the method of transfering php variables to js variables -->
 					<!-- css is used to bring the map to the top of the webpage -->
 					<div id="mapContainer"> 
@@ -48,14 +47,15 @@
 						<!-- google api call for google maps, must be called here -->
 						<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeDXwaLc0EQeMCbofBs7OwhOU32X4fY1E&callback=initMap"></script>
 						<script type="text/javascript">getTotalLocations();storeLatLng();storeName();</script><!-- gets total amount of geo locations and stores lat/long to pass on to create map markers -->
-					</div> <!-- end mapContainer -->
+					</div> <!-- end resultContainer -->
+				</div> <!-- end resultList -->
+
 			</div> <!-- end content -->
+			
 			<?php
 				include "include/footer.php"
 			?>
 		</div><!-- wrapper content -->
-
-
 	</body>
 </html>
 
