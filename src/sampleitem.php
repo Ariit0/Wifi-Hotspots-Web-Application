@@ -76,12 +76,22 @@
 							        if($stmt->execute()) {
 										foreach ($stmt as $review) {
 											echo '<li>';
-											echo '<div>';
+											echo '<div itemscope itemtype="http://schema.org/Review">';
 
 											echo '<p class=\'review\'>';
-											echo "<b>". $review['firstName'] ."</b> | ". $review['dateOfReview'] ."<br>";
-											echo "Rating: ". $review['rating'] ."&nbsp;&#xf005;<br><br>";
-											echo $review['description'];
+											echo '<span hidden itemprop="itemreviewed">'. $_SESSION['currentItemName'] .'</span>';
+
+											echo '<b itemprop="reviewer">'. $review['firstName'] .'</b>';
+											echo ' | ';
+											echo '<span itemprop="dtreviewed">'. $review['dateOfReview'] .'</span>';
+											echo '<br>';
+
+											echo 'Rating: ';
+											echo '<span itemprop="rating"'. $review['rating'] .'</span>';
+											echo '&nbsp;&#xf005;<br><br>';
+
+											echo '</span itemprop="description"'. $review['description'] .'</span>';
+
 											echo '</p>';
 
 											echo '</div>';
@@ -103,8 +113,8 @@
 			?>
 				<div id="mapResultContainer" itemscope itemtype="http://schema.org/Place">
 					<div itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
-						<meta itemprop="latitude" content=<?php echo '"'. $_SESSION['currentLat'] .'"'; ?>/>
-						<meta itemprop="longitude" content=<?php echo '"'. $_SESSION['currentLng'] .'"'; ?>/>
+						<?php echo '<meta itemprop="latitude" content="'. $_SESSION['currentLat'] .'"/>'; ?>
+						<?php echo '<meta itemprop="longitude" content="'. $_SESSION['currentLng'] .'"/>'; ?>
 					</div>
 
 
