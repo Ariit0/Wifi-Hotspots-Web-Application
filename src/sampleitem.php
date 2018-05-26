@@ -7,16 +7,25 @@
 
 			// If the user has arrived to this page from clicking a hotspot search result, get that hotspot information from hidden fields.
  			// Otherwise, re-use the last hotspot information (occurs when user is returning from writing a review for that hotspot).
-
 			if(isset($_POST['hidden-id'])){
 				$_SESSION['currentItemID'] = $_POST['hidden-id'];
 			}
 
 			if(isset($_POST['hidden-name'])) {
+				echo "<input type=\"hidden\" id=\"hidden-itemname\" value=\"".$_POST['hidden-name']."\" />";
 				// Add spaces before each capital letter in the name.
 				$_SESSION['currentItemName'] = preg_replace('/(?<!\ )[A-Z]/', ' $0', $_POST['hidden-name']);
 			}
+
+			if (isset($_POST['hidden-lat'])) {
+				echo "<input type=\"hidden\" id=\"hidden-itemlat\" value=\"".$_POST['hidden-lat']."\" />";
+			}
+
+			if (isset($_POST['hidden-lng'])) {
+				echo "<input type=\"hidden\" id=\"hidden-itemlng\" value=\"".$_POST['hidden-lng']."\" />";
+			}
 		?>
+			<script type="text/javascript" src="js/sample_item.js"></script>
 	</head>
 
 	<body>
@@ -32,12 +41,6 @@
 			</div>
 
 			<div id="content">
-				<div id="resultContainer">
-					<div id="initMap"></div>
-					<!-- google api call for google maps, must be called here -->
-					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeDXwaLc0EQeMCbofBs7OwhOU32X4fY1E&callback=initMap"></script>
-				</div> <!-- end resultContainer -->
-
 				<div id="reviewBanner">
 					<h3>Reviews</h3>
 				</div>
@@ -96,6 +99,11 @@
 			<?php
 				include "include/footer.php";
 			?>
+				<div id="mapResultContainer">
+					<div class="sampleResultMap" id="initMap"></div>
+					<!-- google api call for google maps, must be called here -->
+					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeDXwaLc0EQeMCbofBs7OwhOU32X4fY1E&callback=initMap"></script>
+				</div> <!-- end resultContainer -->
 		</div>
 	</body>
 </html>

@@ -265,6 +265,21 @@ select.suburbfilter {
 	margin-top: 245px;
 }
 
+#mapResultContainer{
+	position: absolute;
+	width: 878.109px;
+	top: -0.3%;
+	margin-top: 230px;
+}
+
+.sampleResultMap {
+	position: relative;
+    overflow: hidden;
+    left: 60px;
+    bottom: 45px;
+}
+
+
 #initMap {
 	width: 100%;
 	height:600px;
@@ -275,6 +290,7 @@ select.suburbfilter {
 	height: auto;
 	width: auto;
 }
+
 
 .resultBody {
 	height: auto;
@@ -322,8 +338,8 @@ div.results p {
 
 /* individual item page styling */
 #reviewBanner {
-	margin-top: 15px;
-	background-color:#2E4272;
+	margin-top: 615px;
+	background:url('../img/bg.png');
     display: flex;
 }
 
@@ -340,7 +356,6 @@ div.results p {
 	padding-left: 30px;
 	padding-right: 30px;
 }
-
 
 /* styles the input fields with fixed width, padding, margin and a solid border
 */

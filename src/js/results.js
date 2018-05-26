@@ -52,7 +52,7 @@ function setMarkers(map) {
 
   for (var i = 0; i < latLng.length; i++) { // assigns are marker at the designated positon
     marker = new google.maps.Marker ({
-        position: {lat: parseFloat(lats[i]), lng: parseFloat(lngs[i])},
+        position: {lat: parseFloat(lats[i]), lng: parseFloat(lngs[i])}, // convert string vars to float
         map: map,
         title: name[i],
         zIndex: i
@@ -69,6 +69,8 @@ function setMarkers(map) {
 
 // used to pass information of clicked item to next page
 function postID(clicked_item) {
+  document.getElementById('hidden-itemlat').value = clicked_item.getAttribute('data-lat');
+  document.getElementById('hidden-itemlng').value = clicked_item.getAttribute('data-lng');
   document.getElementById('hidden-itemname').value = clicked_item.getAttribute('value');
 	document.getElementById('hidden-itemid').value = clicked_item.name;
 	document.getElementById('searchResults').submit();
