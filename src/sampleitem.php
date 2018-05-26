@@ -25,6 +25,8 @@
 				$_SESSION['currentLng'] = $_POST['hidden-lng'];
 			}
 			echo "<input type=\"hidden\" id=\"hidden-itemlng\" value=\"".$_SESSION['currentLng']."\" />";
+
+
 		?>
 			<script type="text/javascript" src="js/sample_item.js"></script>
 	</head>
@@ -87,10 +89,10 @@
 											echo '<br>';
 
 											echo 'Rating: ';
-											echo '<span itemprop="rating"'. $review['rating'] .'</span>';
+											echo '<span itemprop="rating">'. $review['rating'] .'</span>';
 											echo '&nbsp;&#xf005;<br><br>';
 
-											echo '</span itemprop="description"'. $review['description'] .'</span>';
+											echo '</span itemprop="description">'. $review['description'] .'</span>';
 
 											echo '</p>';
 
