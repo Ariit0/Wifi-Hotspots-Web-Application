@@ -4,8 +4,10 @@
 		<?php
 			$title = "Results";
 			include "include/header.php";
-								// If the user has arrived to this page from clicking a hotspot search result, get that hotspot information from hidden fields.
+			
+			// If the user has arrived to this page from clicking a hotspot search result, get that hotspot information from hidden fields.
  			// Otherwise, re-use the last hotspot information (occurs when user is returning from writing a review for that hotspot).
+
 			if(isset($_POST['hidden-id'])){
 				$_SESSION['currentItemID'] = $_POST['hidden-id'];
 			}
@@ -25,8 +27,6 @@
 				$_SESSION['currentLng'] = $_POST['hidden-lng'];
 			}
 			echo "<input type=\"hidden\" id=\"hidden-itemlng\" value=\"".$_SESSION['currentLng']."\" />";
-
-
 		?>
 			<script type="text/javascript" src="js/sample_item.js"></script>
 	</head>
@@ -90,9 +90,9 @@
 
 											echo 'Rating: ';
 											echo '<span itemprop="rating">'. $review['rating'] .'</span>';
-											echo '&nbsp;&#xf005;<br><br>';
+											echo '<span>&nbsp;&#xf005;</span><br><br>';
 
-											echo '</span itemprop="description">'. $review['description'] .'</span>';
+											echo '<span itemprop="description">'. $review['description'] .'</span>';
 
 											echo '</p>';
 
