@@ -1,12 +1,12 @@
 <form action="write_review.php" method="post" onsubmit="return ValidateReviewForm_Client(this);">
 	<p>
         Rating*<br>
-        <select name="rating">
-        	<option value="1">1</option><br>
-        	<option value="2">2</option><br>
-        	<option value="3">3</option><br>
-        	<option value="4">4</option><br>
-        	<option value="5">5</option><br>
+        <select name="rating" class= 'ratingfilter'>
+        	<option value="1">1&nbsp;&#xf005;</option><br>
+        	<option value="2">2&nbsp;&#xf005;</option><br>
+        	<option value="3">3&nbsp;&#xf005;</option><br>
+        	<option value="4">4&nbsp;&#xf005;</option><br>
+        	<option value="5">5&nbsp;&#xf005;</option><br>
         </select><br><br>
 	</p>
 
