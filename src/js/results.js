@@ -3,39 +3,19 @@ function getTotalLocations() {
   var totalLocations = document.getElementById('totalLocations').value;
   return totalLocations;
 }
-// stores geo location data (latitude / longitude)
-function storeLatLng() {
-  var listLatLng = document.getElementsByClassName("resultLatLngs");
-  var latLngs = [];
+
+// stores attribute data from the search result html hidden elements
+function storeAttributeValue(attr) {
+  var list = document.getElementsByClassName("resultData");
+  var values = [];
 
   for (var i = 0; i < getTotalLocations(); i++) {
-    latLngs.push(listLatLng[i].value);    // add latlng coords to array
+    values.push(list[i].getAttribute(attr)); 
   }
 
-  return latLngs;
+  return values;
 }
-// stores name data
-function storeName() {
-  var listName = document.getElementsByClassName("resultLatLngs");
-  var names = [];
 
-  for (var i = 0; i < getTotalLocations(); i++) {
-    names.push(listName[i].name);     // add names to array
-  }
-
-  return names;
-}
-// stores id data
-function storeID() {
-  var listID = document.getElementsByClassName("resultLatLngs");
-  var IDs = [];
-
-  for (var i = 0; i < getTotalLocations(); i++) {
-    IDs.push(listID[i].getAttribute('data-id'));     // add ids to array
-  }
-
-  return IDs;
-}
 // initialises google maps
 function initMap() {
   var map = new google.maps.Map(document.getElementById('initMap'), {
@@ -45,26 +25,17 @@ function initMap() {
 
   setMarkers(map);
 }
+
 // responsible for setting all markers on the map
 function setMarkers(map) {
-  var latLngArray = storeLatLng();
-  var nameArray = storeName();
-  var idArray = storeID(); 
+  var latArray = storeAttributeValue('data-lat');
+  var lngArray = storeAttributeValue('data-lng');
+  var nameArray = storeAttributeValue('data-name');
+  var idArray = storeAttributeValue('data-id'); 
 
-  var lats = [];
-  var lngs = [];
-
-  for (var i = 0; i < latLngArray.length; i++) {   // split lat and long into separate arrays 
-      var split = latLngArray[i].split(" "); 
-      lats.push(split[0]);
-      lngs.push(split[1]);
-  }
-
-  var infowindow = new google.maps.InfoWindow; // initalises a popup info window to appear
-
-  for (var i = 0; i < latLngArray.length; i++) { // assigns are marker at the designated positon
+  for (var i = 0; i < getTotalLocations(); i++) { // assigns are marker at the designated positon
     marker = new google.maps.Marker ({
-        position: {lat: parseFloat(lats[i]), lng: parseFloat(lngs[i])}, // convert string vars to float
+        position: {lat: parseFloat(latArray[i]), lng: parseFloat(lngArray[i])}, // convert string vars to float
         map: map,
         id: idArray[i],
         title: nameArray[i],

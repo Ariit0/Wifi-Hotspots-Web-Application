@@ -16,7 +16,8 @@
 			}
 
 			echo "<div class=\"results\">";
-			echo "<input type=\"hidden\" class=\"resultLatLngs\" name=\"".$item['name']."\" value=\"".$item['latitude']." ".$item['longitude']."\" data-id=\"".$item['ID']."\"/>"; $counter++;
+			echo "<input type=\"hidden\" class=\"resultData\" data-name=\"".$item['name']."\" data-lat=\"".$item['latitude']."\" data-lng=\"".$item['longitude']."\" data-id=\"".$item['ID']."\"/>"; 
+			$counter++;
 			// data- attribute used to store custom data
 			echo "<a href=\"#\" name=".$item['ID']." value=".preg_replace('/\s+/','', $item['name'])." data-lat=\"".$item['latitude']."\" data-lng=\"".$item['longitude']."\" onclick=\"postID(this);\"><h1>".$item['name']."</h1>";
 			echo "<p>".$item['address']."";
