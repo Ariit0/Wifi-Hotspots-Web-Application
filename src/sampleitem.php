@@ -39,16 +39,16 @@
 				<div id="reviewContainer">
 					<div id="reviewList">
 						<div class="reviews">
-							<ul>
+							<ul id="revComments">
 								<li>
 									<div>							
-										<img src="img/reviewtempbank(mustreplace).png" alt="reviewer">
+										<img src="img/reviewblank.png" alt="reviewer">
 										<?php
 											$_SESSION['currentItemID'] = $itemID;
 											$_SESSION['currentItemName'] = $itemName;
 
 											if(isset($_SESSION['userID'])) {
-												echo '<p><a href="write_review.php" id="writeReview"> Write a review!</a><p>';
+												echo '<p id="write"><a href="write_review.php" id="writeReview"> Write a review!</a><p>';
 											} else {
 												echo '<p><a href="login.php" id="writeReview"> Log in to write a review</a><p>';
 											}
@@ -69,8 +69,6 @@
 										foreach ($stmt as $review) {
 											echo '<li>';
 											echo '<div>';
-
-											echo '<img src="img/reviewtempbank(mustreplace).png" alt="reviewer">';
 
 											echo '<p class=\'review\'>';
 											echo "<b>". $review['firstName'] ."</b> | ". $review['dateOfReview'] ."<br>";

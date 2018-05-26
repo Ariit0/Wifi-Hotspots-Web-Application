@@ -31,9 +31,12 @@
 	width:225px;height:47px;
 }
 
+ul {
+	list-style: none;
+}
+
 nav ul {
 	float: right;
-	list-style: none;
 	color: #FFF;
 	margin: 0;
 	width: 488px;
@@ -329,14 +332,16 @@ div.results p {
 	padding-left: 15px;
 }
 
-#review p {
+#write {
 	float: right;
 }
 
-
-#review a {
-	float: right;
+#revComments {
+	padding-left: 30px;
+	padding-right: 30px;
 }
+
+
 /* styles the input fields with fixed width, padding, margin and a solid border
 */
 input {
