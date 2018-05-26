@@ -36,7 +36,7 @@
 							include 'include/search-query.php';
 						} else {
 							//  redirect to index if trying to access search-submit URL directly
-            				header("Location: http://{$_SERVER['HTTP_HOST']}/yelpclone/index.php");							
+            				header("Location: http://{$_SERVER['HTTP_HOST']}/n9446826/index.php");							
             			}
 					?>
 

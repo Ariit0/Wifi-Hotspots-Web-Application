@@ -38,7 +38,7 @@
 							if(!is_null($userID)) {
 								session_start();
 				                $_SESSION['userID'] = $userID;
-                				header("Location: http://{$_SERVER['HTTP_HOST']}/CAB230/src/index.php");
+                				header("Location: http://{$_SERVER['HTTP_HOST']}/n9446826/index.php");
 							} else {
 				                $server_response_msg = 'Incorrect credentials.<br><br>';
 								include "include/login_form.php";

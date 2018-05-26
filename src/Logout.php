@@ -6,7 +6,7 @@
 			include "include/header.php";
 
 			if(!isset($_SESSION['userID'])) {
-		    	header("Location: http://{$_SERVER['HTTP_HOST']}/CAB230/src/index.php");
+		    	header("Location: http://{$_SERVER['HTTP_HOST']}/n9446826/index.php");
 			} else {
     			unset($_SESSION['userID']); 
     		}
