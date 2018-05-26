@@ -92,8 +92,8 @@ function postIDMarker(lat, lng, itemName, itemID) {
 function postID(clicked_item) {
   document.getElementById('hidden-itemlat').value = clicked_item.getAttribute('data-lat');
   document.getElementById('hidden-itemlng').value = clicked_item.getAttribute('data-lng');
-  document.getElementById('hidden-itemname').value = clicked_item.getAttribute('value');
-	document.getElementById('hidden-itemid').value = clicked_item.name;
+  document.getElementById('hidden-itemname').value = clicked_item.getAttribute('data-value');
+	document.getElementById('hidden-itemid').value = clicked_item.getAttribute('data-name');
 	document.getElementById('searchResults').submit();
 }
 

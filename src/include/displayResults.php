@@ -5,10 +5,11 @@
 		$counter = 0; // tracks number of hidden input fields that are used to store long/lat
 
 		echo"<form id=\"searchResults\" action=\"sampleitem.php\" method=\"post\">";
+		// hidden input fields which are used to send data of the selected item to its individual page
 		echo "<input type=\"hidden\" name=\"hidden-id\" id=\"hidden-itemid\" value=\"\" />"; // used to store ID value to be passed
 		echo "<input type=\"hidden\" name=\"hidden-name\" id=\"hidden-itemname\" value=\"\" />"; // used to store name value to be passed
-		echo "<input type=\"hidden\" name=\"hidden-lat\" id=\"hidden-itemlat\" value=\"\" />";
-		echo "<input type=\"hidden\" name=\"hidden-lng\" id=\"hidden-itemlng\" value=\"\" />";
+		echo "<input type=\"hidden\" name=\"hidden-lat\" id=\"hidden-itemlat\" value=\"\" />"; // used to send lat value to be passed
+		echo "<input type=\"hidden\" name=\"hidden-lng\" id=\"hidden-itemlng\" value=\"\" />"; // used to send long value to be passed
 		echo "<div class=\"resultBody\">";
 		foreach ($searchQuery as $item) {  
 			if (($columnCount % 3) === 0) {
@@ -16,9 +17,10 @@
 			}
 
 			echo "<div class=\"results\">";
-			echo "<input type=\"hidden\" class=\"resultLatLngs\" name=\"".$item['name']."\" value=\"".$item['latitude']." ".$item['longitude']."\" data-id=\"".$item['ID']."\"/>"; $counter++;
+			// used to send data for map markers
+			echo "<input type=\"hidden\" class=\"resultLatLngs\" name=\"".htmlspecialchars($item['name'])."\" value=\"".$item['latitude']." ".$item['longitude']."\" data-id=\"".$item['ID']."\"/>"; $counter++;
 			// data- attribute used to store custom data
-			echo "<a href=\"#\" name=".$item['ID']." value=".preg_replace('/\s+/','', $item['name'])." data-lat=\"".$item['latitude']."\" data-lng=\"".$item['longitude']."\" onclick=\"postID(this);\"><h1>".$item['name']."</h1>";
+			echo "<a href=\"#\" data-name=".$item['ID']." data-value=".preg_replace('/\s+/','',str_replace("'", "&#39;",$item['name']))." data-lat=\"".$item['latitude']."\" data-lng=\"".$item['longitude']."\" onclick=\"postID(this);\"><h1>".$item['name']."</h1>";
 			echo "<p>".$item['address']."";
 			echo ", ".$item['suburb']. "</p></a>";
 			echo "</div> <!-- end results -->";
