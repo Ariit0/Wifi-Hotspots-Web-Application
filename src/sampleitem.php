@@ -12,17 +12,19 @@
 			}
 
 			if(isset($_POST['hidden-name'])) {
-				echo "<input type=\"hidden\" id=\"hidden-itemname\" value=\"".$_POST['hidden-name']."\" />";
 				// Add spaces before each capital letter in the name.
 				$_SESSION['currentItemName'] = preg_replace('/(?<!\ )[A-Z]/', ' $0', $_POST['hidden-name']);
+				echo "<input type=\"hidden\" id=\"hidden-itemname\" value=\"".$_SESSION['currentItemName']."\" />";
 			}
 
 			if (isset($_POST['hidden-lat'])) {
-				echo "<input type=\"hidden\" id=\"hidden-itemlat\" value=\"".$_POST['hidden-lat']."\" />";
+				$_SESSION['currentLat'] = $_POST['hidden-lat'];
+				echo "<input type=\"hidden\" id=\"hidden-itemlat\" value=\"".$_SESSION['currentLat']."\" />";
 			}
 
 			if (isset($_POST['hidden-lng'])) {
-				echo "<input type=\"hidden\" id=\"hidden-itemlng\" value=\"".$_POST['hidden-lng']."\" />";
+				$_SESSION['currentLng'] = $_POST['hidden-lng'];
+				echo "<input type=\"hidden\" id=\"hidden-itemlng\" value=\"".$_SESSION['currentLng']."\" />";
 			}
 		?>
 			<script type="text/javascript" src="js/sample_item.js"></script>
