@@ -2,9 +2,10 @@
 	<input type="text" name="srch" placeholder="Enter address or hotspot name">
 	<select class="ratingfilter" name="rating">
 		<?php
-			$star = array("--------", "5&nbsp;&nbsp;&nbsp;&nbsp;&#xf005;", "4+&nbsp;&#xf005;", "3+&nbsp;&#xf005;", "2+&nbsp;&#xf005;", "1+&nbsp;&#xf005;");
-			$starValue = array(0, 5, 4, 3, 2, 1);
-			for ($i=0; $i < count($star); $i++) { 
+			// array of selectable options
+			$star = array("--------", "5&nbsp;&nbsp;&nbsp;&nbsp;&#xf005;", "4+&nbsp;&#xf005;", "3+&nbsp;&#xf005;", "2+&nbsp;&#xf005;");
+			$starValue = array(0, 5, 4, 3, 2);
+			for ($i=0; $i < count($star); $i++) { // create options
 				echo '<option value ='.$starValue[$i].'>'.$star[$i].'</option>';
 			}
 		?>
