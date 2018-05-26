@@ -4,8 +4,7 @@
 		<?php
 			$title = "Results";
 			include "include/header.php";
-
-			// If the user has arrived to this page from clicking a hotspot search result, get that hotspot information from hidden fields.
+								// If the user has arrived to this page from clicking a hotspot search result, get that hotspot information from hidden fields.
  			// Otherwise, re-use the last hotspot information (occurs when user is returning from writing a review for that hotspot).
 			if(isset($_POST['hidden-id'])){
 				$_SESSION['currentItemID'] = $_POST['hidden-id'];
@@ -14,23 +13,24 @@
 			if(isset($_POST['hidden-name'])) {
 				// Add spaces before each capital letter in the name.
 				$_SESSION['currentItemName'] = preg_replace('/(?<!\ )[A-Z]/', ' $0', $_POST['hidden-name']);
-				echo "<input type=\"hidden\" id=\"hidden-itemname\" value=\"".$_SESSION['currentItemName']."\" />";
 			}
+			echo "<input type=\"hidden\" id=\"hidden-itemname\" value=\"".$_SESSION['currentItemName']."\" />";
 
 			if (isset($_POST['hidden-lat'])) {
 				$_SESSION['currentLat'] = $_POST['hidden-lat'];
-				echo "<input type=\"hidden\" id=\"hidden-itemlat\" value=\"".$_SESSION['currentLat']."\" />";
 			}
+			echo "<input type=\"hidden\" id=\"hidden-itemlat\" value=\"".$_SESSION['currentLat']."\" />";
 
 			if (isset($_POST['hidden-lng'])) {
 				$_SESSION['currentLng'] = $_POST['hidden-lng'];
-				echo "<input type=\"hidden\" id=\"hidden-itemlng\" value=\"".$_SESSION['currentLng']."\" />";
 			}
+			echo "<input type=\"hidden\" id=\"hidden-itemlng\" value=\"".$_SESSION['currentLng']."\" />";
 		?>
 			<script type="text/javascript" src="js/sample_item.js"></script>
 	</head>
 
 	<body>
+
 		<div class="nav_bar">
 			<?php
 				include "include/displayNavBar.php";

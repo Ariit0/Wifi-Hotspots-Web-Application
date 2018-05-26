@@ -1,7 +1,7 @@
 <?php
 	// creates a table using <div> and limits it to 3 results per row (3 column table)
 	function displayResults($searchQuery) {
-		$columnCount = -1; // used to keep track on what column the array is at
+		$columnCount = 0; // used to keep track on what column the array is at
 		$counter = 0; // tracks number of hidden input fields that are used to store long/lat
 
 		echo"<form id=\"searchResults\" action=\"sampleitem.php\" method=\"post\">";
@@ -11,7 +11,6 @@
 		echo "<input type=\"hidden\" name=\"hidden-lng\" id=\"hidden-itemlng\" value=\"\" />";
 		echo "<div class=\"resultBody\">";
 		foreach ($searchQuery as $item) {  
-			$columnCount++;
 			if (($columnCount % 3) == 0) {
 				echo "<div class=\"resultRow\">";
 			}
@@ -24,13 +23,14 @@
 			echo ", ".$item['suburb']. "</p></a>";
 			echo "</div> <!-- end results -->";
 
-			if ($columnCount == 2) { // 3 columns per row
+			if ($columnCount == 3) { // 3 columns per row
 				echo "</div> <!-- end resultsrow -->";
-				$columnCount = -1;
+				$columnCount = 0;
 			}
+			$columnCount++;
 		}
-		echo "<input type=\"hidden\" id=\"totalLocations\"value=\"".$counter."\"/>";
 		echo "</div><!-- end resultsbody -->";
+		echo "<input type=\"hidden\" id=\"totalLocations\"value=\"".$counter."\"/>";
 		echo "</form><!-- end form -->";
 	}
 

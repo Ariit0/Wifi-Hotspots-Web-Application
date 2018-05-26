@@ -28,8 +28,8 @@ function storeName() {
 // initialises google maps
 function initMap() {
   var map = new google.maps.Map(document.getElementById('initMap'), {
-    zoom: 10,
-    center: {lat: -27.493318, lng: 152.91749953} // default coordinate inwhich the map is centered
+    zoom: 11,
+    center: {lat: -27.461318, lng: 153.043644} // default coordinate inwhich the map is centered
   });
 
   setMarkers(map);
