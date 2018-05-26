@@ -1,23 +1,56 @@
+function getTotalLocations() {
+  var totalLocations = document.getElementById('totalLocations').value;
+  return totalLocations;
+}
+
+function storeLatLng() {
+  var locations = [];
+
+  for (var i = 0; i < getTotalLocations(); i++) {
+    // add latlng coords to array
+  }
+
+  return locations;
+}
+
+// name, latlng, zindex (shows the order which these markers are shown ontop of each other)
+var locations = [
+      ['Test 1', -27.4698, 153.0251, 1],
+      ['Test 2', -27.363, 136.044, 2],
+      ['Test 3', -27.363, 135.044, 3]
+];
+
 function initMap() {
-  var myLatLng = {lat: -27.4698, lng: 153.0251};
-  var myLatLng2 = {lat: -25.363, lng: 135.044};
-
   var map = new google.maps.Map(document.getElementById('initMap'), {
-    zoom: 12,
-    center: myLatLng
+    zoom: 10,
+    center: {lat: -27.493318, lng: 152.91749953} // default coordinate inwhich the map is centered
   });
 
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'Hello World!'
-  });
+  setMarkers(map);
+}
 
-var marker2 = new google.maps.Marker({
-    position: myLatLng2,
-    map: map,
-    title: 'Hello World!'
-  });
+function setMarkers(map) {
+
+  console.log(getTotalLocations());
+
+  var infowindow = new google.maps.InfoWindow;
+
+  for (var i = 0; i < locations.length; i++) {
+    var locale = locations[i];
+    marker = new google.maps.Marker ({
+        position: {lat: locale[1], lng: locale[2]},
+        map: map,
+        title: locale[0],
+        zIndex: locale[3]
+    });
+
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+         return function() {
+             infowindow.setContent(locations[i][0]);
+             infowindow.open(map, marker);
+         }
+    })(marker, i));
+  }
 }
 
 // used to pass information of clicked item to next page

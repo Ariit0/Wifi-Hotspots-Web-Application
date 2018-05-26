@@ -39,7 +39,6 @@
 				}
 			} else { // regular search engine query 
 				if ($_suburbInput == "0" && $_searchInput == "" && $_rateInput == "0") { // if all fields are set at default query all results
-							   echo '<script>console.log(\'1111\')</script>';
 					$searchQuery = $pdo->prepare("SELECT * FROM items");
 				} else if ($_suburbInput == "0" && $_rateInput == "0") { // if there's search input, but suburb + rate value still set at default
 					$searchQuery = $pdo->prepare("SELECT * FROM items WHERE (address LIKE ? OR name LIKE ?)");
@@ -49,8 +48,7 @@
 					$searchQuery = $pdo->prepare("SELECT * FROM items WHERE suburb LIKE ?");
 					$searchQuery->bindValue(1, "%" .$formattedSub."%", PDO::PARAM_STR);	
 				} else if ($_rateInput == "0") { // search and suburb input not at its default value but rating is left alone
-					$searchQuery = $pdo->prepare("SELECT it.*, rt.averageRating FROM items WHERE it.suburb LIKE ? AND (address LIKE ? OR name LIKE ?)");
-
+					$searchQuery = $pdo->prepare("SELECT * FROM items WHERE suburb LIKE ? AND (address LIKE ? OR name LIKE ?)");
 					$searchQuery->bindValue(1, "%" .$formattedSub."%", PDO::PARAM_STR);	
 					$searchQuery->bindValue(2, "%".$_searchInput."%", PDO::PARAM_STR);
 					$searchQuery->bindValue(3, "%".$_searchInput."%", PDO::PARAM_STR);

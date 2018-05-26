@@ -30,11 +30,7 @@
 			<div id="content">
 				<h4>A place to discover and review WiFi Hotspots near you.</h4>
 
-				<div id="resultContainer">
-					<div id="initMap"></div>
-					<!-- google api call for google maps, must be called here -->
-					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeDXwaLc0EQeMCbofBs7OwhOU32X4fY1E&callback=initMap"></script>
-				</div> <!-- end resultwrapper -->
+
 					<div id="resultList">
 						<?php
 							if (isset($_POST["search"])) {
@@ -49,7 +45,20 @@
 			<?php
 				include "include/footer.php"
 			?>
+
+			<!-- this map contain is called at the bottom due to the method of transfering php variables to js variables -->
+			<!-- css is used to bring the map to the top of the webpage -->
+				<div id="mapContainer"> 
+					<div id="initMap"></div>
+					<!-- google api call for google maps, must be called here -->
+					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeDXwaLc0EQeMCbofBs7OwhOU32X4fY1E&callback=initMap"></script>
+					<script type="text/javascript">getTotalLocations()</script><!-- gets total amount of geo locations to pass on to create map markers -->
+				</div> <!-- end resultContainer -->
 		</div><!-- wrapper content -->
+
+
 	</body>
 </html>
+
+
 

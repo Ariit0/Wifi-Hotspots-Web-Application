@@ -255,9 +255,11 @@ select.suburbfilter {
 
 /* results page styling */
 
-#resultContainer {
-	background-color:#2E4272;
-    display: flex;
+#mapContainer {
+	position: absolute;
+	width: 878.109px;
+	top: -0.3%;
+	margin-top: 245px;
 }
 
 #initMap {
@@ -266,7 +268,7 @@ select.suburbfilter {
 }
 
 #resultList {
-	margin-top: 20px;
+	margin-top: 635px;
 	height: auto;
 	width: auto;
 }
