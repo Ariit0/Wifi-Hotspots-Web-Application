@@ -29,7 +29,7 @@
 				$columnCount = 0;
 			}
 		}
-		if ($counter % 3 != 0) { 
+		if ($columnCount % 3 != 0) { 
 			echo "</div>";
 		} 
 		
