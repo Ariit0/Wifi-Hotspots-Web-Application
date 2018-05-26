@@ -1,25 +1,31 @@
+// grabs the total amount items displayed as a result, this is used to set the upper bound of a loop to store data
 function getTotalLocations() {
   var totalLocations = document.getElementById('totalLocations').value;
   return totalLocations;
 }
-
+// stores geo location data (latitude / longitude)
 function storeLatLng() {
-  var locations = [];
+  var listLatLng = document.getElementsByClassName("resultLatLngs");
+  var latLngs = [];
 
   for (var i = 0; i < getTotalLocations(); i++) {
-    // add latlng coords to array
+    latLngs.push(listLatLng[i].value);    // add latlng coords to array
   }
 
-  return locations;
+  return latLngs;
 }
+// stores name data
+function storeName() {
+  var listName = document.getElementsByClassName("resultLatLngs");
+  var names = [];
 
-// name, latlng, zindex (shows the order which these markers are shown ontop of each other)
-var locations = [
-      ['Test 1', -27.4698, 153.0251, 1],
-      ['Test 2', -27.363, 136.044, 2],
-      ['Test 3', -27.363, 135.044, 3]
-];
+  for (var i = 0; i < getTotalLocations(); i++) {
+    names.push(listName[i].name);     // add names to array
+  }
 
+  return names;
+}
+// initialises google maps
 function initMap() {
   var map = new google.maps.Map(document.getElementById('initMap'), {
     zoom: 10,
@@ -28,25 +34,33 @@ function initMap() {
 
   setMarkers(map);
 }
-
+// responsible for setting all markers on the map
 function setMarkers(map) {
+  var latLng = storeLatLng();
+  var name = storeName();
 
-  console.log(getTotalLocations());
+  var lats = [];
+  var lngs = [];
 
-  var infowindow = new google.maps.InfoWindow;
+  for (var i = 0; i < latLng.length; i++) {   // split lat and long into separate arrays 
+      var split = latLng[i].split(" "); 
+      lats.push(split[0]);
+      lngs.push(split[1]);
+  }
 
-  for (var i = 0; i < locations.length; i++) {
-    var locale = locations[i];
+  var infowindow = new google.maps.InfoWindow; // initalises a popup info window to appear
+
+  for (var i = 0; i < latLng.length; i++) { // assigns are marker at the designated positon
     marker = new google.maps.Marker ({
-        position: {lat: locale[1], lng: locale[2]},
+        position: {lat: parseFloat(lats[i]), lng: parseFloat(lngs[i])},
         map: map,
-        title: locale[0],
-        zIndex: locale[3]
+        title: name[i],
+        zIndex: i
     });
-
-    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+    // event listener to check if the marker has been clicked the info window will appear above the marker
+    google.maps.event.addListener(marker, 'click', (function(marker, i) { 
          return function() {
-             infowindow.setContent(locations[i][0]);
+             infowindow.setContent(name[i]);
              infowindow.open(map, marker);
          }
     })(marker, i));
@@ -55,7 +69,6 @@ function setMarkers(map) {
 
 // used to pass information of clicked item to next page
 function postID(clicked_item) {
-  
   document.getElementById('hidden-itemname').value = clicked_item.getAttribute('value');
 	document.getElementById('hidden-itemid').value = clicked_item.name;
 	document.getElementById('searchResults').submit();

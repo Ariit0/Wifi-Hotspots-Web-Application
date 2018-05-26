@@ -15,7 +15,7 @@
 			}
 
 			echo "<div class=\"results\">";
-			echo "<input type=\"text\" name=\"".$item['ID']."\" value=\"".$item['latitude']."_".$item['longitude']."\" />"; $counter++;
+			echo "<input type=\"hidden\" class=\"resultLatLngs\" name=\"".$item['name']."\" value=\"".$item['latitude']." ".$item['longitude']."\" />"; $counter++;
 			echo "<a href=\"#\" name=".$item['ID']." value=".preg_replace('/\s+/','', $item['name'])." onclick=\"postID(this);\"><h1>".$item['name']."</h1>";
 			echo "<p>".$item['address']."";
 			echo ", ".$item['suburb']. "</p></a>";
@@ -26,7 +26,7 @@
 				$columnCount = -1;
 			}
 		}
-		echo "<input type=\"text\" id=\"totalLocations\"value=\"".$counter."\"/>";
+		echo "<input type=\"hidden\" id=\"totalLocations\"value=\"".$counter."\"/>";
 		echo "</div><!-- end resultsbody -->";
 		echo "</form><!-- end form -->";
 	}
