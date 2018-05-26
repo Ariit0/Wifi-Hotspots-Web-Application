@@ -34,7 +34,7 @@
 						require 'include/review_server_validation.php';
 						if(ValidateReviewForm_Server()) {
 							if(TryCreateReview($_SESSION['currentItemID'], $_SESSION['userID'], $rating, $description)){
-				            	echo 'Review created successfully! Click here to return to '. $_SESSION['currentItemName'];
+				            	echo 'Review created successfully! <a href="sampleitem.php">Click here to return to '. $_SESSION['currentItemName'] .'</a>';
 							} else {
 								echo 'Server error: Review creation failed, please try again later.';
 							}
