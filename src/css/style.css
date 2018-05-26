@@ -295,6 +295,7 @@ select.suburbfilter {
 
 .resultBody {
 	height: auto;
+	overflow: auto;
 }
 
 .resultRow {
