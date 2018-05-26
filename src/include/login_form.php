@@ -4,9 +4,9 @@
 	<br><br>
 
 	<p>
-		<?php echo $server_response_msg; ?>
+		<span id="serverResponseErrorID" style="color:red"><?php echo $server_response_msg; ?></span>
         Email <br>
-        <input id="emailaddress" name="emailaddress" type="text" onchange="OnChangeElement('emailErrorID');" onkeypress="OnChangeElement('emailErrorID');" >
+        <input id="emailaddress" name="emailaddress" type="text" onchange="OnChangeElement('emailErrorID');" onkeypress="OnChangeElement('emailErrorID');">
         <span id="emailErrorID" class="error-message"></span>
 	</p>
 
