@@ -260,7 +260,7 @@ select.suburbfilter {
 
 #mapContainer {
 	position: absolute;
-	width: 869px;
+	width: 870px;
 	top: -0.3%;
 	margin-top: 245px;
 }
@@ -294,6 +294,7 @@ select.suburbfilter {
 
 .resultBody {
 	height: auto;
+	overflow: auto;
 }
 
 .resultRow {
