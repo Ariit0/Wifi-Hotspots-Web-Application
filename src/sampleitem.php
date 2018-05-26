@@ -101,7 +101,13 @@
 			<?php
 				include "include/footer.php";
 			?>
-				<div id="mapResultContainer">
+				<div id="mapResultContainer" itemscope itemtype="http://schema.org/Place">
+					<div itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+						<meta itemprop="latitude" content=<?php echo '"'. $_SESSION['currentLat'] .'"'; ?>/>
+						<meta itemprop="longitude" content=<?php echo '"'. $_SESSION['currentLng'] .'"'; ?>/>
+					</div>
+
+
 					<div class="sampleResultMap" id="initMap"></div>
 					<!-- google api call for google maps, must be called here -->
 					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeDXwaLc0EQeMCbofBs7OwhOU32X4fY1E&callback=initMap"></script>
