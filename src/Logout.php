@@ -5,9 +5,7 @@
 		<?php
 			include "include/header.php";
 
-			if(!isset($_SESSION['userID'])) {
-		    	header(SITE_PATH ."/index.php");
-			} else {
+			if(isset($_SESSION['userID'])) {
     			unset($_SESSION['userID']); 
     		}
 
@@ -18,28 +16,20 @@
     		if(isset($_SESSION['currentItemName'])){
     			unset($_SESSION['currentItemName']);
     		}
+
+    		if(isset($_SESSION['currentLat'])){
+    			unset($_SESSION['currentLat']);
+    		}
+
+    		if(isset($_SESSION['currentLng'])){
+    			unset($_SESSION['currentLng']);
+    		}
+
+    		header(SITE_PATH ."/index.php");
 		?>
 	</head>
 
 	<body>
-		<div class="nav_bar">
-			<?php
-				include "include/displayNavBar.php";
-			?>
-		</div>
 
-		<div id="wrapper">
-			<div id="header">
-				<h1>Logout</h1>
-			</div>
-					
-			<div id="content">
-				Successfully logged out.
-			</div>
-			
-			<?php
-				include "include/footer.php";
-			?>
-		</div>
 	</body>
 </html>

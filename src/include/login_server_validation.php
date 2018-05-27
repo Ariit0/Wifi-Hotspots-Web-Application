@@ -30,6 +30,7 @@
 	}
 
 	// Check if login information is valid (exists in database).
+	// Returns the user's ID if login successful, -1 if server database connection error, null if login failed.
 	function TryLogin($email, $password) {
 		require_once 'include/initDB.php';
 
