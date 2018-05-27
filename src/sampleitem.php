@@ -16,23 +16,27 @@
 				// Add spaces before each capital letter in the name.
 				$_SESSION['currentItemName'] = preg_replace('/(?<!\ )[A-Z]/', ' $0', $_POST['hidden-name']);
 			}
-			echo "<input type=\"hidden\" id=\"hidden-itemname\" value=\"".$_SESSION['currentItemName']."\" />";
 
 			if (isset($_POST['hidden-lat'])) {
 				$_SESSION['currentLat'] = $_POST['hidden-lat'];
 			}
-			echo "<input type=\"hidden\" id=\"hidden-itemlat\" value=\"".$_SESSION['currentLat']."\" />";
 
 			if (isset($_POST['hidden-lng'])) {
 				$_SESSION['currentLng'] = $_POST['hidden-lng'];
 			}
-			echo "<input type=\"hidden\" id=\"hidden-itemlng\" value=\"".$_SESSION['currentLng']."\" />";
 		?>
 
-		<script type="text/javascript" src="js/sample_item.js"></script>
 	</head>
 
 	<body>
+		<?php 
+			// Hidden fields here are required for the javascript function to draw values from.
+			echo "<input type=\"hidden\" id=\"hidden-itemname\" value=\"".$_SESSION['currentItemName']."\">";
+			echo "<input type=\"hidden\" id=\"hidden-itemlat\" value=\"".$_SESSION['currentLat']."\">";
+			echo "<input type=\"hidden\" id=\"hidden-itemlng\" value=\"".$_SESSION['currentLng']."\">";
+		?>
+		<script type="text/javascript" src="js/sample_item.js"></script>
+
 		<div class="nav_bar">
 			<?php
 				include "include/displayNavBar.php";
@@ -81,28 +85,27 @@
 								        if($stmt->execute()) {
 											foreach ($stmt as $review) {
 												echo '<li>';
+												
 												echo '<div itemscope itemtype="http://schema.org/Review">';
 
 												echo '<p class=\'review\'>';
 												echo '<span hidden itemprop="itemreviewed">'. $_SESSION['currentItemName'] .'</span>';
-
 												echo '<b itemprop="reviewer">'. $review['firstName'] .'</b>';
 												echo ' | ';
 												echo '<span itemprop="dtreviewed">'. $review['dateOfReview'] .'</span>';
 												echo '<br>';
-
 												echo 'Rating: ';
 												echo '<span itemprop="rating">'. $review['rating'] .'</span>';
 												echo '<span>&nbsp;&#xf005;</span><br><br>';
-
 												echo '<span itemprop="description">'. $review['description'] .'</span>';
-
 												echo '</p>';
 
 												echo '</div>';
-												echo '</li>';
 
 												echo '<hr>';
+
+												echo '</li>';
+
 											}
 										}
 									}
@@ -120,8 +123,8 @@
 			
 			<div id="mapResultContainer" itemscope itemtype="http://schema.org/Place">
 				<div itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
-					<?php echo '<meta itemprop="latitude" content="'. $_SESSION['currentLat'] .'"/>'; ?>
-					<?php echo '<meta itemprop="longitude" content="'. $_SESSION['currentLng'] .'"/>'; ?>
+					<?php echo '<meta itemprop="latitude" content="'. $_SESSION['currentLat'] .'">'; ?>
+					<?php echo '<meta itemprop="longitude" content="'. $_SESSION['currentLng'] .'">'; ?>
 				</div>
 
 				<div class="sampleResultMap" id="initMap"></div>
