@@ -6,7 +6,7 @@
 			include "include/header.php";
 
 			if(isset($_SESSION['userID'])) {
-		    	header("Location: http://{$_SERVER['HTTP_HOST']}/Students/n9446826/index.php");
+		    	header($PATH ."/index.php");
 			}
 		?>
 		<script type="text/javascript" src="js/general_validation.js"></script>
@@ -38,7 +38,7 @@
 							if(!is_null($userID)) {
 								session_start();
 				                $_SESSION['userID'] = $userID;
-                				header("Location: http://{$_SERVER['HTTP_HOST']}/Students/n9446826/index.php");
+                				header($PATH ."/index.php");
 							} else {
 				                $server_response_msg = 'Incorrect credentials.<br><br>';
 								include "include/login_form.php";

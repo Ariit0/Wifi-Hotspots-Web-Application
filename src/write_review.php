@@ -6,7 +6,7 @@
 			include "include/header.php";
 
 			if(!isset($_SESSION['userID'])) {
-		    	header("Location: http://{$_SERVER['HTTP_HOST']}/Students/n9446826/login.php");
+		    	header($PATH ."/login.php");
 			}
 		?>
 		<script type="text/javascript" src="js/general_validation.js"></script>

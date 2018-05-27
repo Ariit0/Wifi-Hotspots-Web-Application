@@ -6,7 +6,7 @@
 			include "include/header.php";
 
 			if(!isset($_SESSION['userID'])) {
-		    	header("Location: http://{$_SERVER['HTTP_HOST']}/Students/n9446826/index.php");
+		    	header($PATH ."/index.php");
 			} else {
     			unset($_SESSION['userID']); 
     		}
