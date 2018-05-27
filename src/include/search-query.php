@@ -1,15 +1,16 @@
 <?php
-		require 'displayResults.php';
+		require_once 'displayResults.php';
+		require_once 'sanitize_data.php';
 
-		$_searchInput = $_POST['srch'];
-		$_rateInput = $_POST['rating'];
-		$_suburbInput = $_POST['suburb'];
-		$_getLat = $_POST['lat'];
-		$_getLong = $_POST['long'];
+		$_searchInput = sanitize_data($_POST['srch']);
+		$_rateInput = sanitize_data($_POST['rating']);
+		$_suburbInput = sanitize_data($_POST['suburb']);
+		$_getLat = sanitize_data($_POST['lat']);
+		$_getLong = sanitize_data($_POST['long']);
 		// Adds a space before each captial letter (excluding the first letter)
 		$formattedSub = ltrim(preg_replace('/(?<!\ )[A-Z]/', ' $0', $_suburbInput));
 		
-		require 'include/initDB.php';
+		require_once 'include/initDB.php';
 
 		$pdo = initDB();
 
@@ -91,6 +92,6 @@
 				}
 			}
 		} catch (PDOException $e) {
-			
+
 		}
 ?>
