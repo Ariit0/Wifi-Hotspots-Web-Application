@@ -17,17 +17,18 @@
 			}
 
 			try {
-				$result = $pdo->query('SELECT DISTINCT suburb FROM items ORDER BY suburb');
+				$stmt = $pdo->prepare('SELECT DISTINCT suburb FROM items ORDER BY suburb');
+				$stmt->execute();
 				$queriedOptions = array();
 
 				// Iterates through the queried result and adds them to the queriedOptiosn array
-				foreach ($result as $suburb) {
+				foreach ($stmt as $result) {
 					// Checks if the string has a comma
-					if (strpos($suburb['suburb'], ',')) {
+					if (strpos($result['suburb'], ',')) {
 						// If so, truncate the string after the comma to get only the suburb.
-						array_push($queriedOptions, truncateStringAfter($suburb['suburb'], ','));
+						array_push($queriedOptions, truncateStringAfter($result['suburb'], ','));
 					} else {
-						array_push($queriedOptions, $suburb['suburb']);
+						array_push($queriedOptions, $result['suburb']);
 					}
 				}
 
