@@ -11,7 +11,7 @@
 	z-index: 3;
 }
 
-#nav_centre {
+#nav_centre { 
 	width: auto;
 	float: right;
 	margin: 0 auto;
@@ -30,6 +30,10 @@
 
 #logoImg {
 	width:225px;height:47px;
+}
+
+#mobile-button {
+	display: none;
 }
 
 ul {
@@ -107,7 +111,9 @@ body {
 	width: 40px;
 	height: 40px;
 	background:url('../img/threelines.png');
-	z-index:99999;
+    position: static;
+    display: inline-block;
+    z-index: 999999999999;
 }
 
 a:hover#menu-icon {
@@ -204,7 +210,7 @@ a:hover#menu-icon {
 
 /* search bar field styling */
 form.searchinput {
-	width: 878px;
+	width: auto;
 }
 
 form.searchinput input[type=text] {
@@ -222,7 +228,7 @@ form.searchinput input[type=text] {
 /* search bar submit button styling */
 form.searchinput button {
 	float: left;
-	width: 10.715261958997722%;
+	width: 11.515261958997722%;
 	height: 45px;
 	padding: 10px;
 	background: #333333;
@@ -258,12 +264,12 @@ select {
 }
 
 select.ratingfilter {
-	width: 11%;
+	width: 10.777777777777779%;
 	font-family:'FontAwesome', Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
 
 select.suburbfilter {
-	width: 24.829157175398635%;
+	width: 24.22222222222222%;
 	font-family:'FontAwesome', Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
 
@@ -271,14 +277,14 @@ select.suburbfilter {
 
 #mapContainer {
 	position: absolute;
-	width: 875px;
+	width: 870px;
 	top: -0.3%;
 	margin-top: 245px;
 }
 
 #mapResultContainer{
 	position: absolute;
-	width: 869px;
+	width: 879px;
 	top: -0.3%;
 	margin-top: 230px;
 }

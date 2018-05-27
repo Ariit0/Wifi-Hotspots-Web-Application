@@ -1,45 +1,72 @@
 @media screen and (max-width: 1000px) {
+	#nav_centre {
+		height: 75px;
+		width: 75px;
+	}
 
 	#menu-icon {
 		visibility: visible;
-		display:inline-block;
+		position: static;
+		display: inline-block;
+		z-index: 999999999999;
+	}
+
+	#mobile-button {
+		display: block;
+		position: relative;
+	}
+
+	#menu-buttons {
+		position: relative;
+		top: 2px;
+		left: 8px;
+	}
+
+	#menu {
+		top: 0px;
 	}
 
 	nav ul, nav:active ul {
 		display: none;
-		position: absolute;
+		position: relative;
 		padding: 20px;
         background:url('../img/bg.png');
 		border: 5px solid #444;
 		right: 20px;
 		top: 60px;
 		border-radius: 4px 0 4px 4px;
-        z-index: 100;
+        width: auto;
 	}
 
 	nav li {
-
 		text-align: center;
 		width: 100%;
 		padding: 10px 0;
 		margin: 0;
-
 	}
 
     nav a {
         float: none;
         margin-top: 15px;
-        margin-right: 15px;
     }
 
 	nav:hover ul {
-
 		display: block;
-
+	    position: relative;
+		z-index: 100;
 	}
 
-	body {
-
+	#menu a {
+		height: 40px;
+		padding-top: 10px;
+		padding-left: 15px;
+		padding-right: 15px;
+		text-align: center;
+		font-size:12pt;
+		font-weight: bold;
+		color: white;
+		text-decoration: none;
+		border-style: none;
 	}
 
 
@@ -52,4 +79,52 @@
         box-shadow: 0px 9px 10px 5px #888888;
     }
 
+    #mapContainer {
+    	width: 86.5%;
+    }
+
+    #mapResultContainer {
+    	width: 87.7%;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    #mapResultContainer {
+    	width: 86.7%;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    #mapContainer {
+    	width: 83%;
+    }
+
+    #mapResultContainer {
+    	width: 84.8%;
+    }
+}
+
+@media screen and (max-width: 805px) {
+    #mapResultContainer {
+    	width: 82.5%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #mapContainer {
+    	width: 81%;
+    }
+    #mapResultContainer {
+    	width: 81%;;
+    }
+}
+
+@media screen and (max-width: 605px) {
+    #mapContainer {
+    	width: 470.39px;
+    }
+
+    #mapResultContainer {
+    	width: 479.39px;
+    }
 }

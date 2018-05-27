@@ -2,7 +2,7 @@
 	<input type="text" name="srch" placeholder="Enter address or hotspot name">
 
 	<select class="ratingfilter" name="rating">
-		<option value='0'>--------</option>
+		<option value='0'>-------</option>
 		<option value='5'>5+&nbsp;&#xf005;</option>
 		<option value='4'>4+&nbsp;&#xf005;</option>
 		<option value='3'>3+&nbsp;&#xf005;</option>
@@ -37,7 +37,7 @@
 				// Fixes the array index sequence
 				$options = array_values($options); 
 
-				echo "<option value=\"0\">----Select Suburb----</option>";
+				echo "<option value=\"0\">---Select Suburb---</option>";
 				$nearMe = "&#xf124; &nbsp; Near Me";
 				echo '<option value = \'NearMe\'>'.$nearMe.'</option>';
 				for ($i=0; $i < count($options); $i++) {
