@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>Contact Us</title>
 		<?php
-			$title = "Contact Us";
 			include "include/header.php";
 		?>
 	</head>
