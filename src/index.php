@@ -23,7 +23,14 @@
 					<h4>A place to discover and review WiFi Hotspots near you.</h4>
 					<div id="searchbar">
 						<?php
-							include "include/displaySearchBar.php";
+							require_once 'include/initDB.php';
+
+							$pdo = initDB();
+							if(is_null($pdo)) {
+								echo '<span style="color:red">Server failed to connect to database. Please try again later.</span>';
+							} else {
+								include "include/displaySearchBar.php";
+							}
 						?>
 					</div>
 

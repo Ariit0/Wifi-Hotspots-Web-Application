@@ -1,5 +1,4 @@
 <form class="searchinput" id="searchEngine" action="search-submit.php" method="post">
-
 	<input type="text" name="srch" placeholder="Enter address or hotspot name">
 
 	<select class="ratingfilter" name="rating">
@@ -16,10 +15,6 @@
 			function truncateStringAfter($string, $delim) { 
 			    return substr($string, 0, strpos($string, $delim));
 			}
-
-			include 'include/initDB.php';
-
-			$pdo = initDB();
 
 			try {
 				$result = $pdo->query('SELECT DISTINCT suburb FROM items ORDER BY suburb');
