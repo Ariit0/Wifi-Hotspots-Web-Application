@@ -1,5 +1,6 @@
-<nav id="nav_centre">	
+<div>
 	<div id="logo"><a id="logoLink" href="index.php"><img src="img/logo.png" id="logoImg" alt="logo"></a></div>
+<nav id="nav_centre">	
 	<ul id="menu">	
 		<li><a href="index.php">Home</a></li> 
 		<li><a href="aboutus.php">About</a></li> 
@@ -14,6 +15,9 @@
 			}
 		?>
 	</ul>
+	<a href="#" id="menu-icon"></a>
 </nav>
 
 <span id="header_shadow"></span>
+
+</div>

@@ -1,0 +1,55 @@
+@media screen and (max-width: 1000px) {
+
+	#menu-icon {
+		visibility: visible;
+		display:inline-block;
+	}
+
+	nav ul, nav:active ul {
+		display: none;
+		position: absolute;
+		padding: 20px;
+        background:url('../img/bg.png');
+		border: 5px solid #444;
+		right: 20px;
+		top: 60px;
+		border-radius: 4px 0 4px 4px;
+        z-index: 100;
+	}
+
+	nav li {
+
+		text-align: center;
+		width: 100%;
+		padding: 10px 0;
+		margin: 0;
+
+	}
+
+    nav a {
+        float: none;
+        margin-top: 15px;
+        margin-right: 15px;
+    }
+
+	nav:hover ul {
+
+		display: block;
+
+	}
+
+	body {
+
+	}
+
+
+    #wrapper {
+        width: auto;
+        margin-top: 75px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+        box-shadow: 0px 9px 10px 5px #888888;
+    }
+
+}

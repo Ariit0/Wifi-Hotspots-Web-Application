@@ -12,7 +12,8 @@
 }
 
 #nav_centre {
-	width: 1000px;
+	width: auto;
+	float: right;
 	margin: 0 auto;
 }
 
@@ -57,12 +58,6 @@ nav a:hover {
 	color:#0099CC;
 } 
 
-nav {
-	width: 100%;
-	height: 100%;
-	margin-top: 0px;
-}
-
 /* NAV BAR SHADOW */
 #header_shadow{
 	pointer-events:none;
@@ -106,6 +101,21 @@ body {
 	padding-top: 20px;
 }
 
+/* styling for mobile menu icon */
+#menu-icon {
+	visibility: hidden;
+	width: 40px;
+	height: 40px;
+	background:url('../img/threelines.png');
+	z-index:99999;
+}
+
+a:hover#menu-icon {
+	background:url('../img/threelineshover.png');
+	border-radius: 4px 4px 0 0;
+
+}
+
 /* styles the content div with padding, margins and a border.
 */
 #content {
@@ -135,10 +145,6 @@ body {
 	text-align: center;
 }
 
-#menu {
-	padding-left: 17px;
-}
-
 /* styles all link elements in the menu to appear as buttons.
 */
 #menu a {
@@ -154,6 +160,10 @@ body {
 	border-style: outset;
 	border-width: 4px;
 	text-decoration: none;
+}
+
+#menu {
+	padding: 0;
 }
 
 /* the button in the menu that the user is currently at becomes
