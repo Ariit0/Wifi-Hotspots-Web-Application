@@ -125,16 +125,22 @@
     function CheckEmailNotRegistered($email) {
         global $pdo;
         if(!is_null($pdo)) {
-            $results = $pdo->query('SELECT email FROM members');
-            foreach ($results as $result) {
-                if(strcasecmp($email, $result['email']) == 0) {
-                    global $server_msg;
-                    $server_msg = 'Email is already in use.';
-                    return false;
+            $stmt = $pdo->prepare('SELECT email FROM members');
+
+            if($stmt->execute()) {
+                // Check all emails in database.
+                foreach ($stmt as $result) {
+                    if(strcasecmp($email, $result['email']) == 0) {
+                        global $server_msg;
+                        $server_msg = 'Email is already in use.';
+                        return false;
+                    }
                 }
+                // If no emails matched, the email is valid.
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     // Check if the email is valid.
