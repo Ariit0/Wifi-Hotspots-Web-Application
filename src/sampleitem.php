@@ -70,36 +70,40 @@
 								<?php
 									require_once 'include/initDB.php';
 
-							        $stmt = $pdo->prepare('SELECT '.
-							        	'members.firstName, members.LastName, reviews.userID, reviews.itemID, reviews.description, reviews.rating, reviews.dateOfReview  '.
-							        	'FROM reviews INNER JOIN members ON reviews.userID = members.ID WHERE itemID = :itemID');
-							        $stmt->bindValue(":itemID", $_SESSION['currentItemID']);
+									$pdo = initDB();
 
-							        if($stmt->execute()) {
-										foreach ($stmt as $review) {
-											echo '<li>';
-											echo '<div itemscope itemtype="http://schema.org/Review">';
+									if(!is_null($pdo)) {
+								        $stmt = $pdo->prepare('SELECT '.
+								        	'members.firstName, members.LastName, reviews.userID, reviews.itemID, reviews.description, reviews.rating, reviews.dateOfReview  '.
+								        	'FROM reviews INNER JOIN members ON reviews.userID = members.ID WHERE itemID = :itemID');
+								        $stmt->bindValue(":itemID", $_SESSION['currentItemID']);
 
-											echo '<p class=\'review\'>';
-											echo '<span hidden itemprop="itemreviewed">'. $_SESSION['currentItemName'] .'</span>';
+								        if($stmt->execute()) {
+											foreach ($stmt as $review) {
+												echo '<li>';
+												echo '<div itemscope itemtype="http://schema.org/Review">';
 
-											echo '<b itemprop="reviewer">'. $review['firstName'] .'</b>';
-											echo ' | ';
-											echo '<span itemprop="dtreviewed">'. $review['dateOfReview'] .'</span>';
-											echo '<br>';
+												echo '<p class=\'review\'>';
+												echo '<span hidden itemprop="itemreviewed">'. $_SESSION['currentItemName'] .'</span>';
 
-											echo 'Rating: ';
-											echo '<span itemprop="rating">'. $review['rating'] .'</span>';
-											echo '<span>&nbsp;&#xf005;</span><br><br>';
+												echo '<b itemprop="reviewer">'. $review['firstName'] .'</b>';
+												echo ' | ';
+												echo '<span itemprop="dtreviewed">'. $review['dateOfReview'] .'</span>';
+												echo '<br>';
 
-											echo '<span itemprop="description">'. $review['description'] .'</span>';
+												echo 'Rating: ';
+												echo '<span itemprop="rating">'. $review['rating'] .'</span>';
+												echo '<span>&nbsp;&#xf005;</span><br><br>';
 
-											echo '</p>';
+												echo '<span itemprop="description">'. $review['description'] .'</span>';
 
-											echo '</div>';
-											echo '</li>';
+												echo '</p>';
 
-											echo '<hr>';
+												echo '</div>';
+												echo '</li>';
+
+												echo '<hr>';
+											}
 										}
 									}
 								?>

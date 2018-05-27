@@ -33,23 +33,28 @@
 	function TryLogin($email, $password) {
 		require_once 'include/initDB.php';
 
-		try {
-	        $stmt = $pdo->prepare("SELECT * FROM members WHERE email = :email");
-	        $stmt->bindValue(":email", $email);
+		$pdo = initDB();
 
-	        if($stmt->execute()) {
-	        	if($stmt->rowCount() > 0){
-	        		$row = $stmt->fetch();
-	        		if(password_verify($password, $row['password'])) {
-	        			return $row['ID'];
-	        		}
+		if(!is_null($pdo)){
+			try {
+		        $stmt = $pdo->prepare("SELECT * FROM members WHERE email = :email");
+		        $stmt->bindValue(":email", $email);
+
+		        if($stmt->execute()) {
+		        	if($stmt->rowCount() > 0){
+		        		$row = $stmt->fetch();
+		        		if(password_verify($password, $row['password'])) {
+		        			return $row['ID'];
+		        		}
+		        	}
 	        	}
-        	}
-        	return null;
+	        	return null;
 
-    	} catch (PDOException $e) {
-			echo $e->getMessage();
-			return null;
+	    	} catch (PDOException $e) {
+				return null;
+			}
+		} else {
+			return -1;
 		}
 	}
 ?>

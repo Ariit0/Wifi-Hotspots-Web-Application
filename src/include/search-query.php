@@ -11,6 +11,8 @@
 		
 		require 'include/initDB.php';
 
+		$pdo = initDB();
+
 		try { 
 			// If near me option is selected, get user's geo location and search based on longitude and latitude
 			if ($_suburbInput == "NearMe") {

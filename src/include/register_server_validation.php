@@ -2,6 +2,8 @@
     require 'include/sanitize_data.php';
     require_once 'include/initDB.php';
 
+    $pdo = initDB();
+
     // Validate the form by checking against all tests (Server-side).
     function ValidateRegisterForm_Server() {        
         $isValid = true;
@@ -122,12 +124,14 @@
     // Ensure email is not already registered in the database.
     function CheckEmailNotRegistered($email) {
         global $pdo;
-        $results = $pdo->query('SELECT email FROM members');
-        foreach ($results as $result) {
-            if(strcasecmp($email, $result['email']) == 0) {
-                global $server_msg;
-                $server_msg = 'Email is already in use.';
-                return false;
+        if(!is_null($pdo)) {
+            $results = $pdo->query('SELECT email FROM members');
+            foreach ($results as $result) {
+                if(strcasecmp($email, $result['email']) == 0) {
+                    global $server_msg;
+                    $server_msg = 'Email is already in use.';
+                    return false;
+                }
             }
         }
         return true;
@@ -142,6 +146,10 @@
     // Try register the user after validating information.
     function TryRegister($firstname, $lastname, $dob, $mobile, $email, $password) {
         global $pdo;
+        if(is_null($pdo)) {
+            return false;
+        }
+        
         //// Get the DoB value into the correct format for mysql database (yyyy-mm-dd).
         // Replace slashes with dashes.
         $dob = str_replace('/', '-', $dob);
@@ -168,7 +176,6 @@
             return $stmt->execute();
 
         } catch (PDOException $e) {
-            echo $e->getMessage();
             return false;
         }
     }

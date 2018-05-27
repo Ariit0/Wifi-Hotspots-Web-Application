@@ -23,18 +23,23 @@
     function TryCreateReview($itemID, $userID, $rating, $description) {
         require_once 'include/initDB.php';
 
-        try {
-            $stmt = $pdo->prepare("INSERT INTO reviews(userID, itemID, dateOfReview, description, rating) VALUES(:userID, :itemID, :dateOfReview, :description, :rating)");
-            $stmt->bindValue(":userID", $userID);
-            $stmt->bindValue(":itemID", $itemID);
-            $stmt->bindValue(":dateOfReview", date("Y-m-d"));
-            $stmt->bindValue(":description", $description);
-            $stmt->bindValue(":rating", intval($rating));
+        $pdo = initDB();
 
-            return $stmt->execute();
-            
-        } catch (PDOException $e) {
-            echo $e->getMessage();
+        if(!is_null($pdo)) {
+            try {
+                $stmt = $pdo->prepare("INSERT INTO reviews(userID, itemID, dateOfReview, description, rating) VALUES(:userID, :itemID, :dateOfReview, :description, :rating)");
+                $stmt->bindValue(":userID", $userID);
+                $stmt->bindValue(":itemID", $itemID);
+                $stmt->bindValue(":dateOfReview", date("Y-m-d"));
+                $stmt->bindValue(":description", $description);
+                $stmt->bindValue(":rating", intval($rating));
+
+                return $stmt->execute();
+                
+            } catch (PDOException $e) {
+                return false;
+            }
+        } else {
             return false;
         }
     }

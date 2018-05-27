@@ -39,8 +39,11 @@
 								session_start();
 				                $_SESSION['userID'] = $userID;
                 				header(SITE_PATH ."/index.php");
-							} else {
-				                $server_response_msg = 'Incorrect credentials.<br><br>';
+							} else if ($userID === -1) {
+				                $server_response_msg = 'Failed to connect to server. Please try again later.<br><br>';
+								include "include/login_form.php";
+				            } else {
+				         		$server_response_msg = 'Incorrect credentials.<br><br>';
 								include "include/login_form.php";
 				            }
 				        } else {

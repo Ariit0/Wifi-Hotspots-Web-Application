@@ -19,6 +19,8 @@
 
 			include 'include/initDB.php';
 
+			$pdo = initDB();
+
 			try {
 				$result = $pdo->query('SELECT DISTINCT suburb FROM items ORDER BY suburb');
 				$queriedOptions = array();
@@ -47,7 +49,7 @@
 					echo '<option value = '.preg_replace('/\s+/','', $options[$i]).'>'.$options[$i].'</option>';
 				}
 			} catch (PDOException $e) {
-				echo $e->getMessage();
+				
 			}
 		?>
 	</select>
