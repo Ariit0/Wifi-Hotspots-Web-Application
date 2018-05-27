@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>Results</title>
 		<?php
-			$title = "Results";
 			include "include/header.php";
 			
 			// If the user has arrived to this page from clicking a hotspot search result, get that hotspot information from hidden fields.

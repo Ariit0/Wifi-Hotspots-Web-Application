@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>Register</title>
 		<?php
-			$title = "Register";
 			include "include/header.php";
 
 			if(isset($_SESSION['userID'])) {

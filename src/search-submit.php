@@ -8,8 +8,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>Search Results</title>
 		<?php
-			$title = "Search Results";
 			include "include/header.php";
 		?>
 		<script type="text/javascript" src="js/results.js"></script>

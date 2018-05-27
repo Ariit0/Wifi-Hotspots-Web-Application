@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>My Profile</title>
 		<?php
-			$title = "My Profile";
 			include "include/header.php";
 			
 			if(!isset($_SESSION['userID'])) {

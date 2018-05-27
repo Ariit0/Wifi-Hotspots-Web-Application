@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>Login</title>
 		<?php
-			$title = "Login";
 			include "include/header.php";
 
 			if(isset($_SESSION['userID'])) {

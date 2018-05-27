@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>Logout</title>
 		<?php
-			$title = "Logout";
 			include "include/header.php";
 
 			if(!isset($_SESSION['userID'])) {

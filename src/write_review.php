@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>Write a review</title>
 		<?php
-			$title = "Write a review";
 			include "include/header.php";
 
 			if(!isset($_SESSION['userID'])) {

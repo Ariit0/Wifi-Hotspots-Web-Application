@@ -4,8 +4,6 @@
 <!-- using fontawesome for icon fonts -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<title><?php echo $title; ?></title>
-
 <?php 
 	define("SITE_PATH", "Location: http://{$_SERVER['HTTP_HOST']}/cab230/src");
 	session_start(); 
