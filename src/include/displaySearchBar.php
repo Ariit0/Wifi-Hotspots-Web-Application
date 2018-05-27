@@ -3,7 +3,7 @@
 
 	<select class="ratingfilter" name="rating">
 		<option value='0'>--------</option>
-		<option value='5'>5+&nbsp;&nbsp;&nbsp;&nbsp;&#xf005;</option>
+		<option value='5'>5+&nbsp;&#xf005;</option>
 		<option value='4'>4+&nbsp;&#xf005;</option>
 		<option value='3'>3+&nbsp;&#xf005;</option>
 		<option value='2'>2+&nbsp;&#xf005;</option>
