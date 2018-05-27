@@ -12,6 +12,6 @@
 <meta name="author" content="Ari Luangamath & George Delosa">
 
 <?php 
-	define("SITE_PATH", "Location: http://{$_SERVER['HTTP_HOST']}/yelpclone");
+	define("SITE_PATH", "Location: http://{$_SERVER['HTTP_HOST']}/Students/n9446826");
 	session_start(); 
 ?>
