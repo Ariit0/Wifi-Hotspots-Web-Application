@@ -6,7 +6,7 @@
 			include "include/header.php";
 			
 			if(!isset($_SESSION['userID'])) {
-		    	header($PATH ."/login.php");
+		    	header(SITE_PATH ."/login.php");
 			}
 		?>
 	</head>

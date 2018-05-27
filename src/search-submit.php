@@ -36,7 +36,7 @@
 							include 'include/search-query.php';
 						} else {
 							//  redirect to index if trying to access search-submit URL directly
-            				header($PATH ."/index.php");							
+            				header(SITE_PATH ."/index.php");							
             			}
 					?>
 

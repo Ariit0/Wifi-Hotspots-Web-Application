@@ -7,6 +7,6 @@
 <title><?php echo $title; ?></title>
 
 <?php 
-	const PATH = "Location: http://{$_SERVER['HTTP_HOST']}/cab230/src";
+	define("SITE_PATH", "Location: http://{$_SERVER['HTTP_HOST']}/cab230/src");
 	session_start(); 
 ?>

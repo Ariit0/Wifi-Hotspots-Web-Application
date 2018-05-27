@@ -6,7 +6,7 @@
 			include "include/header.php";
 
 			if(!isset($_SESSION['userID'])) {
-		    	header($PATH ."/index.php");
+		    	header(SITE_PATH ."/index.php");
 			} else {
     			unset($_SESSION['userID']); 
     		}

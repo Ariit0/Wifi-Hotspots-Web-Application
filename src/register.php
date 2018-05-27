@@ -6,7 +6,7 @@
 			include "include/header.php";
 
 			if(isset($_SESSION['userID'])) {
-		    	header($PATH ."/index.php");
+		    	header(SITE_PATH ."/index.php");
 			}
 		?>
 		<script type="text/javascript" src="js/general_validation.js"></script>
