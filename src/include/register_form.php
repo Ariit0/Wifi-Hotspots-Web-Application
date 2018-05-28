@@ -27,6 +27,20 @@
         <span id="mobilenumErrorID" class="error-message"> Mobile number error goes here.</span>
 	</p>
 
+    <p>
+        Gender <br>
+        <input id="gender" name="gender" type="radio" value="1" checked onchange="OnChangeElement('genderErrorID');"> Male
+        <input id="gender" name="gender" type="radio" value="2" onchange="OnChangeElement('genderErrorID');"> Female
+        <input id="gender" name="gender" type="radio" value="3" onchange="OnChangeElement('genderErrorID');"> Other
+        <span id="genderErrorID" class="error-message"> Gender error goes here.</span><br>
+    </p>
+
+    <p>
+        About me <br>
+        <textarea id="bio" name="bio" rows="6" cols="60" onchange="OnChangeElement('bioErrorID');" onkeypress="OnChangeElement('bioErrorID');"></textarea>
+        <span id="bioErrorID" class="error-message"> Bio error goes here.</span><br>
+    </p>
+
 	<p>
         Email* <br> 
         <input id="email" name="email" type="text" onchange="OnChangeElement('emailErrorID');" onkeypress="OnChangeElement('emailErrorID');">
@@ -45,7 +59,14 @@
         <span id="passwordmatchErrorID" class="error-message"> Password match error goes here.</span>
 	</p>
 
-	<br>
+    <br>
+
+    <p>
+        <input type="checkbox" name="terms" onchange="OnChangeElement('termsErrorID');"> I agree to to WifiFinder's Terms of Service.
+        <span id="termsErrorID" class="error-message"> Terms of service error goes here.</span>
+    </p>
+
+    <br>
 
     <input type="submit" name="Register" value="Create Account">
 </form>
