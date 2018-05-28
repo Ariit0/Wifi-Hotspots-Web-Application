@@ -262,8 +262,14 @@ select {
 	cursor: pointer;	
 }
 
+
 select.ratingfilter {
 	width: 10.777777777777779%;
+	font-family:'FontAwesome', Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+select.ratingReviewfilter {
+	width: auto;
 	font-family:'FontAwesome', Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
 
@@ -351,6 +357,7 @@ div.results h1 {
 
 div.results p {
 	margin: 10px;
+	font-size: 13px;
 }
 
 /* individual item page styling */
