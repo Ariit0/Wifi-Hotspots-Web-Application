@@ -52,9 +52,9 @@
             $mobile = '';
         }
 
-        // Validate gender: ensure posted value has not been tampered with.
+        // Validate gender: must represent a value between 1-3 for the gender options.
         global $gender;
-        if($gender !== 1 || $gender !== 2 || $gender !== 3) {
+        if($_POST['gender'] !== '1' && $_POST['gender'] !== '2' && $_POST['gender'] !== '3') {
             $isValid = false;
         } else {
             $gender = sanitize_data($_POST['gender']);
@@ -68,7 +68,7 @@
             $email = sanitize_data($_POST['email']);
             if (CheckValidEmail($email) === false) {
                 $isValid = false;
-            } else if (CheckEmailNotRegistered($email) == false) {
+            } else if (CheckEmailNotRegistered($email) === false) {
                 $isValid = false;
             }
         }
@@ -137,6 +137,8 @@
     // Ensure email is not already registered in the database.
     function CheckEmailNotRegistered($email) {
         global $pdo;
+        global $server_msg;
+
         if(!is_null($pdo)) {
             $stmt = $pdo->prepare('SELECT email FROM members');
 
@@ -144,7 +146,6 @@
                 // Check all emails in database.
                 foreach ($stmt as $result) {
                     if(strcasecmp($email, $result['email']) == 0) {
-                        global $server_msg;
                         $server_msg = 'Email is already in use.';
                         return false;
                     }
@@ -153,6 +154,7 @@
                 return true;
             }
         }
+        $server_msg = 'Server failed to connect to database. Please try again later.';
         return false;
     }
 
