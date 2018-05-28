@@ -95,7 +95,7 @@
 												echo '<span itemprop="dateCreated">'. $review['dateOfReview'] .'</span>';
 												echo '<br>';
 												echo 'Rating: ';
-												echo '<span itemprop="reviewRating">'. $review['rating'] .'</span>';
+												echo '<span itemprop="reviewValue">'. $review['rating'] .'</span>';
 												echo '<span>&nbsp;&#xf005;</span><br><br>';
 												echo '<span itemprop="description">'. $review['description'] .'</span>';
 												echo '</p>';
