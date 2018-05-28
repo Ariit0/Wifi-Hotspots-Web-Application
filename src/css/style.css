@@ -383,12 +383,20 @@ div.results p {
 
 /* styles the input fields with fixed width, padding, margin and a solid border
 */
-input {
+input, textarea {
 	padding: 3px;
 	width: 200px;
 	margin-left: 10px;
 	border: 2px solid #ccc;
 	border-radius: 2px;
+}
+
+input[type=radio] {
+	width: auto;
+}
+
+input[type=checkbox] {
+	width: auto;
 }
 
 /* adds/replaces styling of input fields of type 'submit' with padding, auto width,
