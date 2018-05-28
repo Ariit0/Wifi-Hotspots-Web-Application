@@ -89,6 +89,11 @@
             }
         }
 
+        // Validate Terms of Service checkbox: MUST BE CHECKED.
+        if(!isset($_POST['termsOfServiceCheckBox'])) {
+            $isValid = false;
+        }
+
         return $isValid;
     }
 
