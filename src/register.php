@@ -28,7 +28,7 @@
 			<div id="content">
 				<?php
 					if (isset($_POST['Register'])) {
-						$firstname = $lastname = $dob = $mobile = $email = $password = $confirm_password = '';
+						$firstname = $lastname = $dob = $mobile = $gender = $aboutme = $email = $password = $confirm_password = '';
 						$server_msg = '';
 
 						require 'include/register_server_validation.php';

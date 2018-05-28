@@ -52,6 +52,14 @@
             $mobile = '';
         }
 
+        // Validate gender: ensure posted value has not been tampered with.
+        global $gender;
+        if($gender !== 1 || $gender !== 2 || $gender !== 3) {
+            $isValid = false;
+        } else {
+            $gender = sanitize_data($_POST['gender']);
+        }
+
         // Validate email address: REQUIRED and must be of an email format, AND must not be already registered.
         global $email;
         if(empty($_POST['email'])) {
