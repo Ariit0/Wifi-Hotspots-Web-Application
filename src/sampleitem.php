@@ -90,12 +90,12 @@
 
 												echo '<p class=\'review\'>';
 												echo '<span hidden itemprop="itemreviewed">'. $_SESSION['currentItemName'] .'</span>';
-												echo '<b itemprop="reviewer">'. $review['firstName'] .'</b>';
+												echo '<b itemprop="author">'. $review['firstName'] .'</b>';
 												echo ' | ';
-												echo '<span itemprop="dtreviewed">'. $review['dateOfReview'] .'</span>';
+												echo '<span itemprop="dateCreated">'. $review['dateOfReview'] .'</span>';
 												echo '<br>';
 												echo 'Rating: ';
-												echo '<span itemprop="rating">'. $review['rating'] .'</span>';
+												echo '<span itemprop="reviewRating">'. $review['rating'] .'</span>';
 												echo '<span>&nbsp;&#xf005;</span><br><br>';
 												echo '<span itemprop="description">'. $review['description'] .'</span>';
 												echo '</p>';
