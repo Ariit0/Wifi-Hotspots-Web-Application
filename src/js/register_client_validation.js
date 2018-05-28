@@ -47,5 +47,11 @@ function ValidateRegisterForm_Client(form) {
         isValid = false;
     }
 
+    // Validate Terms of Service checkbox: MUST BE CHECKED
+    if(!document.getElementById('termsOfServiceCheckBoxID').checked) {
+        DisplayError("termsErrorID", "You must agree to the terms of service to register.");
+        isValid = false;
+    }
+
     return isValid;
 }
