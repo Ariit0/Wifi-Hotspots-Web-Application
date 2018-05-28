@@ -15,6 +15,11 @@
         <span id="lastnameErrorID" class="error-message"> Last name error goes here.</span>
 	</p>
 
+    <p>
+        Gender <br>
+
+    </p>
+
 	<p>
         DoB <br>
         <input id="dob" name="dob" type="text" placeholder="dd/mm/yyyy" onchange="OnChangeElement('dobErrorID');" onkeypress="OnChangeElement('dobErrorID');">
