@@ -26,6 +26,8 @@
 						require_once 'include/initDB.php';
 
 						$pdo = initDB();
+
+						// If the database connection failed, display a message to the user. Otherwise display the search bar.
 						if(is_null($pdo)) {
 							echo '<span style="color:red">Server failed to connect to database. Please try again later.</span>';
 						} else {
