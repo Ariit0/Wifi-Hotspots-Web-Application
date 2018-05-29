@@ -53,6 +53,7 @@
 					<h3>Reviews</h3>
 				</div>
 				
+				<!-- Reviews start here -->
 				<div id="reviewContainer">
 					<div id="reviewList">
 						<div class="reviews">
@@ -61,6 +62,7 @@
 									<div>							
 										<img src="img/reviewblank.png" alt="reviewer">
 										<?php
+											// Depending on whether the user is logged in or not, display apprpriate message for review writing.
 											if(isset($_SESSION['userID'])) {
 												echo '<p id="write"><a href="write_review.php" id="writeReview"> Write a review!</a><p>';
 											} else {
@@ -73,16 +75,19 @@
 
 								<?php
 									require_once 'include/initDB.php';
-
 									$pdo = initDB();
 
 									if(!is_null($pdo)) {
+
+										// Get all reviews of this item
 								        $stmt = $pdo->prepare('SELECT '.
 								        	'members.firstName, members.LastName, reviews.userID, reviews.itemID, reviews.description, reviews.rating, reviews.dateOfReview  '.
 								        	'FROM reviews INNER JOIN members ON reviews.userID = members.ID WHERE itemID = :itemID');
 								        $stmt->bindValue(":itemID", $_SESSION['currentItemID']);
 
 								        if($stmt->execute()) {
+
+								        	// Loop through all reviews, displaying each one.
 											foreach ($stmt as $review) {
 												echo '<li>';
 												
@@ -120,6 +125,7 @@
 				include "include/footer.php";
 			?>
 			
+			<!-- Map is initialised here, but css places it above the reviews. This ordering is required so that relevant values are set before the map uses them -->
 			<div id="mapResultContainer" itemscope itemtype="http://schema.org/Place">
 				<div itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
 					<?php echo '<meta itemprop="latitude" content="'. $_SESSION['currentLat'] .'">'; ?>
