@@ -1,3 +1,5 @@
+<!-- Generates the html for the grid of results after a search -->
+
 <?php
 	// Creates a table using <div> and limits it to 3 results per row (3 column table)
 	function displayResults($searchQuery) {
