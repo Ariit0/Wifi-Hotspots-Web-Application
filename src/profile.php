@@ -5,6 +5,7 @@
 		<?php
 			include "include/header.php";
 			
+			// Redirect user to home page if they are not logged in (should not be able to see profile page if not logged in)
 			if(!isset($_SESSION['userID'])) {
 		    	header(SITE_PATH ."/login.php");
 			}
