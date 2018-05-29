@@ -1,5 +1,5 @@
 <?php
-	// tests connection to database and catches potential errors during connection
+	// Tests connection to database and catches potential errors during connection
 	function initDB() {
 		try {
 			$pdo = new PDO("mysql:host=cab230.sef.qut.edu.au;dbname=n9446826;", "n9446826", "Zc2eaaddt5yy1");
