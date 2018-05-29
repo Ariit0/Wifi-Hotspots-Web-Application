@@ -88,19 +88,16 @@
 												
 												echo '<div itemscope itemtype="http://schema.org/Review">';
 
-												echo '<p class=\'review\'>';
 												echo '<span hidden itemprop="itemreviewed">'. $_SESSION['currentItemName'] .'</span>';
 												echo '<b itemprop="author">'. $review['firstName'] .'</b>';
 												echo ' | ';
 												echo '<span itemprop="dateCreated">'. $review['dateOfReview'] .'</span>';
-												echo '<br>';
-												echo 'Rating: ';
 												echo '<div itemscope itemtype="http://schema.org/Rating">';
+												echo 'Rating: ';
 												echo '<span itemprop="ratingValue">'. $review['rating'] .'</span>';
-												echo "</div>";
 												echo '<span>&nbsp;&#xf005;</span><br><br>';
+												echo "</div>";
 												echo '<span itemprop="description">'. $review['description'] .'</span>';
-												echo '</p>';
 
 												echo '</div>';
 
