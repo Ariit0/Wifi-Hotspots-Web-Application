@@ -1,8 +1,7 @@
 <?php 
-	// used to allow back tracking to search results page
-	header('Cache-Control: no cache'); //no cache
-	session_cache_limiter('private_no_expire'); // works
-	//session_cache_limiter('public'); // works too
+	// Used to allow back tracking to search results page
+	header('Cache-Control: no cache');
+	session_cache_limiter('private_no_expire');
 ?>
 
 <!DOCTYPE html>
@@ -32,31 +31,28 @@
 
 				<div id="resultList">
 					<?php
+						// If the user hit the search button from the home page, display the results
 						if (isset($_POST["search"])) {
 							include 'include/search-query.php';
 						} else {
-							//  redirect to index if trying to access search-submit URL directly
+							//  Otherwise, redirect to home page since they are trying to access search-submit URL directly
             				header(SITE_PATH ."/index.php");							
             			}
 					?>
 
-					<!-- this map contain is called at the bottom due to the method of transfering php variables to js variables -->
-					<!-- css is used to bring the map to the top of the webpage -->
+					<!-- This map is called at the bottom due to the method of transfering php variables to js variables -->
+					<!-- CSS is used to bring the map to the top of the webpage, above the reviews -->
 					<div id="mapContainer"> 
 						<div id="initMap"></div>
-						<!-- google api call for google maps, must be called here -->
+						<!-- Google api call for google maps, must be called here -->
 						<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeDXwaLc0EQeMCbofBs7OwhOU32X4fY1E&callback=initMap"></script>
-					</div> <!-- end resultContainer -->
-				</div> <!-- end resultList -->
-
-			</div> <!-- end content -->
+					</div> 
+				</div> 
+			</div>
 			
 			<?php
 				include "include/footer.php"
 			?>
-		</div><!-- wrapper content -->
+		</div>
 	</body>
 </html>
-
-
-
