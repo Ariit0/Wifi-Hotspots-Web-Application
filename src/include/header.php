@@ -15,6 +15,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <?php 
-	define("SITE_PATH", "Location: http://{$_SERVER['HTTP_HOST']}/whatever");
+	define("SITE_PATH", "Location: http://{$_SERVER['HTTP_HOST']}/Students/n9446826");
 	session_start(); 
 ?>
