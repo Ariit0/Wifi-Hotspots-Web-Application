@@ -4,7 +4,9 @@
 	<br><br>
 
 	<p>
-		<span id="serverResponseErrorID" style="color:red"><?php echo $server_response_msg; ?></span>
+		<!-- If there was a server-side validation error, display it here. -->
+		<span style="color:red"><?php echo $server_response_msg; ?></span>
+		
         Email <br>
         <input id="emailaddress" name="emailaddress" type="text" value="<?php if(isset($emailaddress)) echo $emailaddress; ?>" 
         onchange="OnChangeElement('emailErrorID');" onkeypress="OnChangeElement('emailErrorID');">
