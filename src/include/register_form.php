@@ -4,6 +4,7 @@
 	<br>
 
 	<p>
+        <!-- If there was a server-side validation error, display it here. -->
         <span id="serverResponseErrorID" style="color:red"><?php echo $server_response_msg; ?></span><br><br>
 
         First name* <br>
