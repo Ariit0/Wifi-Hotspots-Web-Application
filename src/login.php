@@ -5,6 +5,7 @@
 		<?php
 			include "include/header.php";
 
+			// Redirect user to the home page if they are logged in (should not be possible to access login page if already logged in)
 			if(isset($_SESSION['userID'])) {
 		    	header(SITE_PATH ."/index.php");
 			}
@@ -29,17 +30,25 @@
 				<?php
 					$server_response_msg = '';
 
+					// If the form from login_form.php was submitted successfully...
 					if (isset($_POST['Login'])) {
 						$emailaddress = $password = '';
 
+						// Validate data on the server-side
 						require 'include/login_server_validation.php';
 						if(ValidateLoginForm_Server()) {
+
+							// If validation passed, now attempt to log in the user.
 							$userID = TryLogin($emailaddress, $password);
 							if(!is_null($userID)) {
+
+								// Login successful! Store the user's id into the session and redirect them to the home page.
 								session_start();
 				                $_SESSION['userID'] = $userID;
                 				header(SITE_PATH ."/index.php");
 							} else if ($userID === -1) {
+
+								// In all other cases, display appropriate error message and pre-fill the login form.
 				                $server_response_msg = 'Failed to connect to server. Please try again later.';
 								include "include/login_form.php";
 				            } else {
