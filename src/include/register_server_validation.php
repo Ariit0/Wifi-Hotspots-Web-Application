@@ -60,6 +60,10 @@
             $gender = sanitize_data($_POST['gender']);
         }
 
+        // Validate bio: 
+        global $bio;
+        $bio = sanitize_data($_POST['bio']);
+
         // Validate email address: REQUIRED and must be of an email format, AND must not be already registered.
         global $email;
         if(empty($_POST['email'])) {
@@ -137,7 +141,7 @@
     // Ensure email is not already registered in the database.
     function CheckEmailNotRegistered($email) {
         global $pdo;
-        global $server_msg;
+        global $server_response_msg;
 
         if(!is_null($pdo)) {
             $stmt = $pdo->prepare('SELECT email FROM members');
@@ -146,7 +150,7 @@
                 // Check all emails in database.
                 foreach ($stmt as $result) {
                     if(strcasecmp($email, $result['email']) == 0) {
-                        $server_msg = 'Email is already in use.';
+                        $server_response_msg = 'Email is already in use.';
                         return false;
                     }
                 }
@@ -154,7 +158,7 @@
                 return true;
             }
         }
-        $server_msg = 'Server failed to connect to database. Please try again later.';
+        $server_response_msg = 'Server failed to connect to database. Please try again later.';
         return false;
     }
 
@@ -165,7 +169,7 @@
     }
 
     // Try register the user after validating information.
-    function TryRegister($firstname, $lastname, $dob, $mobile, $email, $password) {
+    function TryRegister($firstname, $lastname, $dob, $mobile, $gender, $bio, $email, $password) {
         global $pdo;
         if(is_null($pdo)) {
             return false;
@@ -188,7 +192,8 @@
         }
 
         try {
-            $stmt = $pdo->prepare("INSERT INTO members(firstname, lastname, dateOfBirth, mobileNo, email, password) VALUES(:firstname, :lastname, :dob, :mobile, :email, :password)");
+            $stmt = $pdo->prepare("INSERT INTO members(firstname, lastname, dateOfBirth, mobileNo, gender, bio, email, password) 
+                VALUES(:firstname, :lastname, :dob, :mobile, :gender, :bio, :email, :password)");
             $stmt->bindValue(":firstname", $firstname);
             $stmt->bindValue(":lastname", $lastname);
             if(empty($dob)) {
@@ -197,6 +202,8 @@
                 $stmt->bindValue(":dob", $dob);
             }
             $stmt->bindValue(":mobile", $mobile);
+            $stmt->bindValue(":gender", $gender);
+            $stmt->bindValue(":bio", $bio);
             $stmt->bindValue(":email", $email);
             $stmt->bindValue(":password", password_hash($password, PASSWORD_DEFAULT));
 
