@@ -1,5 +1,5 @@
-<div id="header">
-	<div id="logo"><a id="logoLink" href="index.php"><img src="img/logo.png" id="logoImg" alt="logo"></a></div>
+<div id="logo"><a id="logoLink" href="index.php"><img src="img/logo.png" id="logoImg" alt="logo"></a></div>
+
 <nav id="nav_centre">	
 	<div id="mobile-button"><a href="#" id="menu-icon"></a></div>
 	<div id="menu-buttons">
@@ -19,7 +19,4 @@
 		</ul>
 	</div>
 </nav>
-
 <span id="header_shadow"></span>
-
-</div>
