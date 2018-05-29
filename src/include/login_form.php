@@ -6,7 +6,7 @@
 	<p>
 		<span id="serverResponseErrorID" style="color:red"><?php echo $server_response_msg; ?></span>
         Email <br>
-        <input id="emailaddress" name="emailaddress" type="text" value=<?php echo (isset($emailaddress) ? $emailaddress : "\"\""); ?> 
+        <input id="emailaddress" name="emailaddress" type="text" value="<?php if(isset($emailaddress)) echo $emailaddress; ?>" 
         onchange="OnChangeElement('emailErrorID');" onkeypress="OnChangeElement('emailErrorID');">
         <span id="emailErrorID" class="error-message"></span>
 	</p>
