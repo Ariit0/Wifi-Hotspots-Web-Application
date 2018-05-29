@@ -35,9 +35,9 @@
 
     <p>
         Gender <br>
-        <input id="gender" name="gender" type="radio" value="1" <?php if(isset($gender) && $gender === "1") echo "checked"; ?>> Male
-        <input id="gender" name="gender" type="radio" value="2" <?php if(isset($gender) && $gender === "2") echo "checked"; ?>> Female
-        <input id="gender" name="gender" type="radio" value="3" <?php if(isset($gender) && $gender === "3") echo "checked"; ?>> Other
+        <input name="gender" type="radio" value="1" <?php if(isset($gender) && $gender === "1") echo "checked"; ?>> Male
+        <input name="gender" type="radio" value="2" <?php if(isset($gender) && $gender === "2") echo "checked"; ?>> Female
+        <input name="gender" type="radio" value="3" <?php if(isset($gender) && $gender === "3") echo "checked"; ?>> Other
     </p>
 
     <p>
