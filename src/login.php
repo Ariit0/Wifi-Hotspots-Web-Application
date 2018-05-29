@@ -40,14 +40,14 @@
 				                $_SESSION['userID'] = $userID;
                 				header(SITE_PATH ."/index.php");
 							} else if ($userID === -1) {
-				                $server_response_msg = 'Failed to connect to server. Please try again later.<br><br>';
+				                $server_response_msg = 'Failed to connect to server. Please try again later.';
 								include "include/login_form.php";
 				            } else {
-				         		$server_response_msg = 'Incorrect credentials.<br><br>';
+				         		$server_response_msg = 'Incorrect credentials.';
 								include "include/login_form.php";
 				            }
 				        } else {
-				            $server_response_msg = 'Invalid data.<br><br>';
+				            $server_response_msg = 'Invalid data.';
 							include "include/login_form.php";
 				        }
 				    } else {
