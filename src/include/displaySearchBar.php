@@ -1,6 +1,10 @@
+<!-- Creates the search bar in index.php -->
+
 <form class="searchinput" id="searchEngine" action="search-submit.php" method="post">
+	<!-- Text field for entering names/addresses -->
 	<input type="text" name="srch" placeholder="Enter address or hotspot name">
 
+	<!-- Rating dropdown for filtering results by individual review ratings -->
 	<select class="ratingfilter" name="rating">
 		<option value='0'>-------</option>
 		<option value='5'>5+&nbsp;&#xf005;</option>
@@ -9,6 +13,7 @@
 		<option value='2'>2+&nbsp;&#xf005;</option>
 	</select>
 
+	<!-- Suburb dropdown for filtering results by suburb -->
 	<select class="suburbfilter" name="suburb" id="suburbOption" onchange="getLocation();">
 		<?php
 			// Truncates any characters after the specified delimiter
