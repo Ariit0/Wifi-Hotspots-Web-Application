@@ -270,6 +270,10 @@ select.ratingfilter {
 
 select.ratingReviewfilter {
 	width: auto;
+	padding: 3px;
+	margin-left: 10px;
+	border: 2px solid #ccc;
+	border-radius: 2px;
 	font-family:'FontAwesome', Verdana, Geneva, Arial, Helvetica, sans-serif;
 }
 

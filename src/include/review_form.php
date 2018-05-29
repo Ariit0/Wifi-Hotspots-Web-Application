@@ -1,7 +1,7 @@
 <form action="write_review.php" method="post" onsubmit="return ValidateReviewForm_Client(this);">
 	<p>
         Rating*<br>
-        <select name="rating" class= 'ratingReviewfilter'>
+        <select name="rating" class="ratingReviewfilter">
         	<option value="1">1&nbsp;&#xf005;</option>
         	<option value="2">2&nbsp;&#xf005;</option>
         	<option value="3">3&nbsp;&#xf005;</option>
