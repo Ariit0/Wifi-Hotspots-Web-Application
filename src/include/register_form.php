@@ -69,7 +69,7 @@
     <br>
 
     <p>
-        <input type="checkbox" id="termsOfServiceCheckBoxID" name="termsOfServiceCheckBox" onclick="OnChangeElement('termsErrorID');"> I agree to to WifiFinder's Terms of Service.
+        <input type="checkbox" id="termsOfServiceCheckBoxID" name="termsOfServiceCheckBox" onclick="OnChangeElement('termsErrorID');"> I agree to WifiFinder's Terms of Service.*
         <span id="termsErrorID" class="error-message"> Terms of service error goes here.</span>
     </p>
 
