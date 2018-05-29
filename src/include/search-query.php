@@ -7,7 +7,7 @@
 	$_suburbInput = sanitize_data($_POST['suburb']);
 	$_getLat = sanitize_data($_POST['lat']);
 	$_getLong = sanitize_data($_POST['long']);
-	// Adds a space before each captial letter (excluding the first letter)
+	// Adds a space before each captial letter (excluding the first letter), and remove whitespace from the left.
 	$formattedSub = ltrim(preg_replace('/(?<!\ )[A-Z]/', ' $0', $_suburbInput));
 	
 	require_once 'include/initDB.php';
