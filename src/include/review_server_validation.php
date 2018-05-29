@@ -1,5 +1,5 @@
 <?php
-    require 'include/sanitize_data.php';
+    require_once 'include/sanitize_data.php';
 
     // Validate the form by checking against all tests (Server-side).
     function ValidateReviewForm_Server() {    
@@ -13,6 +13,7 @@
             $description = sanitize_data($_POST['description']);
         }
 
+        // Validate rating.
         global $rating;
         $rating = sanitize_data($_POST['rating']);
 
