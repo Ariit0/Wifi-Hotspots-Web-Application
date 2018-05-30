@@ -11,7 +11,7 @@
 <meta name="keywords" content="HTML, CSS, PHP, JavaScript">
 <meta name="author" content="Ari Luangamath & George Delosa">
 
-<link rel="icon" href="img/favicon.ico"> <!-- favicon for the website -->
+<link rel="icon" href="img/icon-192.png"> <!-- favicon for the website -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- allow other browser support for fontawesome -->
 
 <?php 
