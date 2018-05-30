@@ -1,21 +1,27 @@
+/* Responsible for mobile device if the screen has a maximum width of 1000px 
+*/
 @media screen and (max-width: 1000px) {
 	#nav_centre {
 		height: 75px;
 		width: 75px;
 	}
-
-	#menu-icon {
+    /* Reveals the mobile menu button and ensures its ontop over every element in the webpage 
+    */
+	#menu-icon { 
 		visibility: visible;
 		position: static;
 		display: inline-block;
 		z-index: 999999999999;
 	}
-
+    /* Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width 
+    */
 	#mobile-button {
 		display: block;
 		position: relative;
 	}
 
+    /* Styling for  mobile nav menu 
+    */
 	#menu-buttons {
 		position: relative;
 		top: 2px;
@@ -26,7 +32,10 @@
 		top: 0px;
 		width: 118px;
 	}
-
+    /* Nav mobile dropdown styling 
+    */
+    /* Styled active nav links and display the navigation list when hovering over the menu-icon 
+    */
 	nav ul, nav:active ul {
 		display: none;
 		position: relative;
@@ -56,7 +65,8 @@
 	    position: relative;
 		z-index: 100;
 	}
-
+    /* Styling for links in the nav drop down 
+    */
 	#menu a {
 		height: 40px;
 		padding-top: 10px;
@@ -69,8 +79,8 @@
 		text-decoration: none;
 		border-style: none;
 	}
-
-
+    /* All content in the wrapper is automatically changed based on screen-width 
+    */
     #wrapper {
         width: auto;
         margin-top: 75px;
@@ -89,6 +99,8 @@
     }
 }
 
+/* Below covers width manipulation for the result map based on max-width 
+*/
 @media screen and (max-width: 950px) {
     #mapResultContainer {
     	width: 86.7%;
@@ -112,6 +124,7 @@
 }
 
 @media screen and (max-width: 760px) {
+    /* Prevent overflow for long text description of search results */
     #header h1 {
     	white-space: nowrap;
 	    text-align: center;

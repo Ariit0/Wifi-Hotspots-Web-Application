@@ -11,8 +11,8 @@
 <meta name="keywords" content="HTML, CSS, PHP, JavaScript">
 <meta name="author" content="Ari Luangamath & George Delosa">
 
-<link rel="icon" href="img/favicon.ico">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="icon" href="img/favicon.ico"> <!-- favicon for the website -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- allow other browser support for fontawesome -->
 
 <?php 
 	define("SITE_PATH", "Location: http://{$_SERVER['HTTP_HOST']}/Students/n9446826");
