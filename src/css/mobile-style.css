@@ -1,0 +1,159 @@
+/* Responsible for mobile device if the screen has a maximum width of 1000px 
+*/
+@media screen and (max-width: 1000px) {
+	#nav_centre {
+		height: 75px;
+		width: 75px;
+	}
+    /* Reveals the mobile menu button and ensures its ontop over every element in the webpage 
+    */
+	#menu-icon { 
+		visibility: visible;
+		position: static;
+		display: inline-block;
+		z-index: 999999999999;
+	}
+    /* Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width 
+    */
+	#mobile-button {
+		display: block;
+		position: relative;
+	}
+
+    /* Styling for  mobile nav menu 
+    */
+	#menu-buttons {
+		position: relative;
+		top: 2px;
+		left: 8px;
+	}
+
+	#menu {
+		top: 0px;
+		width: 118px;
+	}
+    /* Nav mobile dropdown styling 
+    */
+    /* Styled active nav links and display the navigation list when hovering over the menu-icon 
+    */
+	nav ul, nav:active ul {
+		display: none;
+		position: relative;
+		padding: 20px;
+        background:url('../img/bg.png');
+		border: 5px solid #444;
+		right: 20px;
+		top: 60px;
+		border-radius: 4px 0 4px 4px;
+        width: auto;
+	}
+
+	nav li {
+		text-align: center;
+		width: 100%;
+		padding: 10px 0;
+		margin: 0;
+	}
+
+    nav a {
+        float: none;
+        margin-top: 15px;
+    }
+
+	nav:hover ul {
+		display: block;
+	    position: relative;
+		z-index: 100;
+	}
+    /* Styling for links in the nav drop down 
+    */
+	#menu a {
+		height: 40px;
+		padding-top: 10px;
+		padding-left: 15px;
+		padding-right: 15px;
+		text-align: center;
+		font-size:12pt;
+		font-weight: bold;
+		color: white;
+		text-decoration: none;
+		border-style: none;
+	}
+    /* All content in the wrapper is automatically changed based on screen-width 
+    */
+    #wrapper {
+        width: auto;
+        margin-top: 75px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+        box-shadow: 0px 9px 10px 5px #888888;
+    }
+
+    #mapContainer {
+    	width: 86.5%;
+    }
+
+    #mapResultContainer {
+    	width: 87.7%;
+    }
+}
+
+/* Below covers width manipulation for the result map based on max-width 
+*/
+@media screen and (max-width: 950px) {
+    #mapResultContainer {
+    	width: 86.7%;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    #mapContainer {
+    	width: 83%;
+    }
+
+    #mapResultContainer {
+    	width: 84.8%;
+    }
+}
+
+@media screen and (max-width: 805px) {
+    #mapResultContainer {
+    	width: 82.5%;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    /* Prevent overflow for long text description of search results */
+    #header h1 {
+    	white-space: nowrap;
+	    text-align: center;
+	    text-overflow: ellipsis;
+	    overflow: hidden;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #mapContainer {
+    	width: 81%;
+    }
+    #mapResultContainer {
+    	width: 81%;;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    #mapContainer {
+    	width: 470.39px;
+    }
+
+    #mapResultContainer {
+    	width: 479.39px;
+    }
+
+    div.results p {
+    	font-size: 11.5px;
+    }
+
+
+}

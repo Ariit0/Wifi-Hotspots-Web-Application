@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Results</title>
+		<?php
+			include "include/header.php";
+			
+			// If the user has arrived to this page from clicking a hotspot search result, get that hotspot information from hidden fields.
+ 			// Otherwise, re-use the last hotspot information (occurs when user is returning from writing a review for that hotspot).
+
+			if(isset($_POST['hidden-id'])){
+				$_SESSION['currentItemID'] = $_POST['hidden-id'];
+			}
+
+			if(isset($_POST['hidden-name'])) {
+				// Add spaces before each capital letter in the name.
+				$_SESSION['currentItemName'] = preg_replace('/(?<!\ )[A-Z]/', ' $0', $_POST['hidden-name']);
+			}
+
+			if (isset($_POST['hidden-lat'])) {
+				$_SESSION['currentLat'] = $_POST['hidden-lat'];
+			}
+
+			if (isset($_POST['hidden-lng'])) {
+				$_SESSION['currentLng'] = $_POST['hidden-lng'];
+			}
+		?>
+
+	</head>
+
+	<body>
+		<?php 
+			// Hidden fields here are required for the javascript function to draw values from.
+			echo "<input type=\"hidden\" id=\"hidden-itemname\" value=\"".$_SESSION['currentItemName']."\">";
+			echo "<input type=\"hidden\" id=\"hidden-itemlat\" value=\"".$_SESSION['currentLat']."\">";
+			echo "<input type=\"hidden\" id=\"hidden-itemlng\" value=\"".$_SESSION['currentLng']."\">";
+		?>
+		<script type="text/javascript" src="js/sample_item.js"></script>
+
+		<div class="nav_bar">
+			<?php
+				include "include/displayNavBar.php";
+			?>
+		</div>
+
+		<div id="wrapper">
+			<div id="header">
+				<h1> <?php echo $_SESSION['currentItemName']; ?> </h1>
+			</div>
+
+			<div id="content">
+				<div id="reviewBanner">
+					<h3>Reviews</h3>
+				</div>
+				
+				<!-- Reviews start here -->
+				<div id="reviewContainer">
+					<div id="reviewList">
+						<div class="reviews">
+							<ul id="revComments">
+								<li>
+									<div>							
+										<img src="img/reviewblank.png" alt="reviewer">
+										<?php
+											// Depending on whether the user is logged in or not, display apprpriate message for review writing.
+											if(isset($_SESSION['userID'])) {
+												echo '<p id="write"><a href="write_review.php" id="writeReview"> Write a review!</a><p>';
+											} else {
+												echo '<p><a href="login.php" id="writeReview"> Log in to write a review</a><p>';
+											}
+										?>
+									</div>
+									<hr>
+								</li>
+
+								<?php
+									require_once 'include/initDB.php';
+									$pdo = initDB();
+
+									if(!is_null($pdo)) {
+
+										// Get all reviews of this item
+								        $stmt = $pdo->prepare('SELECT '.
+								        	'members.firstName, members.LastName, reviews.userID, reviews.itemID, reviews.description, reviews.rating, reviews.dateOfReview  '.
+								        	'FROM reviews INNER JOIN members ON reviews.userID = members.ID WHERE itemID = :itemID');
+								        $stmt->bindValue(":itemID", $_SESSION['currentItemID']);
+
+								        if($stmt->execute()) {
+
+								        	// Loop through all reviews, displaying each one.
+											foreach ($stmt as $review) {
+												echo '<li>';
+												
+												echo '<div itemscope itemtype="http://schema.org/Review">';
+
+												echo '<span hidden itemprop="itemreviewed">'. $_SESSION['currentItemName'] .'</span>';
+												echo '<b itemprop="author">'. $review['firstName'] .'</b>';
+												echo ' | ';
+												echo '<span itemprop="dateCreated">'. $review['dateOfReview'] .'</span>';
+												echo '<div itemscope itemtype="http://schema.org/Rating">';
+												echo 'Rating: ';
+												echo '<span itemprop="ratingValue">'. $review['rating'] .'</span>';
+												echo '<span>&nbsp;&#xf005;</span><br><br>';
+												echo "</div>";
+												echo '<span itemprop="description">'. $review['description'] .'</span>';
+
+												echo '</div>';
+
+												echo '<hr>';
+
+												echo '</li>';
+
+											}
+										}
+									}
+								?>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<br>
+			</div>
+			
+			<?php
+				include "include/footer.php";
+			?>
+			
+			<!-- Map is initialised here, but css places it above the reviews. This ordering is required so that relevant values are set before the map uses them -->
+			<div id="mapResultContainer" itemscope itemtype="http://schema.org/Place">
+				<div itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+					<?php echo '<meta itemprop="latitude" content="'. $_SESSION['currentLat'] .'">'; ?>
+					<?php echo '<meta itemprop="longitude" content="'. $_SESSION['currentLng'] .'">'; ?>
+				</div>
+
+				<div class="sampleResultMap" id="initMap"></div>
+				<!-- google api call for google maps, must be called here -->
+				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeDXwaLc0EQeMCbofBs7OwhOU32X4fY1E&callback=initMap"></script>
+			</div> <!-- end resultContainer -->
+		</div>
+	</body>
+</html>
